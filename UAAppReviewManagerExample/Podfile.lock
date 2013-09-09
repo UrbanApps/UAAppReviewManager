@@ -1,0 +1,14 @@
+PODS:
+  - UAAppReviewManager (0.1.0)
+
+DEPENDENCIES:
+  - UAAppReviewManager (from `../`)
+
+EXTERNAL SOURCES:
+  UAAppReviewManager:
+    :path: ../
+
+SPEC CHECKSUMS:
+  UAAppReviewManager: be9c03184bdb8e723ad0359ffe870dc12f4e8f23
+
+COCOAPODS: 0.24.0

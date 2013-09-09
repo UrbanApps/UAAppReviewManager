@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A56256423FA34FA4A7110F29 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBF69157D484FB996EC78BD /* libPods.a */; };
 		E6A5D0C617DD24AD00F1081E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A5D0C517DD24AD00F1081E /* Foundation.framework */; };
 		E6A5D0C817DD24AD00F1081E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A5D0C717DD24AD00F1081E /* CoreGraphics.framework */; };
 		E6A5D0CA17DD24AD00F1081E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A5D0C917DD24AD00F1081E /* UIKit.framework */; };
@@ -17,25 +18,19 @@
 		E6A5D0DC17DD24AD00F1081E /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A5D0DA17DD24AD00F1081E /* Main_iPad.storyboard */; };
 		E6A5D0DF17DD24AD00F1081E /* UAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A5D0DE17DD24AD00F1081E /* UAViewController.m */; };
 		E6A5D0E117DD24AD00F1081E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6A5D0E017DD24AD00F1081E /* Images.xcassets */; };
-		E6A5D0E817DD24AD00F1081E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A5D0E717DD24AD00F1081E /* XCTest.framework */; };
-		E6A5D0E917DD24AD00F1081E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A5D0C517DD24AD00F1081E /* Foundation.framework */; };
-		E6A5D0EA17DD24AD00F1081E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A5D0C917DD24AD00F1081E /* UIKit.framework */; };
-		E6A5D0F217DD24AD00F1081E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E6A5D0F017DD24AD00F1081E /* InfoPlist.strings */; };
-		E6A5D0F417DD24AD00F1081E /* UAAppReviewManagerExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A5D0F317DD24AD00F1081E /* UAAppReviewManagerExampleTests.m */; };
+		E6A5D10317DD2A1000F1081E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A5D10217DD2A1000F1081E /* Cocoa.framework */; };
+		E6A5D10D17DD2A1100F1081E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E6A5D10B17DD2A1100F1081E /* InfoPlist.strings */; };
+		E6A5D10F17DD2A1100F1081E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A5D10E17DD2A1100F1081E /* main.m */; };
+		E6A5D11317DD2A1100F1081E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E6A5D11117DD2A1100F1081E /* Credits.rtf */; };
+		E6A5D11617DD2A1100F1081E /* UAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A5D11517DD2A1100F1081E /* UAAppDelegate.m */; };
+		E6A5D11917DD2A1100F1081E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A5D11717DD2A1100F1081E /* MainMenu.xib */; };
+		E6A5D11B17DD2A1100F1081E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6A5D11A17DD2A1100F1081E /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		E6A5D0EB17DD24AD00F1081E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E6A5D0BA17DD24AD00F1081E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E6A5D0C117DD24AD00F1081E;
-			remoteInfo = UAAppReviewManagerExample;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		E6A5D0C217DD24AD00F1081E /* UAAppReviewManagerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UAAppReviewManagerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96C2552457544862BFD51982 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		ABBF69157D484FB996EC78BD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6A5D0C217DD24AD00F1081E /* UAAppReviewManagerExampleiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UAAppReviewManagerExampleiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6A5D0C517DD24AD00F1081E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E6A5D0C717DD24AD00F1081E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E6A5D0C917DD24AD00F1081E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -50,11 +45,21 @@
 		E6A5D0DD17DD24AD00F1081E /* UAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UAViewController.h; sourceTree = "<group>"; };
 		E6A5D0DE17DD24AD00F1081E /* UAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UAViewController.m; sourceTree = "<group>"; };
 		E6A5D0E017DD24AD00F1081E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		E6A5D0E617DD24AD00F1081E /* UAAppReviewManagerExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UAAppReviewManagerExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6A5D0E717DD24AD00F1081E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		E6A5D0EF17DD24AD00F1081E /* UAAppReviewManagerExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UAAppReviewManagerExampleTests-Info.plist"; sourceTree = "<group>"; };
-		E6A5D0F117DD24AD00F1081E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E6A5D0F317DD24AD00F1081E /* UAAppReviewManagerExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UAAppReviewManagerExampleTests.m; sourceTree = "<group>"; };
+		E6A5D10117DD2A1000F1081E /* UAAppReviewManagerExampleMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UAAppReviewManagerExampleMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6A5D10217DD2A1000F1081E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		E6A5D10517DD2A1100F1081E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		E6A5D10617DD2A1100F1081E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E6A5D10717DD2A1100F1081E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E6A5D10A17DD2A1100F1081E /* UAAppReviewManagerExampleMac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UAAppReviewManagerExampleMac-Info.plist"; sourceTree = "<group>"; };
+		E6A5D10C17DD2A1100F1081E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E6A5D10E17DD2A1100F1081E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E6A5D11017DD2A1100F1081E /* UAAppReviewManagerExampleMac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UAAppReviewManagerExampleMac-Prefix.pch"; sourceTree = "<group>"; };
+		E6A5D11217DD2A1100F1081E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		E6A5D11417DD2A1100F1081E /* UAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UAAppDelegate.h; sourceTree = "<group>"; };
+		E6A5D11517DD2A1100F1081E /* UAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UAAppDelegate.m; sourceTree = "<group>"; };
+		E6A5D11817DD2A1100F1081E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		E6A5D11A17DD2A1100F1081E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,16 +70,15 @@
 				E6A5D0C817DD24AD00F1081E /* CoreGraphics.framework in Frameworks */,
 				E6A5D0CA17DD24AD00F1081E /* UIKit.framework in Frameworks */,
 				E6A5D0C617DD24AD00F1081E /* Foundation.framework in Frameworks */,
+				A56256423FA34FA4A7110F29 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E6A5D0E317DD24AD00F1081E /* Frameworks */ = {
+		E6A5D0FE17DD2A1000F1081E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6A5D0E817DD24AD00F1081E /* XCTest.framework in Frameworks */,
-				E6A5D0EA17DD24AD00F1081E /* UIKit.framework in Frameworks */,
-				E6A5D0E917DD24AD00F1081E /* Foundation.framework in Frameworks */,
+				E6A5D10317DD2A1000F1081E /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,17 +89,18 @@
 			isa = PBXGroup;
 			children = (
 				E6A5D0CB17DD24AD00F1081E /* UAAppReviewManagerExample */,
-				E6A5D0ED17DD24AD00F1081E /* UAAppReviewManagerExampleTests */,
+				E6A5D10817DD2A1100F1081E /* UAAppReviewManagerExampleMac */,
 				E6A5D0C417DD24AD00F1081E /* Frameworks */,
 				E6A5D0C317DD24AD00F1081E /* Products */,
+				96C2552457544862BFD51982 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
 		E6A5D0C317DD24AD00F1081E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E6A5D0C217DD24AD00F1081E /* UAAppReviewManagerExample.app */,
-				E6A5D0E617DD24AD00F1081E /* UAAppReviewManagerExampleTests.xctest */,
+				E6A5D0C217DD24AD00F1081E /* UAAppReviewManagerExampleiOS.app */,
+				E6A5D10117DD2A1000F1081E /* UAAppReviewManagerExampleMac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +112,9 @@
 				E6A5D0C717DD24AD00F1081E /* CoreGraphics.framework */,
 				E6A5D0C917DD24AD00F1081E /* UIKit.framework */,
 				E6A5D0E717DD24AD00F1081E /* XCTest.framework */,
+				E6A5D10217DD2A1000F1081E /* Cocoa.framework */,
+				E6A5D10417DD2A1000F1081E /* Other Frameworks */,
+				ABBF69157D484FB996EC78BD /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -137,20 +145,36 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E6A5D0ED17DD24AD00F1081E /* UAAppReviewManagerExampleTests */ = {
+		E6A5D10417DD2A1000F1081E /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E6A5D0F317DD24AD00F1081E /* UAAppReviewManagerExampleTests.m */,
-				E6A5D0EE17DD24AD00F1081E /* Supporting Files */,
+				E6A5D10517DD2A1100F1081E /* AppKit.framework */,
+				E6A5D10617DD2A1100F1081E /* CoreData.framework */,
+				E6A5D10717DD2A1100F1081E /* Foundation.framework */,
 			);
-			path = UAAppReviewManagerExampleTests;
+			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		E6A5D0EE17DD24AD00F1081E /* Supporting Files */ = {
+		E6A5D10817DD2A1100F1081E /* UAAppReviewManagerExampleMac */ = {
 			isa = PBXGroup;
 			children = (
-				E6A5D0EF17DD24AD00F1081E /* UAAppReviewManagerExampleTests-Info.plist */,
-				E6A5D0F017DD24AD00F1081E /* InfoPlist.strings */,
+				E6A5D11417DD2A1100F1081E /* UAAppDelegate.h */,
+				E6A5D11517DD2A1100F1081E /* UAAppDelegate.m */,
+				E6A5D11717DD2A1100F1081E /* MainMenu.xib */,
+				E6A5D11A17DD2A1100F1081E /* Images.xcassets */,
+				E6A5D10917DD2A1100F1081E /* Supporting Files */,
+			);
+			path = UAAppReviewManagerExampleMac;
+			sourceTree = "<group>";
+		};
+		E6A5D10917DD2A1100F1081E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E6A5D10A17DD2A1100F1081E /* UAAppReviewManagerExampleMac-Info.plist */,
+				E6A5D10B17DD2A1100F1081E /* InfoPlist.strings */,
+				E6A5D10E17DD2A1100F1081E /* main.m */,
+				E6A5D11017DD2A1100F1081E /* UAAppReviewManagerExampleMac-Prefix.pch */,
+				E6A5D11117DD2A1100F1081E /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -158,40 +182,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E6A5D0C117DD24AD00F1081E /* UAAppReviewManagerExample */ = {
+		E6A5D0C117DD24AD00F1081E /* UAAppReviewManagerExampleiOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E6A5D0F717DD24AD00F1081E /* Build configuration list for PBXNativeTarget "UAAppReviewManagerExample" */;
+			buildConfigurationList = E6A5D0F717DD24AD00F1081E /* Build configuration list for PBXNativeTarget "UAAppReviewManagerExampleiOS" */;
 			buildPhases = (
+				10195F189F6840BEAC31B1F9 /* Check Pods Manifest.lock */,
 				E6A5D0BE17DD24AD00F1081E /* Sources */,
 				E6A5D0BF17DD24AD00F1081E /* Frameworks */,
 				E6A5D0C017DD24AD00F1081E /* Resources */,
+				D1DDF50D7795409B9B411453 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = UAAppReviewManagerExample;
+			name = UAAppReviewManagerExampleiOS;
 			productName = UAAppReviewManagerExample;
-			productReference = E6A5D0C217DD24AD00F1081E /* UAAppReviewManagerExample.app */;
+			productReference = E6A5D0C217DD24AD00F1081E /* UAAppReviewManagerExampleiOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E6A5D0E517DD24AD00F1081E /* UAAppReviewManagerExampleTests */ = {
+		E6A5D10017DD2A1000F1081E /* UAAppReviewManagerExampleMac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E6A5D0FA17DD24AD00F1081E /* Build configuration list for PBXNativeTarget "UAAppReviewManagerExampleTests" */;
+			buildConfigurationList = E6A5D12D17DD2A1100F1081E /* Build configuration list for PBXNativeTarget "UAAppReviewManagerExampleMac" */;
 			buildPhases = (
-				E6A5D0E217DD24AD00F1081E /* Sources */,
-				E6A5D0E317DD24AD00F1081E /* Frameworks */,
-				E6A5D0E417DD24AD00F1081E /* Resources */,
+				E6A5D0FD17DD2A1000F1081E /* Sources */,
+				E6A5D0FE17DD2A1000F1081E /* Frameworks */,
+				E6A5D0FF17DD2A1000F1081E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E6A5D0EC17DD24AD00F1081E /* PBXTargetDependency */,
 			);
-			name = UAAppReviewManagerExampleTests;
-			productName = UAAppReviewManagerExampleTests;
-			productReference = E6A5D0E617DD24AD00F1081E /* UAAppReviewManagerExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			name = UAAppReviewManagerExampleMac;
+			productName = UAAppReviewManagerExampleMac;
+			productReference = E6A5D10117DD2A1000F1081E /* UAAppReviewManagerExampleMac.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -202,11 +227,6 @@
 				CLASSPREFIX = UA;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Urban Apps";
-				TargetAttributes = {
-					E6A5D0E517DD24AD00F1081E = {
-						TestTargetID = E6A5D0C117DD24AD00F1081E;
-					};
-				};
 			};
 			buildConfigurationList = E6A5D0BD17DD24AD00F1081E /* Build configuration list for PBXProject "UAAppReviewManagerExample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -215,14 +235,18 @@
 			knownRegions = (
 				en,
 				Base,
+				ca,
+				de,
+				cs,
+				da,
 			);
 			mainGroup = E6A5D0B917DD24AD00F1081E;
 			productRefGroup = E6A5D0C317DD24AD00F1081E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E6A5D0C117DD24AD00F1081E /* UAAppReviewManagerExample */,
-				E6A5D0E517DD24AD00F1081E /* UAAppReviewManagerExampleTests */,
+				E6A5D0C117DD24AD00F1081E /* UAAppReviewManagerExampleiOS */,
+				E6A5D10017DD2A1000F1081E /* UAAppReviewManagerExampleMac */,
 			);
 		};
 /* End PBXProject section */
@@ -239,15 +263,51 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E6A5D0E417DD24AD00F1081E /* Resources */ = {
+		E6A5D0FF17DD2A1000F1081E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6A5D0F217DD24AD00F1081E /* InfoPlist.strings in Resources */,
+				E6A5D10D17DD2A1100F1081E /* InfoPlist.strings in Resources */,
+				E6A5D11B17DD2A1100F1081E /* Images.xcassets in Resources */,
+				E6A5D11317DD2A1100F1081E /* Credits.rtf in Resources */,
+				E6A5D11917DD2A1100F1081E /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10195F189F6840BEAC31B1F9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D1DDF50D7795409B9B411453 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E6A5D0BE17DD24AD00F1081E /* Sources */ = {
@@ -260,23 +320,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E6A5D0E217DD24AD00F1081E /* Sources */ = {
+		E6A5D0FD17DD2A1000F1081E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6A5D0F417DD24AD00F1081E /* UAAppReviewManagerExampleTests.m in Sources */,
+				E6A5D11617DD2A1100F1081E /* UAAppDelegate.m in Sources */,
+				E6A5D10F17DD2A1100F1081E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E6A5D0EC17DD24AD00F1081E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E6A5D0C117DD24AD00F1081E /* UAAppReviewManagerExample */;
-			targetProxy = E6A5D0EB17DD24AD00F1081E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E6A5D0CE17DD24AD00F1081E /* InfoPlist.strings */ = {
@@ -303,12 +356,28 @@
 			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
-		E6A5D0F017DD24AD00F1081E /* InfoPlist.strings */ = {
+		E6A5D10B17DD2A1100F1081E /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E6A5D0F117DD24AD00F1081E /* en */,
+				E6A5D10C17DD2A1100F1081E /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E6A5D11117DD2A1100F1081E /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E6A5D11217DD2A1100F1081E /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		E6A5D11717DD2A1100F1081E /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E6A5D11817DD2A1100F1081E /* Base */,
+			);
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -345,7 +414,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -377,7 +447,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -386,12 +457,14 @@
 		};
 		E6A5D0F817DD24AD00F1081E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96C2552457544862BFD51982 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UAAppReviewManagerExample/UAAppReviewManagerExample-Prefix.pch";
 				INFOPLIST_FILE = "UAAppReviewManagerExample/UAAppReviewManagerExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -399,54 +472,63 @@
 		};
 		E6A5D0F917DD24AD00F1081E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96C2552457544862BFD51982 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UAAppReviewManagerExample/UAAppReviewManagerExample-Prefix.pch";
 				INFOPLIST_FILE = "UAAppReviewManagerExample/UAAppReviewManagerExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
-		E6A5D0FB17DD24AD00F1081E /* Debug */ = {
+		E6A5D12E17DD2A1100F1081E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UAAppReviewManagerExample.app/UAAppReviewManagerExample";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UAAppReviewManagerExample/UAAppReviewManagerExample-Prefix.pch";
+				GCC_PREFIX_HEADER = "UAAppReviewManagerExampleMac/UAAppReviewManagerExampleMac-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "UAAppReviewManagerExampleTests/UAAppReviewManagerExampleTests-Info.plist";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "UAAppReviewManagerExampleMac/UAAppReviewManagerExampleMac-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		E6A5D0FC17DD24AD00F1081E /* Release */ = {
+		E6A5D12F17DD2A1100F1081E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UAAppReviewManagerExample.app/UAAppReviewManagerExample";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UAAppReviewManagerExample/UAAppReviewManagerExample-Prefix.pch";
-				INFOPLIST_FILE = "UAAppReviewManagerExampleTests/UAAppReviewManagerExampleTests-Info.plist";
+				GCC_PREFIX_HEADER = "UAAppReviewManagerExampleMac/UAAppReviewManagerExampleMac-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "UAAppReviewManagerExampleMac/UAAppReviewManagerExampleMac-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -462,21 +544,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E6A5D0F717DD24AD00F1081E /* Build configuration list for PBXNativeTarget "UAAppReviewManagerExample" */ = {
+		E6A5D0F717DD24AD00F1081E /* Build configuration list for PBXNativeTarget "UAAppReviewManagerExampleiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E6A5D0F817DD24AD00F1081E /* Debug */,
 				E6A5D0F917DD24AD00F1081E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		E6A5D0FA17DD24AD00F1081E /* Build configuration list for PBXNativeTarget "UAAppReviewManagerExampleTests" */ = {
+		E6A5D12D17DD2A1100F1081E /* Build configuration list for PBXNativeTarget "UAAppReviewManagerExampleMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E6A5D0FB17DD24AD00F1081E /* Debug */,
-				E6A5D0FC17DD24AD00F1081E /* Release */,
+				E6A5D12E17DD2A1100F1081E /* Debug */,
+				E6A5D12F17DD2A1100F1081E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

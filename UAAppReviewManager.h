@@ -1,0 +1,280 @@
+//
+//  UAAppReviewManager.h
+//
+//  Created by Matt Coneybeare on 9/8/13.
+//  http://matt.coneybeare.me
+//  Copyright (c) 2013 Urban Apps. All rights reserved.
+//  http://urbanapps.com
+//
+
+
+#import <Foundation/Foundation.h>
+#import <StoreKit/StoreKit.h>
+
+typedef enum {
+	UAAppReviewManagerKeyFirstUseDate = 0,
+	UAAppReviewManagerKeyUseCount,
+	UAAppReviewManagerKeySignificantEventCount,
+	UAAppReviewManagerKeyCurrentVersion,
+	UAAppReviewManagerKeyRatedCurrentVersion,
+	UAAppReviewManagerKeyRatedAnyVersion,
+	UAAppReviewManagerKeyDeclinedToRate,
+	UAAppReviewManagerKeyReminderRequestDate,
+	UAAppReviewManagerKeyAppiraterMigrationCompleted
+} UAAppReviewManagerKeyType;
+
+
+#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+
+// iOS Interface
+@interface UAAppReviewManager : NSObject <UIAlertViewDelegate, SKStoreProductViewControllerDelegate>
+
+@property (nonatomic, strong) UIAlertView *ratingAlert;
+
+#else
+
+// OS X
+@interface UAAppReviewManager : NSObject <NSAlertDelegate>
+
+@property(nonatomic, strong) NSAlert *ratingAlert;
+
+#endif
+
++ (NSString *)appName;
++ (void)setAppName:(NSString *)appName;
+
++ (NSString *)reviewTitle;
++ (void)setReviewTitle:(NSString *)reviewTitle;
+
++ (NSString *)reviewMessage;
++ (void)setReviewMessage:(NSString *)reviewMessage;
+
++ (NSString *)cancelButtonTitle;
++ (void)setCancelButtonTitle:(NSString *)cancelButtonTitle;
+
++ (NSString *)rateButtonTitle;
++ (void)setRateButtonTitle:(NSString *)rateButtonTitle;
+
++ (NSString *)remindButtonTitle;
++ (void)setRemindButtonTitle:(NSString *)remindButtonTitle;
+
++ (NSString *)keyForUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType;
++ (void)setKey:(NSString *)key forUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType;
+
+/*
+ * Get/Set your Apple generated software id.
+ * Required. No default value.
+ */
++ (NSString *)appID;
++ (void)setAppID:(NSString *)appId;
+
+/*
+ * Users will need to have the same version of your app installed for this many
+ * days before they will be prompted to rate it.
+ * Default => 30
+ */
++ (NSUInteger)daysUntilPrompt;
++ (void)setDaysUntilPrompt:(NSUInteger)daysUntilPrompt;
+
+/*
+ * An example of a 'use' would be if the user launched the app. Bringing the app
+ * into the foreground (on devices that support it) would also be considered
+ * a 'use'. You tell UAAppReviewManager about these events using the two methods:
+ * [UAAppReviewManager appLaunched:]
+ * [UAAppReviewManager appEnteredForeground:]
+ 
+ * Users need to 'use' the same version of the app this many times before
+ * before they will be prompted to rate it.
+ * Default => 20
+ */
++ (NSUInteger)usesUntilPrompt;
++ (void)setUsesUntilPrompt:(NSUInteger)usesUntilPrompt;
+
+/*
+ * A significant event can be anything you want to be in your app. In a
+ * telephone app, a significant event might be placing or receiving a call.
+ * In a game, it might be beating a level or a boss. This is just another
+ * layer of filtering that can be used to make sure that only the most
+ * loyal of your users are being prompted to rate you on the app store.
+ * If you leave this at a value of 0 (dfault), then this won't be a criterion
+ * used for rating. To tell UAAppReviewManager that the user has performed
+ * a significant event, call the method:
+ * [UAAppReviewManager userDidSignificantEvent:];
+ * Default => 0
+ */
++ (NSUInteger)significantEventsUntilPrompt;
++ (void)setSignificantEventsUntilPrompt:(NSInteger)significantEventsUntilPrompt;
+
+/*
+ * Once the rating alert is presented to the user, they might select
+ * 'Remind me later'. This value specifies how many days UAAppReviewManager
+ * will wait before reminding them.
+ * Default => 1
+ */
++ (NSUInteger)daysBeforeReminding;
++ (void)setDaysBeforeReminding:(NSUInteger)daysBeforeReminding;
+
+/*
+ * By default, UAAppReviewManager tracks all new bundle versions.
+ * When it detects a new version, it resets the values saved for usage,
+ * significant events, popup shown, user action etc...
+ * By setting this to NO, UAAppReviewManager will ONLY track the version it
+ * was initialized with. If this setting is set to YES, UAAppReviewManager
+ * will reset after each new version detection.
+ * Default => YES
+ */
++ (BOOL)tracksNewVersions;
++ (void)setTracksNewVersions:(BOOL)tracksNewVersions;
+
+/*
+ * If the user has rated the app once before, and you don't want it to show on
+ * a new version, set this to NO. This is useful if you release small bugfix
+ * versions and don't want to pester your users with popups for every minor
+ * version. For example, you might set this to NO for every minor build, then
+ * when you push a major version upgrade, leave it as YES to ask for a rating again.
+ * Default => YES
+ */
++ (BOOL)shouldPromptIfRated;
++ (void)setShouldPromptIfRated:(BOOL)shouldPromptIfRated;
+
+/*
+ * If set to YES, the main bundle will always be used to load localized strings.
+ * Set this to YES if you have provided your own custom localizations in
+ * UAAppReviewManagerLocalizable.strings in your main bundle
+ * Default => NO.
+ */
++ (BOOL)useMainAppBundleForLocalizations;
++ (void)setUseMainAppBundleForLocalizations:(BOOL)useMainAppBundleForLocalizations;
+
+/*
+ * If you are an Apple Affiliate (you should be), enter your code here.
+ * If none is set, the author's code will be used as it is better to be set as something
+ * rather than nothing. If you want to thank me for making UAAppReviewManager, feel free
+ * to leave this value at it's default.
+ */
++ (NSString *)affiliateCode;
++ (void)setAffiliateCode:(NSString*)affiliateCode;
+
+/*
+ * If you are an Apple Affiliate (you should be), enter your campaign code here.
+ * Default => "UAAppReviewManager"
+ */
++ (NSString *)affiliateCampaignCode;
++ (void)setAffiliateCampaignCode:(NSString*)affiliateCampaignCode;
+
+/*
+ * 'YES' will show the UAAppReviewManager alert everytime. Useful for testing
+ * how your message looks and making sure the link to your app's review page works.
+ * Calling this method in a production build (DEBUG preprocessor macro is not defined)
+ * has no effect. In app store builds, you don't have to worry about accidentally
+ * leaving setDebug to YES
+ * Default => NO
+ */
++ (BOOL)debug;
++ (void)setDebug:(BOOL)debug;
+
+
+#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+/*
+ * Set whether or not UAAppReviewManager uses animation when pushing modal StoreKit
+ * view controllers for the app.
+ * Default => YES
+ */
++ (BOOL)usesAnimation;
++ (void)setUsesAnimation:(BOOL)usesAnimation;
+
+/*
+ * If set to YES, UAAppReviewManager will open App Store link inside the app using
+ * SKStoreProductViewController. By default, this is NO. The reason why is that
+ * itunes affiliate codes do not work (as of iOS 7 RC1) inside StoreKit
+ * Default => NO
+ */
++ (BOOL)opensInStoreKit;
++ (void)setOpensInStoreKit:(BOOL)opensInStoreKit;
+
+#endif
+
+
+/*
+ * Tells UAAppReviewManager that the app has launched and that the 'uses'
+ * count should be incremented. You should call this method at the end of your
+ * application delegate's application:didFinishLaunchingWithOptions: method.
+ *
+ * If the app has been used enough to be rated (and enough significant events),
+ * you can suppress the rating alert by passing NO for canPromptForRating.
+ * The rating alert will simply be postponed until it is called again with YES
+ * for canPromptForRating. The rating alert can also be triggered by
+ * appEnteredForeground: and userDidSignificantEvent:
+ * (as long as you pass YES for canPromptForRating in those methods).
+ */
++ (void)appLaunched:(BOOL)canPromptForRating;
+
+/*
+ * Tells UAAppReviewManager that the app was brought to the foreground.
+ * You should call this method from the application delegate's
+ * applicationWillEnterForeground: method.
+ *
+ * If the app has been used enough to be rated (and enough significant events),
+ * you can suppress the rating alert by passing NO for canPromptForRating.
+ * The rating alert will simply be postponed until it is called again with YES
+ * for canPromptForRating. The rating alert can also be triggered by
+ * appLaunched: and userDidSignificantEvent:
+ * (as long as you pass YES for canPromptForRating in those methods).
+ */
++ (void)appEnteredForeground:(BOOL)canPromptForRating;
+
+/*
+ * Tells UAAppReviewManager that the user performed a significant event.
+ * A significant event is whatever you want it to be. If you're app is used
+ * to make VoIP calls, then you might want to call this method whenever the
+ * user places a call. If it's a game, you might want to call this whenever
+ * the user beats a level boss.
+ *
+ * If the user has performed enough significant events and used the app enough,
+ * you can suppress the rating alert by passing NO for canPromptForRating. The
+ * rating alert will simply be postponed until it is called again with YES for
+ * canPromptForRating. The rating alert can also be triggered by appLaunched:
+ * and appEnteredForeground: (as long as you pass YES for canPromptForRating
+ * in those methods).
+ */
++ (void)userDidSignificantEvent:(BOOL)canPromptForRating;
+
+/*
+ * Tells UAAppReviewManager to show the prompt (a rating alert). The prompt
+ * will be showed if there is an internet connection available, the user hasn't
+ * declined to rate, hasn't rated current version and you are tracking new versions.
+ *
+ * You could call to show the prompt regardless of UAAppReviewManager settings,
+ * for instance, in the case of some special event in your app.
+ */
++ (void)showPrompt;
+
+/*
+ * This is the review URL string, generated by substituting the appID, affiliate code
+ * and affilitate campaign code into the template URL.
+*/
++ (NSString *)reviewURLString;
+
+/*
+ * Tells UAAppReviewManager to open the App Store page where the user can specify a
+ * rating for the app. Also records the fact that this has happened, so the
+ * user won't be prompted again to rate the app.
+ *
+ * The only case where you should call this directly is if your app has an
+ * explicit "Rate this app" command somewhere.  In all other cases, don't worry
+ * about calling this -- instead, just call the other functions listed above,
+ * and let UAAppReviewManager handle the bookkeeping of deciding when to ask the user
+ * whether to rate the app.
+ */
++ (void)rateApp;
+
+
+#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+/*
+ * Tells UAAppReviewManager to immediately close any open rating modals
+ * for instance, a StoreKit rating View Controller.
+*/
++ (void)closeModalPanel;
+#endif
+
+@end
