@@ -1,11 +1,12 @@
 #!/usr/bin/env ruby
 
-pod 'UAAppReviewManager', :path => '../'
 
 target 'UAAppReviewManagerExampleiOS' do
   platform :ios, '6.0'
+  pod 'UAAppReviewManager', :path => '../'
 end
 
 target 'UAAppReviewManagerExampleMac' do
   platform :osx, '10.7'
+  pod 'UAAppReviewManager', :path => '../'
 end

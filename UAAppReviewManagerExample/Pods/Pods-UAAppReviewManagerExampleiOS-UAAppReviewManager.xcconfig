@@ -1,0 +1,1 @@
+PODS_UAAPPREVIEWMANAGEREXAMPLEIOS_UAAPPREVIEWMANAGER_OTHER_LDFLAGS = -framework CFNetwork -framework StoreKit -framework SystemConfiguration

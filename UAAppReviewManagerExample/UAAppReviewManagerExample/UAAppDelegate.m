@@ -23,8 +23,11 @@
 
 
 - (void)setupUAAppReviewManager {
-	[UAAppReviewManager setAppID:@"364709193"]; // iBooks
-	[UAAppReviewManager setDebug:YES];
+	// Normally, all the setup would be here.
+	// But, because we are presenting a few different setups in the example,
+	// The config will be in the view controllers
+//	[UAAppReviewManager setAppID:@"364709193"]; // iBooks
+//	[UAAppReviewManager setDebug:YES];
 }
 
 

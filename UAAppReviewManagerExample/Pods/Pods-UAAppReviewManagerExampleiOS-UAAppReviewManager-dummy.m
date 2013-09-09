@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_UAAppReviewManagerExampleiOS_UAAppReviewManager : NSObject
+@end
+@implementation PodsDummy_Pods_UAAppReviewManagerExampleiOS_UAAppReviewManager
+@end

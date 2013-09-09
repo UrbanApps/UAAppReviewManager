@@ -23,6 +23,9 @@ typedef enum {
 	UAAppReviewManagerKeyAppiraterMigrationCompleted
 } UAAppReviewManagerKeyType;
 
+@class UAAppReviewManager;
+typedef void(^UAAppReviewManagerBlock)(UAAppReviewManager *);
+typedef void(^UAAppReviewManagerAnimateBlock)(UAAppReviewManager *, BOOL);
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 
@@ -40,33 +43,62 @@ typedef enum {
 
 #endif
 
-+ (NSString *)appName;
-+ (void)setAppName:(NSString *)appName;
-
-+ (NSString *)reviewTitle;
-+ (void)setReviewTitle:(NSString *)reviewTitle;
-
-+ (NSString *)reviewMessage;
-+ (void)setReviewMessage:(NSString *)reviewMessage;
-
-+ (NSString *)cancelButtonTitle;
-+ (void)setCancelButtonTitle:(NSString *)cancelButtonTitle;
-
-+ (NSString *)rateButtonTitle;
-+ (void)setRateButtonTitle:(NSString *)rateButtonTitle;
-
-+ (NSString *)remindButtonTitle;
-+ (void)setRemindButtonTitle:(NSString *)remindButtonTitle;
-
-+ (NSString *)keyForUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType;
-+ (void)setKey:(NSString *)key forUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType;
-
 /*
  * Get/Set your Apple generated software id.
- * Required. No default value.
+ * This is the only required setup value. No default.
  */
 + (NSString *)appID;
 + (void)setAppID:(NSString *)appId;
+
+/*
+ * Get/Set the App Name to use in the prompt
+ * Default value is your localized display name from the info.plist
+ */
++ (NSString *)appName;
++ (void)setAppName:(NSString *)appName;
+
+/*
+ * Get/Set the title to use on the review prompt.
+ * Default value is a localized "Rate <appName>"
+ */
++ (NSString *)reviewTitle;
++ (void)setReviewTitle:(NSString *)reviewTitle;
+
+/*
+ * Get/Set the message to use on the review prompt.
+ * Default value is a localized 
+ *  "If you enjoy using <appName>, would you mind taking a moment to rate it? It won't take more than a minute. Thanks for your support!"
+ */
++ (NSString *)reviewMessage;
++ (void)setReviewMessage:(NSString *)reviewMessage;
+
+/*
+ * Get/Set the cancel button title to use on the review prompt.
+ * Default value is a localized "No, Thanks"
+ */
++ (NSString *)cancelButtonTitle;
++ (void)setCancelButtonTitle:(NSString *)cancelButtonTitle;
+
+/*
+ * Get/Set the rate button title to use on the review prompt.
+ * Default value is a localized "Rate <appName>"
+ */
++ (NSString *)rateButtonTitle;
++ (void)setRateButtonTitle:(NSString *)rateButtonTitle;
+
+/*
+ * Get/Set the remind me later button title to use on the review prompt.
+ * Default value is a localized "Remind me later"
+ */
++ (NSString *)remindButtonTitle;
++ (void)setRemindButtonTitle:(NSString *)remindButtonTitle;
+
+/*
+ * Get/Set the NSUserDefaultKeys that store the usage data for UAAppReviewManager
+ * Default values are in the form of "UAAppReviewManagerKey<Setting>"
+ */
++ (NSString *)keyForUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType;
++ (void)setKey:(NSString *)key forUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType;
 
 /*
  * Users will need to have the same version of your app installed for this many
@@ -268,13 +300,25 @@ typedef enum {
  */
 + (void)rateApp;
 
-
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 /*
  * Tells UAAppReviewManager to immediately close any open rating modals
  * for instance, a StoreKit rating View Controller.
 */
 + (void)closeModalPanel;
+#endif
+
+/*
+ * UAAppReviewManager uses blocks instead of delegate methods for callbacks.
+ * Default is nil for all of them.
+ */
++ (void)setOnDidDisplayAlert:(UAAppReviewManagerBlock)didDisplayAlertBlock;
++ (void)setOnDeclineToRate:(UAAppReviewManagerBlock)didDeclineToRateBlock;
++ (void)setOnDidOptToRate:(UAAppReviewManagerBlock)didOptToRateBlock;
++ (void)setOnDidOptToRemindLater:(UAAppReviewManagerBlock)didOptToRemindLaterBlock;
+#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
++ (void)setOnWillPresentModalView:(UAAppReviewManagerAnimateBlock)willPresentModalViewBlock;
++ (void)setOnDidDismissModalView:(UAAppReviewManagerAnimateBlock)didDismissModalViewBlock;
 #endif
 
 @end

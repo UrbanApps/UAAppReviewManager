@@ -78,6 +78,13 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 @property (nonatomic, strong) NSString *appReviewManagerKeyReminderRequestDate;
 @property (nonatomic, strong) NSString *appReviewManagerKeyAppiraterMigrationCompleted;
 
+// Blocks
+@property (nonatomic, copy) UAAppReviewManagerBlock			didDisplayAlertBlock;
+@property (nonatomic, copy) UAAppReviewManagerBlock			didDeclineToRateBlock;
+@property (nonatomic, copy) UAAppReviewManagerBlock			didOptToRateBlock;
+@property (nonatomic, copy) UAAppReviewManagerBlock			didOptToRemindLaterBlock;
+@property (nonatomic, copy) UAAppReviewManagerAnimateBlock	willPresentModalViewBlock;
+@property (nonatomic, copy) UAAppReviewManagerAnimateBlock	didDismissModalViewBlock;
 
 // State ivars
 @property (nonatomic, assign) BOOL modalPanelOpen;
@@ -286,8 +293,50 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 }
 #endif
 
++ (void)setOnDidDisplayAlert:(UAAppReviewManagerBlock)didDisplayAlertBlock {
+	[[UAAppReviewManager defaultManager] setDidDisplayAlertBlock:didDisplayAlertBlock];
+}
+
++ (void)setOnDeclineToRate:(UAAppReviewManagerBlock)didDeclineToRateBlock {
+	[[UAAppReviewManager defaultManager] setDidDeclineToRateBlock:didDeclineToRateBlock];
+}
+
++ (void)setOnDidOptToRate:(UAAppReviewManagerBlock)didOptToRateBlock {
+	[[UAAppReviewManager defaultManager] setDidOptToRateBlock:didOptToRateBlock];
+}
+
++ (void)setOnDidOptToRemindLater:(UAAppReviewManagerBlock)didOptToRemindLaterBlock {
+	[[UAAppReviewManager defaultManager] setDidOptToRemindLaterBlock:didOptToRemindLaterBlock];
+}
+
+#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
++ (void)setOnWillPresentModalView:(UAAppReviewManagerAnimateBlock)willPresentModalViewBlock {
+	[[UAAppReviewManager defaultManager] setWillPresentModalViewBlock:willPresentModalViewBlock];
+}
+
++ (void)setOnDidDismissModalView:(UAAppReviewManagerAnimateBlock)didDismissModalViewBlock {
+	[[UAAppReviewManager defaultManager] setDidDismissModalViewBlock:didDismissModalViewBlock];
+}
+#endif
+
+
 #pragma mark -
 #pragma mark - PRIVATE Review Alert Property Accessors
+
+- (void)setAppID:(NSString *)appID {
+	if ([appID length])
+		_appID = appID;
+}
+
+- (void)setAffiliateCode:(NSString *)affiliateCode {
+	if ([affiliateCode length])
+		_affiliateCode = affiliateCode;
+}
+
+- (void)setAffiliateCampaignCode:(NSString *)affiliateCampaignCode {
+	if ([affiliateCampaignCode length])
+		_affiliateCampaignCode = affiliateCampaignCode;
+}
 
 - (NSString *)appName {
 	if (!_appName) {
@@ -529,7 +578,7 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 }
 
 - (void)showPrompt {
-    if ([self connectedToNetwork] && ![self userHasDeclinedToRate] && ![self userHasRatedCurrentVersion]) {
+    if (self.appID && [self connectedToNetwork] && ![self userHasDeclinedToRate] && ![self userHasRatedCurrentVersion]) {
         [self showRatingAlert];
     }
 }
@@ -538,6 +587,9 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 
 	if (self.debugEnabled)
 		return YES;
+	
+	if (!self.appID)
+		return NO;
 	
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
@@ -597,10 +649,8 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 	self.ratingAlert = alertView;
     [alertView show];
 	
-//    id <AppiraterDelegate> delegate = _delegate;
-//    if (delegate && [delegate respondsToSelector:@selector(appiraterDidDisplayAlert:)]) {
-//		[delegate appiraterDidDisplayAlert:self];
-//    }
+    if (self.didDisplayAlertBlock)
+		self.didDisplayAlertBlock(self);
 }
 
 #else
@@ -624,10 +674,8 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 		[self handleNSAlertReturnCode:returnCode];
 	}
 	
-	id <AppiraterDelegate> delegate = _delegate;
-    if (delegate && [delegate respondsToSelector:@selector(appiraterDidDisplayAlert:)]) {
-		[delegate appiraterDidDisplayAlert:self];
-    }
+	if (self.didDisplayAlertBlock)
+		self.didDisplayAlertBlock(self);
 }
 
 #endif
@@ -643,7 +691,7 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 			break;
 		}
 		case 1: { // they want to rate it
-			[self rateApp];
+			[self _rateApp]; // the private _ method allows me to call a block method in this instance
 			break;
 		}
 		case 2: { // remind them later
@@ -671,10 +719,8 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 		UIViewController *presentingController = [UIApplication sharedApplication].keyWindow.rootViewController;
 		presentingController = [self topMostViewController:presentingController];
 		[presentingController dismissViewControllerAnimated:self.usesAnimation completion:^{
-//            id <AppiraterDelegate> delegate = self.sharedInstance.delegate;
-//			if ([delegate respondsToSelector:@selector(appiraterDidDismissModalView:animated:)]) {
-//				[delegate appiraterDidDismissModalView:(Appirater *)self animated:usedAnimation];
-//			}
+			if (self.didDismissModalViewBlock)
+				self.didDismissModalViewBlock(self, usedAnimation);
 		}];
 		[self setCurrentStatusBarStyle:(UIStatusBarStyle)nil];
 	}
@@ -691,7 +737,7 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 		}
 		case NSAlertDefaultReturn: {
 			// they want to rate it
-			[self rateApp];
+			[self _rateApp];
 			break;
 		}
 		case NSAlertOtherReturn: {
@@ -712,31 +758,25 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 
 - (void)dontRate {
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//	id <AppiraterDelegate> delegate = _delegate;
 	[userDefaults setBool:YES forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyDeclinedToRate]];
 	[userDefaults synchronize];
-//	if(delegate && [delegate respondsToSelector:@selector(appiraterDidDeclineToRate:)]){
-//		[delegate appiraterDidDeclineToRate:self];
-//	}
+	if (self.didDeclineToRateBlock)
+		self.didDeclineToRateBlock(self);
 }
 
 - (void)remindMeLater {
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//	id <AppiraterDelegate> delegate = _delegate;
 	[userDefaults setDouble:[[NSDate date] timeIntervalSince1970] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyReminderRequestDate]];
 	[userDefaults synchronize];
-//	if(delegate && [delegate respondsToSelector:@selector(appiraterDidOptToRemindLater:)]){
-//		[delegate appiraterDidOptToRemindLater:self];
-//	}
+	if (self.didOptToRemindLaterBlock)
+		self.didOptToRemindLaterBlock(self);
 }
 
-//- (void)rateApp {
-//	id <AppiraterDelegate> delegate = _delegate;
-//	[UAAppReviewManager rateApp];
-//	if(delegate&& [delegate respondsToSelector:@selector(appiraterDidOptToRate:)]){
-//		[delegate appiraterDidOptToRate:self];
-//	}
-//}
+- (void)_rateApp {
+	[UAAppReviewManager rateApp];
+	if (self.didOptToRateBlock)
+		self.didOptToRateBlock(self);
+}
 
 - (void)rateApp {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -753,10 +793,9 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 		[storeViewController loadProductWithParameters:@{ SKStoreProductParameterITunesItemIdentifier : self.appID } completionBlock:nil];
 		storeViewController.delegate = self;
 		
-//        id <AppiraterDelegate> delegate = self.sharedInstance.delegate;
-//		if ([delegate respondsToSelector:@selector(appiraterWillPresentModalView:animated:)]) {
-//			[delegate appiraterWillPresentModalView:self.sharedInstance animated:_usesAnimation];
-//		}
+		if (self.willPresentModalViewBlock)
+			self.willPresentModalViewBlock(self, self.usesAnimation);
+		
 		[[self getRootViewController] presentViewController:storeViewController animated:self.usesAnimation completion:^{
 			[self setModalPanelOpen:YES];
 			//Temporarily use a  status bar to match the StoreKit view.
@@ -931,8 +970,6 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
             bundle = [NSBundle mainBundle];
         }
     }
-	
-	[bundle load];
 	
     return bundle;
 }
