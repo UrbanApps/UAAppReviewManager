@@ -27,9 +27,9 @@ If you are an iTunes Affiliate, you can easily setup UAAppReviewManager to use y
 
 ## Installation
 
-Installation is made simple with [Cocoapods](http://cocoapods.org/). If you want to do it the old fashioned way, just add `UAAppReviewManager.h`, `UAAppReviewManager.m` and the Localization folder into your project.
+Installation is made simple with [Cocoapods](http://cocoapods.org/) (pending [pull-request](https://github.com/CocoaPods/Specs/pull/3998) approval). If you want to do it the old fashioned way, just add `UAAppReviewManager.h`, `UAAppReviewManager.m` and the Localization folder into your project.
 
-    pod 'UAAppReviewManager', '~> 0.1.0' (pending pull-request approval)
+    pod 'UAAppReviewManager', '~> 0.1.0'
 
 Then, simply place this line in any file that accesses UAAppReviewManager.
 
