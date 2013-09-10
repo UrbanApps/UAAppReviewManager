@@ -25,6 +25,11 @@ If you choose to use the default UAAppReviewManager strings for your app, you wi
 
 If you are an iTunes Affiliate, you can easily setup UAAppReviewManager to use your code and campaign. Full disclosure: If you aren't an iTunes Affiliate, the default code used in the app is the author's. It is better to have somebody's code rather than nobody's, so please leave it at the default setting if you aren't going to set one yourself. Think of it as a tiny tip for creating and open-sourcing UAAppReviewManager.
 
+##### Ready For Primetime
+
+UAAppReviewManager is clean code, well documented and well organized. It is easy to understand the logic flow and the purpose of each method. It doesn't mix logic up randomly between Class methods and Instance methods. It's API is clean and predictable.
+
+
 ## Installation
 
 Installation is made simple with [Cocoapods](http://cocoapods.org/). If you want to do it the old fashioned way, just add `UAAppReviewManager.h`, `UAAppReviewManager.m` and the Localization folder into your project.
