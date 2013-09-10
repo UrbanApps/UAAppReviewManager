@@ -283,9 +283,6 @@ The API for the methods is pretty close to Appirater, with a few enhancements. F
 UAAppReviewManager will automatically convert the NSUserDefault keys store under Appirater apps into the keys used by UAAppReviewManager. The values will transfer over, and the old, unused Appirater keys will be deleted from the settings.
 
 
-## What Does UA stand for?
-[Urban Apps](http://urbanapps.com). We make neat stuff. Check us out.
-
 ## What's Planned?
 
 There are some ideas we have for future versions of UAAppReviewManager. Feel free to fork/implement if you would like to expedite the process.
@@ -296,6 +293,14 @@ There are some ideas we have for future versions of UAAppReviewManager. Feel fre
 
 ## Bugs / Pull Requests
 Let us know if you see ways to improve UAAppReviewManager or see something wrong with it. We are happy to pull in pull requests that have clean code, and have features that are useful for most people.
+
+## What Does UA stand for?
+[Urban Apps](http://urbanapps.com). We make neat stuff. Check us out.
+
+## Open-Source Urban Apps Projects
+
+- [UAModalPanel](https://github.com/coneybeare/UAModalPanel) - An animated modal panel alternative for iOS
+- [UALogger](https://github.com/coneybeare/UALogger) - A logging utility for Mac/iOS apps
 
 ## Feeling Generous?
 
