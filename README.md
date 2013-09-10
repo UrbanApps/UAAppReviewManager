@@ -1,11 +1,13 @@
 ![UAAppReviewManager](https://github.com/coneybeare/UAAppReviewManager/blob/master/Screenshots/iOS.png?raw=true "iOS")
 ![UAAppReviewManager](https://github.com/coneybeare/UAAppReviewManager/blob/master/Screenshots/OSX.png?raw=true "OS X")
 
-UAAppReviewManager is a simple and lightweight App review prompting tool for iOS and Mac App Store apps.
+UAAppReviewManager is a simple and lightweight App review prompting tool for iOS and Mac App Store apps. It's Appirater all grown up, ready for primetime.
 
 ## Why UAAppReviewManager?
 
 The average end-user will only write a review if something is wrong with your App. This leads to an unfairly negative skew in the ratings, when the majority of satisfied customers don’t leave reviews and only the dissatisfied ones do. In order to counter-balance the negatives, UAAppReviewManager prompts the user to write a review, but only after the developer knows they are satisfied. For example, you may only show the popup if the user has been using it for more than a week, and has done at least 5 significant events (the core functionality of your App). The rules are fully customizable for your App and easy to setup.
+
+Here are just a few of the things that make UAAppReviewManager better than the other rating frameworks and repos:
 
 ##### iOS and OS X Support
 
