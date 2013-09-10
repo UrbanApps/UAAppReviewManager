@@ -48,7 +48,7 @@ typedef void(^UAAppReviewManagerAnimateBlock)(UAAppReviewManager *, BOOL);
  * This is the only required setup value. No default.
  */
 + (NSString *)appID;
-+ (void)setAppID:(NSString *)appId;
++ (void)setAppID:(NSString *)appID;
 
 /*
  * Get/Set the App Name to use in the prompt
