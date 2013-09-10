@@ -131,7 +131,7 @@ An example of a 'use' would be if the user launched the app, or brings it to the
 As discussed briefly above, the `significantEventsUntilPrompt` configuration determines how many "significant events" the user will need to have before they will be prompted to rate the App. It defaults to 0 significant events.
 
     + (NSUInteger)significantEventsUntilPrompt;
-    + (void)setSignificantEventsUntilPrompt (NSInteger)significantEventsUntilPrompt;
+    + (void)setSignificantEventsUntilPrompt:(NSInteger)significantEventsUntilPrompt;
 
 A significant event can be anything you want to be in your app. In a telephone app, a significant event might be placing or receiving a call. In a game, it might be beating a level or a boss. This is just another layer of filtering that can be used to make sure that only the most loyal of your users are being prompted to rate you on the app store. If you leave this at a value of 0 (default), then this won't be a criterion used for rating. To tell UAAppReviewManager that the user has performed a significant event, call the method:
 
