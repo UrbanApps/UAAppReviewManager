@@ -1,5 +1,5 @@
 ![UAAppReviewManager](https://github.com/coneybeare/UAAppReviewManager/blob/master/Screenshots/iOS.png?raw=true "iOS")
-![UAAppReviewManager](https://github.com/coneybeare/UAAppReviewManager/blob/master/Screenshots/OSX.png?raw=true "iOS")
+![UAAppReviewManager](https://github.com/coneybeare/UAAppReviewManager/blob/master/Screenshots/OSX.png?raw=true "OS X")
 
 UAAppReviewManager is a simple and lightweight App review prompting tool for iOS and Mac App Store apps.
 
