@@ -278,7 +278,25 @@ The API for the methods is pretty close to Appirater, with a few enhancements. F
 UAAppReviewManager will automatically convert the NSUserDefault keys store under Appirater apps into the keys used by UAAppReviewManager. The values will transfer over, and the old, unused Appirater keys will be deleted from the settings.
 
 
+## What Does UA stand for?
+[Urban Apps](http://urbanapps.com). We make neat stuff. Check us out.
 
+## What's Planned?
+
+There are some ideas we have for future versions of UAAppReviewManager. Feel free to fork/implement if you would like to expedite the process.
+
+- Add the ability to present the prompt using a custom class other than a `UIAlertView` or `NSAlert`
+- Add additional localizations
+-  [Your idea](https://github.com/coneybeare/UAAppReviewManager/issues).
+
+## Bugs / Pull Requests
+Let us know if you see ways to improve UAAppReviewManager or see something wrong with it. We are happy to pull in pull requests that have clean code, and have features that are useful for most people.
+
+## Feeling Generous?
+
+If you want to thank us for open-sourcing UAAppReviewManager, you can [buy one of our apps](http://itunes.com/apps/urbanapps?at=11l7j9&ct=github) or even donate something small.
+
+<a href='http://www.pledgie.com/campaigns/21926'><img alt='Click here to lend your support to: Support UAAppReviewManager Development and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/21926.png?skin_name=chrome' border='0' /></a>
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/coneybeare/uaappreviewmanager/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
