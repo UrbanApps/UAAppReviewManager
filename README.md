@@ -255,7 +255,7 @@ For more information on how to use and setup UAAppReviewManager, please see the 
 
 ##  UAAppReviewManager vs. Appirater
 
-[Appirater](https://github.com/arashpayan/appirater) is great and has been used by many, many developers since its introduction in 2009. It has been updated throughout the years and suit's the need of many people, yet leaves a ton left to be desired for the experienced developer. Appirater is:
+[Appirater](https://github.com/arashpayan/appirater) is great and has been used by many, many developers since its introduction in 2009. It has been updated throughout the years and suits the need of many people, yet leaves a ton left to be desired for the experienced developer. Appirater is:
 
 - Only available for iOS
 - Mixes a bunch of class methods and instance methods unnecessarily
