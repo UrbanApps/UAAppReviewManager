@@ -1,4 +1,5 @@
-
+![UAAppReviewManager](https://github.com/coneybeare/UAAppReviewManager/blob/master/Screenshots/iOS.png?raw=true "iOS")
+![UAAppReviewManager](https://github.com/coneybeare/UAAppReviewManager/blob/master/Screenshots/OSX.png?raw=true "iOS")
 
 UAAppReviewManager is a simple and lightweight App review prompting tool for iOS and Mac App Store apps.
 
@@ -31,7 +32,9 @@ Installation is made simple with [Cocoapods](http://cocoapods.org/). If you want
 Then, simply place this line in any file that accesses UAAppReviewManager.
 
     #import <UAAppReviewManager.h>
-    
+
+UAAppReviewManager works on iOS 6 and up, and OS X 10.7 and up.
+   
 ## Usage
 
 ### Basic Configuration
