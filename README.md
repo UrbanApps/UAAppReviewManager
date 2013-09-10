@@ -278,3 +278,7 @@ The API for the methods is pretty close to Appirater, with a few enhancements. F
 UAAppReviewManager will automatically convert the NSUserDefault keys store under Appirater apps into the keys used by UAAppReviewManager. The values will transfer over, and the old, unused Appirater keys will be deleted from the settings.
 
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/coneybeare/uaappreviewmanager/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
