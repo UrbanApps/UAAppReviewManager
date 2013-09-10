@@ -182,8 +182,8 @@ These configuration methods only make sense for iOS builds due to their dependen
 
 The `usesAnimation` configuration determines whether or not UAAppReviewManager uses animation when presenting a modal `SKStoreProductViewController`. Its default value is `YES`.
 
-   + (BOOL)usesAnimation;
-   + (void)setUsesAnimation:(BOOL)usesAnimation;
+    + (BOOL)usesAnimation;
+    + (void)setUsesAnimation:(BOOL)usesAnimation;
 
 The `opensInStoreKit` configuration determines if UAAppReviewManager will open the App Store link inside the App using a `SKStoreProductViewController`. By default, this is `NO`. The reason why the default is `NO` is that iTunes affiliate codes do not work (as of iOS 7b6) inside SKStoreProductViewController.
 
