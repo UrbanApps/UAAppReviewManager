@@ -330,6 +330,6 @@ typedef void(^UAAppReviewManagerAnimateBlock)(UAAppReviewManager *, BOOL);
 + (void)setTimeBeforeReminding:(double)value __attribute__((deprecated("Use setDaysBeforeReminding:")));
 + (void)setOpenInAppStore:(BOOL)openInAppStore __attribute__((deprecated("Use setOpensInStoreKit:")));
 + (void)setAlwaysUseMainBundle:(BOOL)useMainBundle __attribute__((deprecated("Use setUseMainAppBundleForLocalizations:")));
-+ (void)setDelegate:(id)delegate __attribute__((deprecated("Use the block-based callbacks instead"))); // No analagous method
-
++ (void)appLaunched __attribute__((deprecated("Use appLaunched: instead")));
++ (void)setDelegate:(id)delegate __attribute__((deprecated("Use the block-based callbacks instead")));
 @end

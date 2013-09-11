@@ -337,9 +337,14 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	[UAAppReviewManager setUseMainAppBundleForLocalizations:useMainBundle];
 }
 
-+ (void)setDelegate:(id)delegate {
-	// no-op
++ (void)appLaunched {
+	[UAAppReviewManager appLaunched:NO];
 }
+
++ (void)setDelegate:(id)delegate {
+	// No analagous method
+}
+
 
 
 #pragma mark -
