@@ -319,6 +319,28 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 }
 #endif
 
+#pragma mark - PUBLIC Class Convenience Methods (backwards compatibility)
+
++ (void)setAppId:(NSString*)appId {
+	[UAAppReviewManager setAppID:appId];
+}
+
++ (void)setTimeBeforeReminding:(double)value {
+	[UAAppReviewManager setDaysBeforeReminding:(NSUInteger)value];
+}
+
++ (void)setOpenInAppStore:(BOOL)openInAppStore {
+	[UAAppReviewManager setOpensInStoreKit:!openInAppStore];
+}
+
++ (void)setAlwaysUseMainBundle:(BOOL)useMainBundle {
+	[UAAppReviewManager setUseMainAppBundleForLocalizations:useMainBundle];
+}
+
++ (void)setDelegate:(id)delegate {
+	// no-op
+}
+
 
 #pragma mark -
 #pragma mark - PRIVATE Review Alert Property Accessors

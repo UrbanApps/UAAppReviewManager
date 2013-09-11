@@ -321,4 +321,15 @@ typedef void(^UAAppReviewManagerAnimateBlock)(UAAppReviewManager *, BOOL);
 + (void)setOnDidDismissModalView:(UAAppReviewManagerAnimateBlock)didDismissModalViewBlock;
 #endif
 
+/*
+ * These methods are for backwards compatibility with Appirater. They simply call the
+ * appropriate UAAppReviewManager methods. This allows installation to be a simple find/replace
+ * of 'Appirater' with 'UAAppReviewManager'
+ */
++ (void)setAppId:(NSString*)appId __attribute__((deprecated("Use setAppID:")));
++ (void)setTimeBeforeReminding:(double)value __attribute__((deprecated("Use setDaysBeforeReminding:")));
++ (void)setOpenInAppStore:(BOOL)openInAppStore __attribute__((deprecated("Use setOpensInStoreKit:")));
++ (void)setAlwaysUseMainBundle:(BOOL)useMainBundle __attribute__((deprecated("Use setUseMainAppBundleForLocalizations:")));
++ (void)setDelegate:(id)delegate __attribute__((deprecated("Use the block-based callbacks instead"))); // No analagous method
+
 @end
