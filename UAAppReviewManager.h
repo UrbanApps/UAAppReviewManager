@@ -13,14 +13,14 @@
 
 typedef enum {
     UAAppReviewManagerKeyFirstUseDate = 0,
-	UAAppReviewManagerKeyUseCount,
-	UAAppReviewManagerKeySignificantEventCount,
-	UAAppReviewManagerKeyCurrentVersion,
-	UAAppReviewManagerKeyRatedCurrentVersion,
-	UAAppReviewManagerKeyRatedAnyVersion,
-	UAAppReviewManagerKeyDeclinedToRate,
-	UAAppReviewManagerKeyReminderRequestDate,
-	UAAppReviewManagerKeyAppiraterMigrationCompleted
+    UAAppReviewManagerKeyUseCount,
+    UAAppReviewManagerKeySignificantEventCount,
+    UAAppReviewManagerKeyCurrentVersion,
+    UAAppReviewManagerKeyRatedCurrentVersion,
+    UAAppReviewManagerKeyRatedAnyVersion,
+    UAAppReviewManagerKeyDeclinedToRate,
+    UAAppReviewManagerKeyReminderRequestDate,
+    UAAppReviewManagerKeyAppiraterMigrationCompleted
 } UAAppReviewManagerKeyType;
 
 @class UAAppReviewManager;
