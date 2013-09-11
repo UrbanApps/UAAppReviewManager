@@ -34,9 +34,7 @@ UAAppReviewManager is clean code, well documented and well organized. It is easy
 
 Installation is made simple with [Cocoapods](http://cocoapods.org/). If you want to do it the old fashioned way, just add `UAAppReviewManager.h`, `UAAppReviewManager.m` and the Localization folder into your project.
 
-    # Doesn't work, fix is pending as a Cocoapods/Specs pull request. Use the :git for now
-    # pod 'UAAppReviewManager', '~> 0.1.0'
-    pod 'UAAppReviewManager', :git => 'https://github.com/UrbanApps/UAAppReviewManager'
+    pod 'UAAppReviewManager', '~> 0.1.0'
 
 Then, simply place this line in any file that accesses UAAppReviewManager.
 
