@@ -12,7 +12,7 @@
 #import <StoreKit/StoreKit.h>
 
 typedef enum {
-	UAAppReviewManagerKeyFirstUseDate = 0,
+    UAAppReviewManagerKeyFirstUseDate = 0,
 	UAAppReviewManagerKeyUseCount,
 	UAAppReviewManagerKeySignificantEventCount,
 	UAAppReviewManagerKeyCurrentVersion,

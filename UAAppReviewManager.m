@@ -24,20 +24,20 @@
 
 // For conversion purposes, we keep these here to help people migrate from Appirater to UAAppReviewManager
 // The keys used by UAAppReviewManager are settable by the developer
-static NSString * const kAppiraterFirstUseDate				= @"kAppiraterFirstUseDate";
-static NSString * const kAppiraterUseCount					= @"kAppiraterUseCount";
-static NSString * const kAppiraterSignificantEventCount		= @"kAppiraterSignificantEventCount";
-static NSString * const kAppiraterCurrentVersion			= @"kAppiraterCurrentVersion";
-static NSString * const kAppiraterRatedCurrentVersion		= @"kAppiraterRatedCurrentVersion";
-static NSString * const kAppiraterRatedAnyVersion			= @"kAppiraterRatedAnyVersion";
-static NSString * const kAppiraterDeclinedToRate			= @"kAppiraterDeclinedToRate";
-static NSString * const kAppiraterReminderRequestDate		= @"kAppiraterReminderRequestDate";
+static NSString * const kAppiraterFirstUseDate              = @"kAppiraterFirstUseDate";
+static NSString * const kAppiraterUseCount                  = @"kAppiraterUseCount";
+static NSString * const kAppiraterSignificantEventCount     = @"kAppiraterSignificantEventCount";
+static NSString * const kAppiraterCurrentVersion            = @"kAppiraterCurrentVersion";
+static NSString * const kAppiraterRatedCurrentVersion       = @"kAppiraterRatedCurrentVersion";
+static NSString * const kAppiraterRatedAnyVersion           = @"kAppiraterRatedAnyVersion";
+static NSString * const kAppiraterDeclinedToRate            = @"kAppiraterDeclinedToRate";
+static NSString * const kAppiraterReminderRequestDate       = @"kAppiraterReminderRequestDate";
 
 // The templates used for opening the app store directly
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-static NSString * const reviewURLTemplate					= @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=APP_ID&at=AFFILIATE_CODE&ct=AFFILIATE_CAMPAIGN_CODE";
+static NSString * const reviewURLTemplate                   = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=APP_ID&at=AFFILIATE_CODE&ct=AFFILIATE_CAMPAIGN_CODE";
 #else
-static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com/us/app/thumbs/idAPP_ID?ls=1&mt=12&at=AFFILIATE_CODE&ct=AFFILIATE_CAMPAIGN_CODE";
+static NSString * const reviewURLTemplate                   = @"macappstore://itunes.apple.com/us/app/thumbs/idAPP_ID?ls=1&mt=12&at=AFFILIATE_CODE&ct=AFFILIATE_CAMPAIGN_CODE";
 #endif
 
 @interface UAAppReviewManager ()
@@ -51,20 +51,20 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 @property (nonatomic, strong) NSString *remindButtonTitle;
 
 // Tracking Logic / Configuration
-@property (nonatomic, strong) NSString			*appID;
-@property (nonatomic, assign) NSUInteger		daysUntilPrompt;
-@property (nonatomic, assign) NSUInteger		usesUntilPrompt;
-@property (nonatomic, assign) NSUInteger		significantEventsUntilPrompt;
-@property (nonatomic, assign) NSUInteger		daysBeforeReminding;
-@property (nonatomic, assign) BOOL				tracksNewVersions;
-@property (nonatomic, assign) BOOL				shouldPromptIfRated;
-@property (nonatomic, assign) BOOL				useMainAppBundleForLocalizations;
-@property (nonatomic, strong) NSString			*affiliateCode;
-@property (nonatomic, strong) NSString			*affiliateCampaignCode;
-@property (nonatomic, assign) BOOL				debugEnabled;
+@property (nonatomic, strong) NSString          *appID;
+@property (nonatomic, assign) NSUInteger        daysUntilPrompt;
+@property (nonatomic, assign) NSUInteger        usesUntilPrompt;
+@property (nonatomic, assign) NSUInteger        significantEventsUntilPrompt;
+@property (nonatomic, assign) NSUInteger        daysBeforeReminding;
+@property (nonatomic, assign) BOOL              tracksNewVersions;
+@property (nonatomic, assign) BOOL              shouldPromptIfRated;
+@property (nonatomic, assign) BOOL              useMainAppBundleForLocalizations;
+@property (nonatomic, strong) NSString          *affiliateCode;
+@property (nonatomic, strong) NSString          *affiliateCampaignCode;
+@property (nonatomic, assign) BOOL              debugEnabled;
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-@property (nonatomic, assign) BOOL				usesAnimation;
-@property (nonatomic, assign) BOOL				opensInStoreKit;
+@property (nonatomic, assign) BOOL              usesAnimation;
+@property (nonatomic, assign) BOOL              opensInStoreKit;
 #endif
 
 // Tracking Keys
@@ -79,12 +79,12 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 @property (nonatomic, strong) NSString *appReviewManagerKeyAppiraterMigrationCompleted;
 
 // Blocks
-@property (nonatomic, copy) UAAppReviewManagerBlock			didDisplayAlertBlock;
-@property (nonatomic, copy) UAAppReviewManagerBlock			didDeclineToRateBlock;
-@property (nonatomic, copy) UAAppReviewManagerBlock			didOptToRateBlock;
-@property (nonatomic, copy) UAAppReviewManagerBlock			didOptToRemindLaterBlock;
-@property (nonatomic, copy) UAAppReviewManagerAnimateBlock	willPresentModalViewBlock;
-@property (nonatomic, copy) UAAppReviewManagerAnimateBlock	didDismissModalViewBlock;
+@property (nonatomic, copy) UAAppReviewManagerBlock         didDisplayAlertBlock;
+@property (nonatomic, copy) UAAppReviewManagerBlock         didDeclineToRateBlock;
+@property (nonatomic, copy) UAAppReviewManagerBlock         didOptToRateBlock;
+@property (nonatomic, copy) UAAppReviewManagerBlock         didOptToRemindLaterBlock;
+@property (nonatomic, copy) UAAppReviewManagerAnimateBlock  willPresentModalViewBlock;
+@property (nonatomic, copy) UAAppReviewManagerAnimateBlock  didDismissModalViewBlock;
 
 // State ivars
 @property (nonatomic, assign) BOOL modalPanelOpen;
@@ -839,15 +839,15 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 
 - (NSString *)keyForUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType {
 	switch (keyType) {
-		case UAAppReviewManagerKeyFirstUseDate:					return [self appReviewManagerKeyFirstUseDate];
-		case UAAppReviewManagerKeyUseCount:						return [self appReviewManagerKeyUseCount];
-		case UAAppReviewManagerKeySignificantEventCount:		return [self appReviewManagerKeySignificantEventCount];
-		case UAAppReviewManagerKeyCurrentVersion:				return [self appReviewManagerKeyCurrentVersion];
-		case UAAppReviewManagerKeyRatedCurrentVersion:			return [self appReviewManagerKeyRatedCurrentVersion];
-		case UAAppReviewManagerKeyRatedAnyVersion:				return [self appReviewManagerKeyRatedAnyVersion];
-		case UAAppReviewManagerKeyDeclinedToRate:				return [self appReviewManagerKeyDeclinedToRate];
-		case UAAppReviewManagerKeyReminderRequestDate:			return [self appReviewManagerKeyReminderRequestDate];
-		case UAAppReviewManagerKeyAppiraterMigrationCompleted:	return [self appReviewManagerKeyAppiraterMigrationCompleted];
+		case UAAppReviewManagerKeyFirstUseDate:                 return [self appReviewManagerKeyFirstUseDate];
+		case UAAppReviewManagerKeyUseCount:                     return [self appReviewManagerKeyUseCount];
+		case UAAppReviewManagerKeySignificantEventCount:        return [self appReviewManagerKeySignificantEventCount];
+		case UAAppReviewManagerKeyCurrentVersion:               return [self appReviewManagerKeyCurrentVersion];
+		case UAAppReviewManagerKeyRatedCurrentVersion:          return [self appReviewManagerKeyRatedCurrentVersion];
+		case UAAppReviewManagerKeyRatedAnyVersion:              return [self appReviewManagerKeyRatedAnyVersion];
+		case UAAppReviewManagerKeyDeclinedToRate:               return [self appReviewManagerKeyDeclinedToRate];
+		case UAAppReviewManagerKeyReminderRequestDate:          return [self appReviewManagerKeyReminderRequestDate];
+		case UAAppReviewManagerKeyAppiraterMigrationCompleted:  return [self appReviewManagerKeyAppiraterMigrationCompleted];
 		default:
 			return nil;
 	}
@@ -855,15 +855,15 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 
 - (void)setKey:(NSString *)key forUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType {
 	switch (keyType) {
-		case UAAppReviewManagerKeyFirstUseDate:					[self setAppReviewManagerKeyFirstUseDate:key]; break;
-		case UAAppReviewManagerKeyUseCount:						[self setAppReviewManagerKeyUseCount:key]; break;
-		case UAAppReviewManagerKeySignificantEventCount:		[self setAppReviewManagerKeySignificantEventCount:key]; break;
-		case UAAppReviewManagerKeyCurrentVersion:				[self setAppReviewManagerKeyCurrentVersion:key]; break;
-		case UAAppReviewManagerKeyRatedCurrentVersion:			[self setAppReviewManagerKeyRatedCurrentVersion:key]; break;
-		case UAAppReviewManagerKeyRatedAnyVersion:				[self setAppReviewManagerKeyRatedAnyVersion:key]; break;
-		case UAAppReviewManagerKeyDeclinedToRate:				[self setAppReviewManagerKeyDeclinedToRate:key]; break;
-		case UAAppReviewManagerKeyReminderRequestDate:			[self setAppReviewManagerKeyReminderRequestDate:key]; break;
-		case UAAppReviewManagerKeyAppiraterMigrationCompleted:	[self setAppReviewManagerKeyAppiraterMigrationCompleted:key]; break;
+		case UAAppReviewManagerKeyFirstUseDate:                 [self setAppReviewManagerKeyFirstUseDate:key]; break;
+		case UAAppReviewManagerKeyUseCount:                     [self setAppReviewManagerKeyUseCount:key]; break;
+		case UAAppReviewManagerKeySignificantEventCount:        [self setAppReviewManagerKeySignificantEventCount:key]; break;
+		case UAAppReviewManagerKeyCurrentVersion:               [self setAppReviewManagerKeyCurrentVersion:key]; break;
+		case UAAppReviewManagerKeyRatedCurrentVersion:          [self setAppReviewManagerKeyRatedCurrentVersion:key]; break;
+		case UAAppReviewManagerKeyRatedAnyVersion:              [self setAppReviewManagerKeyRatedAnyVersion:key]; break;
+		case UAAppReviewManagerKeyDeclinedToRate:               [self setAppReviewManagerKeyDeclinedToRate:key]; break;
+		case UAAppReviewManagerKeyReminderRequestDate:          [self setAppReviewManagerKeyReminderRequestDate:key]; break;
+		case UAAppReviewManagerKeyAppiraterMigrationCompleted:  [self setAppReviewManagerKeyAppiraterMigrationCompleted:key]; break;
 		default:
 			break;
 	}
@@ -898,14 +898,14 @@ static NSString * const reviewURLTemplate					= @"macappstore://itunes.apple.com
 		return;
 	
 	NSArray *oldKeys = @[ kAppiraterFirstUseDate,
-						  kAppiraterUseCount,
-						  kAppiraterSignificantEventCount,
-						  kAppiraterCurrentVersion,
-						  kAppiraterRatedCurrentVersion,
-						  kAppiraterRatedAnyVersion,
-						  kAppiraterDeclinedToRate,
-						  kAppiraterReminderRequestDate
-						];
+                          kAppiraterUseCount,
+                          kAppiraterSignificantEventCount,
+                          kAppiraterCurrentVersion,
+                          kAppiraterRatedCurrentVersion,
+                          kAppiraterRatedAnyVersion,
+                          kAppiraterDeclinedToRate,
+                          kAppiraterReminderRequestDate
+                        ];
 	for (NSString *oldKey in oldKeys) {
 		id val = [defaults objectForKey:oldKey];
 		if (val) {
