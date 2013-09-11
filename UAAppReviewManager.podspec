@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
   s.frameworks            = 'CFNetwork', 'SystemConfiguration', 'StoreKit'
   s.author       = { "Matt Coneybeare" => "coneybeare@urbanapps.com" }
   s.source       = { :git => "https://github.com/coneybeare/UAAppReviewManager.git", :tag => s.version.to_s }
-  s.source_files  = 'UAAppReviewManager.h', 'UAAppReviewManager.m'
+  s.source_files  = 'UAAppReviewManager.h,m'
   s.resource_bundles = { 'UAAppReviewManager' => ['Localization/*.lproj'] }
 end
