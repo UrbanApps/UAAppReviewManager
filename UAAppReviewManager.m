@@ -329,10 +329,6 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	[UAAppReviewManager setDaysBeforeReminding:(NSUInteger)value];
 }
 
-+ (void)setOpenInAppStore:(BOOL)openInAppStore {
-	[UAAppReviewManager setOpensInStoreKit:!openInAppStore];
-}
-
 + (void)setAlwaysUseMainBundle:(BOOL)useMainBundle {
 	[UAAppReviewManager setUseMainAppBundleForLocalizations:useMainBundle];
 }
@@ -345,6 +341,11 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	// No analagous method
 }
 
+#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
++ (void)setOpenInAppStore:(BOOL)openInAppStore {
+	[UAAppReviewManager setOpensInStoreKit:!openInAppStore];
+}
+#endif
 
 
 #pragma mark -

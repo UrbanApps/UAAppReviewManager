@@ -328,8 +328,10 @@ typedef void(^UAAppReviewManagerAnimateBlock)(UAAppReviewManager *, BOOL);
  */
 + (void)setAppId:(NSString*)appId __attribute__((deprecated("Use setAppID:")));
 + (void)setTimeBeforeReminding:(double)value __attribute__((deprecated("Use setDaysBeforeReminding:")));
-+ (void)setOpenInAppStore:(BOOL)openInAppStore __attribute__((deprecated("Use setOpensInStoreKit:")));
 + (void)setAlwaysUseMainBundle:(BOOL)useMainBundle __attribute__((deprecated("Use setUseMainAppBundleForLocalizations:")));
 + (void)appLaunched __attribute__((deprecated("Use appLaunched: instead")));
 + (void)setDelegate:(id)delegate __attribute__((deprecated("Use the block-based callbacks instead")));
+#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
++ (void)setOpenInAppStore:(BOOL)openInAppStore __attribute__((deprecated("Use setOpensInStoreKit:")));
+#endif
 @end
