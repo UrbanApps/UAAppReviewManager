@@ -1,1 +1,1 @@
-PODS_UAAPPREVIEWMANAGEREXAMPLEMAC_UAAPPREVIEWMANAGER_OTHER_LDFLAGS = -framework CFNetwork -framework StoreKit -framework SystemConfiguration
+PODS_UAAPPREVIEWMANAGEREXAMPLEMAC_UAAPPREVIEWMANAGER_OTHER_LDFLAGS = -framework CFNetwork -framework SystemConfiguration -weak_framework StoreKit

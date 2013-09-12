@@ -39,7 +39,7 @@ install_resource()
       ;;
   esac
 }
-install_resource "${TARGET_BUILD_DIR}/UAAppReviewManager.bundle"
+install_resource "${TARGET_BUILD_DIR}/UAAppReviewManager-OSX.bundle"
 
 rsync -avr --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 rm -f "$RESOURCES_TO_COPY"

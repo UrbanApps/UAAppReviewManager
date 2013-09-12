@@ -1,5 +1,5 @@
 PODS:
-  - UAAppReviewManager (0.1.0)
+  - UAAppReviewManager (0.1.1)
 
 DEPENDENCIES:
   - UAAppReviewManager (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  UAAppReviewManager: be9c03184bdb8e723ad0359ffe870dc12f4e8f23
+  UAAppReviewManager: 713d99d758c62ac34186aac1eb2348b082e9774b
 
 COCOAPODS: 0.24.0
