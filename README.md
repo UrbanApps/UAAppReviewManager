@@ -283,7 +283,39 @@ Once all these additions, alteration and features were added, it was too much to
 
 ##  Upgrading From Appirater
 
-The API for the methods is pretty close to Appirater, with a few enhancements. For many people, all that will be needed is a find/replace on `Appirater` to change it to `UAAppReviewManager`.
+The API for the methods is backwards close to Appirater, with a few exceptions (there are no delegate methods in UAAppReviewManager, only black calbacks). The first several releases of UAAppReviewManager will include the deprecated Appirater methods and naming scheme. Those methods, and their new counterparts are:
+
+````
+OLD: + (void)setAppId:(NSString*)appId __attribute__((deprecated("Use setAppID:")));
+NEW: + (void)setAppID:(NSString *)appID;
+```` 
+````
+OLD: + (void)setTimeBeforeReminding:(double)value __attribute__((deprecated("Use setDaysBeforeReminding:")));
+NEW: + (void)setDaysBeforeReminding:(NSUInteger)daysBeforeReminding;
+```` 
+````
+OLD: + (void)setAlwaysUseMainBundle:(BOOL)useMainBundle __attribute__((deprecated("Use setUseMainAppBundleForLocalizations:")));
+NEW: + (void)setUseMainAppBundleForLocalizations:(BOOL)useMainAppBundleForLocalizations;
+```` 
+````
+OLD: + (void)appLaunched __attribute__((deprecated("Use appLaunched: instead")));
+NEW: + (void)appLaunched:(BOOL)canShowPrompt;
+```` 
+````
+OLD: + (void)setDelegate:(id)delegate __attribute__((deprecated("Use the block-based callbacks instead")));
+NEW: + (void)setOnDidDisplayAlert:(UAAppReviewManagerBlock)didDisplayAlertBlock;
+NEW: + (void)setOnDeclineToRate:(UAAppReviewManagerBlock)didDeclineToRateBlock;
+NEW: + (void)setOnDidOptToRate:(UAAppReviewManagerBlock)didOptToRateBlock;
+NEW: + (void)setOnDidOptToRemindLater:(UAAppReviewManagerBlock)didOptToRemindLaterBlock;
+NEW: + (void)setOnWillPresentModalView:(UAAppReviewManagerAnimateBlock)willPresentModalViewBlock;
+NEW: + (void)setOnDidDismissModalView:(UAAppReviewManagerAnimateBlock)didDismissModalViewBlock;
+```` 
+````
+OLD: + (void)setOpenInAppStore:(BOOL)openInAppStore __attribute__((deprecated("Use setOpensInStoreKit:")));
+NEW: + (void)setOpensInStoreKit:(BOOL)opensInStoreKit;
+````
+
+For most people doing an upgrade, __all that will be needed for upgrading is a simple find/replace__ on `Appirater` to change it to `UAAppReviewManager`.
 
 UAAppReviewManager will automatically convert the NSUserDefault keys store under Appirater apps into the keys used by UAAppReviewManager. The values will transfer over, and the old, unused Appirater keys will be deleted from the settings.
 
