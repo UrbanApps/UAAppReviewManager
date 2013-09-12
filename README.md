@@ -190,6 +190,7 @@ The `opensInStoreKit` configuration determines if UAAppReviewManager will open t
 - The SKStoreProductViewController __does not allow the user to write a review__ (as of iOS 7 GM)!
 - iTunes affiliate codes do not work (as of the iOS 7 GM) inside SKStoreProductViewController.
 
+
     + (BOOL)opensInStoreKit;
     + (void)setOpensInStoreKit:(BOOL)opensInStoreKit;
 
