@@ -185,14 +185,15 @@ The `usesAnimation` configuration determines whether or not UAAppReviewManager u
     + (BOOL)usesAnimation;
     + (void)setUsesAnimation:(BOOL)usesAnimation;
 
-The `opensInStoreKit` configuration determines if UAAppReviewManager will open the App Store link inside the App using a `SKStoreProductViewController`. By default, this is `NO`. There are 2 reasons why the default is `NO`.
-
-- The SKStoreProductViewController __does not allow the user to write a review__ (as of iOS 7 GM)!
-- iTunes affiliate codes do not work (as of the iOS 7 GM) inside SKStoreProductViewController.
-
+The `opensInStoreKit` configuration determines if UAAppReviewManager will open the App Store link inside the App using a `SKStoreProductViewController`. By default, this is `NO`.
 
     + (BOOL)opensInStoreKit;
     + (void)setOpensInStoreKit:(BOOL)opensInStoreKit;
+    
+There are 2 reasons why the default is `NO`.
+
+- The SKStoreProductViewController __does not allow the user to write a review__ (as of iOS 7 GM)!
+- iTunes affiliate codes do not work (as of the iOS 7 GM) inside SKStoreProductViewController.
 
 ### UAAppReviewManager Methods
 
