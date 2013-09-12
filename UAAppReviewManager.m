@@ -19,7 +19,9 @@
 #define UAAppReviewManagerDebugLog( s, ... ) if (self.debugEnabled) { NSLog(@"[UAAppReviewManager] %@", [NSString stringWithFormat:(s), ##__VA_ARGS__]); }
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-#define UAAppReviewManagerSystemVersionLessThan(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define UAAppReviewManagerSystemVersionEqualTo(v)		([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define UAAppReviewManagerSystemVersionLessThan(v)		([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define UAAppReviewManagerSystemVersionGreaterThan(v)	([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
 #endif
 
 // For conversion purposes, we keep these here to help people migrate from Appirater to UAAppReviewManager
@@ -36,6 +38,7 @@ static NSString * const kAppiraterReminderRequestDate       = @"kAppiraterRemind
 // The templates used for opening the app store directly
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 static NSString * const reviewURLTemplate                   = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=APP_ID&at=AFFILIATE_CODE&ct=AFFILIATE_CAMPAIGN_CODE";
+static NSString * const reviewTemplateURLiOS7				= @"itms-apps://itunes.apple.com/LANGUAGE/app/idAPP_ID?at=AFFILIATE_CODE&ct=AFFILIATE_CAMPAIGN_CODE";
 #else
 static NSString * const reviewURLTemplate                   = @"macappstore://itunes.apple.com/us/app/thumbs/idAPP_ID?ls=1&mt=12&at=AFFILIATE_CODE&ct=AFFILIATE_CAMPAIGN_CODE";
 #endif
@@ -841,8 +844,6 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		
 #if TARGET_IPHONE_SIMULATOR
 		UAAppReviewManagerDebugLog(@"iTunes App Store is not supported on the iOS simulator. We would have went to %@.", [self reviewURLString]);
-		NSString *fakeURL = [[self reviewURLString] stringByReplacingOccurrencesOfString:@"itms-apps" withString:@"http"];
-		UAAppReviewManagerDebugLog(@"... You can try by copy/pasting %@ into a browser on your computer.", fakeURL);
 #else
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self reviewURLString]]];
 #endif
@@ -855,7 +856,16 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 }
 
 - (NSString *)reviewURLString {
-	NSString *reviewURL = [reviewURLTemplate stringByReplacingOccurrencesOfString:@"APP_ID" withString:[NSString stringWithFormat:@"%@", self.appID]];
+	NSString *template = reviewURLTemplate;
+#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+	if (UAAppReviewManagerSystemVersionEqualTo(@"7.0")) {
+		// The iOS 7 App Store app shows a blank page when opening the old links.
+		// If the old-style link ever works again, we can remove this.
+		NSString *localeString = [NSString stringWithFormat:@"%@", [[NSLocale preferredLanguages] objectAtIndex:0]];
+		template = [reviewTemplateURLiOS7 stringByReplacingOccurrencesOfString:@"LANGUAGE" withString:localeString];
+	}
+#endif
+	NSString *reviewURL = [template stringByReplacingOccurrencesOfString:@"APP_ID" withString:[NSString stringWithFormat:@"%@", self.appID]];
 	reviewURL = [reviewURL stringByReplacingOccurrencesOfString:@"AFFILIATE_CODE" withString:[NSString stringWithFormat:@"%@", self.affiliateCode]];
 	reviewURL = [reviewURL stringByReplacingOccurrencesOfString:@"AFFILIATE_CAMPAIGN_CODE" withString:[NSString stringWithFormat:@"%@", self.affiliateCampaignCode]];
 	return reviewURL;
