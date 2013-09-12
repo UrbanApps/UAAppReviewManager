@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "UAAppReviewManager"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "UAAppReviewManager is AppIRater all grown up. For iOS and OS X."
   s.description  = <<-DESC
                    UAAppReviewManager is AppIRater all grown up. It allows you to use it on iOS and Mac targets, allows affiliate links and it rewritten from the ground up for the modern app.
@@ -14,5 +14,6 @@ Pod::Spec.new do |s|
   s.frameworks            = 'CFNetwork', 'SystemConfiguration', 'StoreKit'
   s.source       = { :git => "https://github.com/UrbanApps/UAAppReviewManager.git", :tag => s.version.to_s }
   s.source_files  = "UAAppReviewManager.{h,m}"
-  s.resource_bundles = { 'UAAppReviewManager' => ['Localization/*.lproj'] }
+  s.ios.resource_bundles = { 'UAAppReviewManager-iOS' => ['Localization/*.lproj'] }
+  s.mac.resource_bundles = { 'UAAppReviewManager-iOS' => ['Localization/*.lproj'] }
 end

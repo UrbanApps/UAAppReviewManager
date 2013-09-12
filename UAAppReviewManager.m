@@ -988,8 +988,12 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
         bundle = [NSBundle mainBundle];
 		
     } else {
-        NSURL *appReviewManagerBundleURL = [[NSBundle mainBundle] URLForResource:@"UAAppReviewManager" withExtension:@"bundle"];
-		
+// These bundles are exactly the same, but splitting them by target makes Cocoapods happy.
+#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+        NSURL *appReviewManagerBundleURL = [[NSBundle mainBundle] URLForResource:@"UAAppReviewManager-iOS" withExtension:@"bundle"];
+#else
+		NSURL *appReviewManagerBundleURL = [[NSBundle mainBundle] URLForResource:@"UAAppReviewManager-OSX" withExtension:@"bundle"];
+#endif
         if (appReviewManagerBundleURL) {
             // UAAppReviewManager.bundle will likely only exist when used via CocoaPods
             bundle = [NSBundle bundleWithURL:appReviewManagerBundleURL];
