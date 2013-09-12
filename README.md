@@ -40,7 +40,7 @@ Then, simply place this line in any file that accesses UAAppReviewManager.
 
     #import <UAAppReviewManager.h>
 
-UAAppReviewManager works on iOS 6 and up, and OS X 10.7 and up.
+UAAppReviewManager works on iOS 5.1 and up, and OS X 10.7 and up.
    
 ## Usage
 
