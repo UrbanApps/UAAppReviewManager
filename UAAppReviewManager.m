@@ -38,7 +38,7 @@ static NSString * const kAppiraterReminderRequestDate       = @"kAppiraterRemind
 // The templates used for opening the app store directly
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 static NSString * const reviewURLTemplate                   = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=APP_ID&at=AFFILIATE_CODE&ct=AFFILIATE_CAMPAIGN_CODE";
-static NSString * const reviewTemplateURLiOS7				= @"itms-apps://itunes.apple.com/LANGUAGE/app/idAPP_ID?at=AFFILIATE_CODE&ct=AFFILIATE_CAMPAIGN_CODE";
+static NSString * const reviewURLTemplateiOS7				= @"itms-apps://itunes.apple.com/LANGUAGE/app/idAPP_ID?at=AFFILIATE_CODE&ct=AFFILIATE_CAMPAIGN_CODE";
 #else
 static NSString * const reviewURLTemplate                   = @"macappstore://itunes.apple.com/us/app/thumbs/idAPP_ID?ls=1&mt=12&at=AFFILIATE_CODE&ct=AFFILIATE_CAMPAIGN_CODE";
 #endif
@@ -862,7 +862,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		// The iOS 7 App Store app shows a blank page when opening the old links.
 		// If the old-style link ever works again, we can remove this.
 		NSString *localeString = [NSString stringWithFormat:@"%@", [[NSLocale preferredLanguages] objectAtIndex:0]];
-		template = [reviewTemplateURLiOS7 stringByReplacingOccurrencesOfString:@"LANGUAGE" withString:localeString];
+		template = [reviewURLTemplateiOS7 stringByReplacingOccurrencesOfString:@"LANGUAGE" withString:localeString];
 	}
 #endif
 	NSString *reviewURL = [template stringByReplacingOccurrencesOfString:@"APP_ID" withString:[NSString stringWithFormat:@"%@", self.appID]];
