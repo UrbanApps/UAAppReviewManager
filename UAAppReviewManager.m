@@ -681,7 +681,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
     [alertView show];
 	
     if (self.didDisplayAlertBlock)
-		self.didDisplayAlertBlock(self);
+		self.didDisplayAlertBlock();
 }
 
 #else
@@ -706,7 +706,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	}
 	
 	if (self.didDisplayAlertBlock)
-		self.didDisplayAlertBlock(self);
+		self.didDisplayAlertBlock();
 }
 
 #endif
@@ -751,7 +751,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		presentingController = [self topMostViewController:presentingController];
 		[presentingController dismissViewControllerAnimated:self.usesAnimation completion:^{
 			if (self.didDismissModalViewBlock)
-				self.didDismissModalViewBlock(self, usedAnimation);
+				self.didDismissModalViewBlock(usedAnimation);
 		}];
 		[self setCurrentStatusBarStyle:(UIStatusBarStyle)nil];
 	}
@@ -792,7 +792,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	[userDefaults setBool:YES forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyDeclinedToRate]];
 	[userDefaults synchronize];
 	if (self.didDeclineToRateBlock)
-		self.didDeclineToRateBlock(self);
+		self.didDeclineToRateBlock();
 }
 
 - (void)remindMeLater {
@@ -800,13 +800,13 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	[userDefaults setDouble:[[NSDate date] timeIntervalSince1970] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyReminderRequestDate]];
 	[userDefaults synchronize];
 	if (self.didOptToRemindLaterBlock)
-		self.didOptToRemindLaterBlock(self);
+		self.didOptToRemindLaterBlock();
 }
 
 - (void)_rateApp {
 	[UAAppReviewManager rateApp];
 	if (self.didOptToRateBlock)
-		self.didOptToRateBlock(self);
+		self.didOptToRateBlock();
 }
 
 - (void)rateApp {
@@ -825,7 +825,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		storeViewController.delegate = self;
 		
 		if (self.willPresentModalViewBlock)
-			self.willPresentModalViewBlock(self, self.usesAnimation);
+			self.willPresentModalViewBlock(self.usesAnimation);
 		
 		[[self getRootViewController] presentViewController:storeViewController animated:self.usesAnimation completion:^{
 			[self setModalPanelOpen:YES];

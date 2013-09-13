@@ -24,8 +24,8 @@ typedef enum {
 } UAAppReviewManagerKeyType;
 
 @class UAAppReviewManager;
-typedef void(^UAAppReviewManagerBlock)(UAAppReviewManager *);
-typedef void(^UAAppReviewManagerAnimateBlock)(UAAppReviewManager *, BOOL);
+typedef void(^UAAppReviewManagerBlock)(void);
+typedef void(^UAAppReviewManagerAnimateBlock)(BOOL);
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 
