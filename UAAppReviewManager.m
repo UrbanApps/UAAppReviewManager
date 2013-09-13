@@ -372,9 +372,9 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 - (NSString *)appName {
 	if (!_appName) {
 		// Check for a localized version of the CFBundleDisplayName
-		NSString *appName = [[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:@"CFBundleDisplayName"];
+		NSString *appName = [[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:(id)kCFBundleNameKey];
 		if (!appName)
-			appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
+			appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:(id)kCFBundleNameKey];
 		
 		self.appName = appName;
 	}
@@ -843,7 +843,10 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	} else {
 		
 #if TARGET_IPHONE_SIMULATOR
-		UAAppReviewManagerDebugLog(@"iTunes App Store is not supported on the iOS simulator. We would have went to %@.", [self reviewURLString]);
+		// It's ok to use NSLog here because TARGET_IPHONE_SIMULATOR will never be in the wild
+		NSLog(@"iTunes App Store is not supported on the iOS simulator. We would have went to %@.", [self reviewURLString]);
+		NSString *fakeURL = [[self reviewURLString] stringByReplacingOccurrencesOfString:@"itms-apps" withString:@"http"];
+		NSLog(@"... You can try by copy/pasting %@ into a browser on your computer.", fakeURL);
 #else
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self reviewURLString]]];
 #endif
