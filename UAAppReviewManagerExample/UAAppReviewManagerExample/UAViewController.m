@@ -93,22 +93,22 @@
 	
 	
 	// UAAppReviewManager is block based, so setup some blocks on events
-	[UAAppReviewManager setOnDeclineToRate:^(UAAppReviewManager *appReviewManager){
+	[UAAppReviewManager setOnDeclineToRate:^() {
 		NSLog(@"The user just declined to rate");
 	}];
-	[UAAppReviewManager setOnDidDisplayAlert:^(UAAppReviewManager *appReviewManager){
+	[UAAppReviewManager setOnDidDisplayAlert:^() {
 		NSLog(@"We just displayed the rating prompt");
 	}];
-	[UAAppReviewManager setOnDidOptToRate:^(UAAppReviewManager *appReviewManager){
+	[UAAppReviewManager setOnDidOptToRate:^() {
 		NSLog(@"The user just opted to rate");
 	}];
-	[UAAppReviewManager setOnDidOptToRemindLater:^(UAAppReviewManager *appReviewManager){
+	[UAAppReviewManager setOnDidOptToRemindLater:^() {
 		NSLog(@"The user just opted to remind later");
 	}];
-	[UAAppReviewManager setOnWillPresentModalView:^(UAAppReviewManager *appReviewManager, BOOL animated){
+	[UAAppReviewManager setOnWillPresentModalView:^(BOOL animated) {
 		NSLog(@"About to present the modal view: %@animated", (animated?@"":@"not "));
 	}];
-	[UAAppReviewManager setOnDidDismissModalView:^(UAAppReviewManager *appReviewManager, BOOL animated){
+	[UAAppReviewManager setOnDidDismissModalView:^(BOOL animated) {
 		NSLog(@"Just dismissed the modal view: %@animated", (animated?@"":@"not "));
 	}];
 	
