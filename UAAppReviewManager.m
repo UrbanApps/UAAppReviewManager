@@ -372,9 +372,9 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 - (NSString *)appName {
 	if (!_appName) {
 		// Check for a localized version of the CFBundleDisplayName
-		NSString *appName = [[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:(id)kCFBundleNameKey];
+		NSString *appName = [[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:@"CFBundleDisplayName"];
 		if (!appName)
-			appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:(id)kCFBundleNameKey];
+			appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
 		
 		self.appName = appName;
 	}
