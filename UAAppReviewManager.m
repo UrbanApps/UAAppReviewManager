@@ -19,9 +19,12 @@
 #define UAAppReviewManagerDebugLog( s, ... ) if (self.debugEnabled) { NSLog(@"[UAAppReviewManager] %@", [NSString stringWithFormat:(s), ##__VA_ARGS__]); }
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-#define UAAppReviewManagerSystemVersionEqualTo(v)		([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
-#define UAAppReviewManagerSystemVersionLessThan(v)		([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
-#define UAAppReviewManagerSystemVersionGreaterThan(v)	([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define UAAppReviewManagerSystemVersionEqualTo(v)               ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define UAAppReviewManagerSystemVersionLessThan(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define UAAppReviewManagerSystemVersionLessThanOrEqualTo(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+#define UAAppReviewManagerSystemVersionGreaterThan(v)           ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define UAAppReviewManagerSystemVersionGreaterThanOrEqualTo(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 #endif
 
 // For conversion purposes, we keep these here to help people migrate from Appirater to UAAppReviewManager
@@ -861,7 +864,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 - (NSString *)reviewURLString {
 	NSString *template = reviewURLTemplate;
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-	if (UAAppReviewManagerSystemVersionEqualTo(@"7.0")) {
+	if (UAAppReviewManagerSystemVersionGreaterThanOrEqualTo(@"7.0")) {
 		// The iOS 7 App Store app shows a blank page when opening the old links.
 		// If the old-style link ever works again, we can remove this.
 		NSString *localeString = [NSString stringWithFormat:@"%@", [[NSLocale preferredLanguages] objectAtIndex:0]];
