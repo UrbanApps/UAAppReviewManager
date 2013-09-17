@@ -84,6 +84,8 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 @property (nonatomic, strong) NSString *appReviewManagerKeyReminderRequestDate;
 @property (nonatomic, strong) NSString *appReviewManagerKeyAppiraterMigrationCompleted;
 
+@property (nonatomic, weak) NSObject<UAAppReviewManagerDefaultsObject> *userDefaultsObject;
+
 // Blocks
 @property (nonatomic, copy) UAAppReviewManagerBlock         didDisplayAlertBlock;
 @property (nonatomic, copy) UAAppReviewManagerBlock         didDeclineToRateBlock;
@@ -157,6 +159,14 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 + (void)setKey:(NSString *)key forUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType {
 	[[UAAppReviewManager defaultManager] setKey:key forUAAppReviewManagerKeyType:keyType];
+}
+
++ (NSObject<UAAppReviewManagerDefaultsObject> *)userDefaultsObject {
+	return [[UAAppReviewManager defaultManager] userDefaultsObject];
+}
+
++ (void)setUserDefaultsObject:(NSObject<UAAppReviewManagerDefaultsObject> *)userDefaultsObject {
+	[[UAAppReviewManager defaultManager] setUserDefaultsObject:userDefaultsObject];
 }
 
 + (NSString *)appID {
@@ -561,13 +571,12 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleVersionKey];
 	
 	// Get the version number that we've been tracking thus far
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSString *currentVersionKey = [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyCurrentVersion];
-	NSString *trackingVersion = [defaults stringForKey:currentVersionKey];
+	NSString *trackingVersion = [self.userDefaultsObject objectForKey:currentVersionKey];
 	// New install, or changed keys
 	if (!trackingVersion) {
 		trackingVersion = currentVersion;
-		[defaults setObject:currentVersion forKey:currentVersionKey];
+		[self.userDefaultsObject setObject:currentVersion forKey:currentVersionKey];
 	}
 	
 	UAAppReviewManagerDebugLog(@"Tracking version: %@", trackingVersion);
@@ -575,32 +584,32 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	if ([trackingVersion isEqualToString:currentVersion]) {
 		// Check if the first use date has been set. if not, set it.
 		NSString *firstUseDateKey = [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyFirstUseDate];
-		NSTimeInterval timeInterval = [defaults doubleForKey:firstUseDateKey];
+		NSTimeInterval timeInterval = [[self.userDefaultsObject objectForKey:firstUseDateKey] doubleValue];
 		if (0 == timeInterval) {
 			timeInterval = [[NSDate date] timeIntervalSince1970];
-			[defaults setDouble:timeInterval forKey:firstUseDateKey];
+			[self.userDefaultsObject setObject:[NSNumber numberWithDouble:timeInterval] forKey:firstUseDateKey];
 		}
 		
 		// Increment the key's count
-		NSInteger incrementKeyCount = [defaults integerForKey:incrementKey];
+		NSInteger incrementKeyCount = [[self.userDefaultsObject objectForKey:incrementKey] integerValue];
 		incrementKeyCount++;
-		[defaults setInteger:incrementKeyCount forKey:incrementKey];
+		[self.userDefaultsObject setObject:[NSNumber numberWithInteger:incrementKeyCount] forKey:incrementKey];
 
 		
 		UAAppReviewManagerDebugLog(@"%@ count: %ld", incrementKey, (long)incrementKeyCount);
 	
 	} else if (self.tracksNewVersions) {
 		// it's a new version of the app, so restart tracking
-		[defaults setObject:currentVersion forKey:currentVersionKey];
-		[defaults setDouble:[[NSDate date] timeIntervalSince1970] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyFirstUseDate]];
-		[defaults setInteger:1 forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyUseCount]];
-		[defaults setInteger:0 forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeySignificantEventCount]];
-		[defaults setBool:NO forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedCurrentVersion]];
-		[defaults setBool:NO forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyDeclinedToRate]];
-		[defaults setDouble:0 forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyReminderRequestDate]];
+		[self.userDefaultsObject setObject:currentVersion forKey:currentVersionKey];
+		[self.userDefaultsObject setObject:[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyFirstUseDate]];
+		[self.userDefaultsObject setObject:[NSNumber numberWithInteger:1] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyUseCount]];
+		[self.userDefaultsObject setObject:[NSNumber numberWithInteger:0] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeySignificantEventCount]];
+		[self.userDefaultsObject setObject:[NSNumber numberWithBool:NO] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedCurrentVersion]];
+		[self.userDefaultsObject setObject:[NSNumber numberWithBool:NO] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyDeclinedToRate]];
+		[self.userDefaultsObject setObject:[NSNumber numberWithDouble:0] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyReminderRequestDate]];
 	}
 	
-	[defaults synchronize];
+	[self.userDefaultsObject synchronize];
 }
 
 - (void)showPromptIfNecessary:(BOOL)canPromptForRating {
@@ -624,22 +633,20 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	
 	if (!self.appID)
 		return NO;
-	
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	
-	NSDate *dateOfFirstLaunch = [NSDate dateWithTimeIntervalSince1970:[defaults doubleForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyFirstUseDate]]];
+		
+	NSDate *dateOfFirstLaunch = [NSDate dateWithTimeIntervalSince1970:[[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyFirstUseDate]] doubleValue]];
 	NSTimeInterval timeSinceFirstLaunch = [[NSDate date] timeIntervalSinceDate:dateOfFirstLaunch];
 	NSTimeInterval timeUntilRate = 60 * 60 * 24 * self.daysUntilPrompt;
 	if (timeSinceFirstLaunch < timeUntilRate)
 		return NO;
 	
 	// check if the app has been used enough
-	NSInteger useCount = [defaults integerForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyUseCount]];
+	NSInteger useCount = [self.userDefaultsObject objectForKey:[[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyUseCount] integerValue]];
 	if (useCount <= self.usesUntilPrompt)
 		return NO;
 	
 	// check if the user has done enough significant events
-	NSInteger significantEventCount = [defaults integerForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeySignificantEventCount]];
+	NSInteger significantEventCount = [[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeySignificantEventCount]] integerValue];
 	if (significantEventCount < self.significantEventsUntilPrompt)
 		return NO;
 	
@@ -652,25 +659,25 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		return NO;
 	
 	// if the user wanted to be reminded later, has enough time passed?
-	NSDate *reminderRequestDate = [NSDate dateWithTimeIntervalSince1970:[defaults doubleForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyReminderRequestDate]]];
+	NSDate *reminderRequestDate = [NSDate dateWithTimeIntervalSince1970:[[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyReminderRequestDate]] doubleValue]];
 	NSTimeInterval timeSinceReminderRequest = [[NSDate date] timeIntervalSinceDate:reminderRequestDate];
 	NSTimeInterval timeUntilReminder = 60 * 60 * 24 * self.daysBeforeReminding;
 	if (timeSinceReminderRequest < timeUntilReminder)
 		return NO;
 	
 	// if we have a global set to not show if the end-user has already rated once, and the developer has not opted out of displaying on minor updates
-	if (!self.shouldPromptIfRated && [defaults boolForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedAnyVersion]])
+	if (!self.shouldPromptIfRated && [[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedAnyVersion]] boo])
 		return NO;
 	
 	return YES;
 }
 
 - (BOOL)userHasDeclinedToRate {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyDeclinedToRate]];
+    return [ boolForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyDeclinedToRate]];
 }
 
 - (BOOL)userHasRatedCurrentVersion {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedCurrentVersion]];
+    return [ boolForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedCurrentVersion]];
 }
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
@@ -791,17 +798,15 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 #endif
 
 - (void)dontRate {
-	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-	[userDefaults setBool:YES forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyDeclinedToRate]];
-	[userDefaults synchronize];
+	[self.userDefaultsObject setObject:[NSNumber numberWithBool:YES] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyDeclinedToRate]];
+	[self.userDefaultsObject synchronize];
 	if (self.didDeclineToRateBlock)
 		self.didDeclineToRateBlock();
 }
 
 - (void)remindMeLater {
-	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-	[userDefaults setDouble:[[NSDate date] timeIntervalSince1970] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyReminderRequestDate]];
-	[userDefaults synchronize];
+	[self.userDefaultsObject setObject:[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyReminderRequestDate]];
+	[self.userDefaultsObject synchronize];
 	if (self.didOptToRemindLaterBlock)
 		self.didOptToRemindLaterBlock();
 }
@@ -813,10 +818,10 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 }
 
 - (void)rateApp {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setBool:YES forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyCurrentVersion]];
-	[defaults setBool:YES forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedAnyVersion]];
-	[defaults synchronize];
+
+	[self.userDefaultsObject setObject:[NSNumber numberWithBool:YES] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyCurrentVersion]];
+	[self.userDefaultsObject setObject:[NSNumber numberWithBool:YES] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedAnyVersion]];
+	[self.userDefaultsObject synchronize];
 	
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 	//Use the in-app StoreKit view if set, available (iOS 6) and imported This works in the simulator.
@@ -935,9 +940,9 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 }
 
 - (void)migrateAppiraterKeysIfNecessary {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
 	NSString *appiraterAlreadyCompletedKey = [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyAppiraterMigrationCompleted];
-	BOOL appiraterMigrationAlreadyCompleted = [defaults boolForKey:appiraterAlreadyCompletedKey];
+	BOOL appiraterMigrationAlreadyCompleted = [[self.userDefaultsObject objectForKey:appiraterAlreadyCompletedKey] boolValue];
 	if (appiraterMigrationAlreadyCompleted)
 		return;
 	
@@ -951,16 +956,16 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
                           kAppiraterReminderRequestDate
                         ];
 	for (NSString *oldKey in oldKeys) {
-		id val = [defaults objectForKey:oldKey];
+		id val = [self.userDefaultsObject objectForKey:oldKey];
 		if (val) {
 			NSString *newKey = [self appReviewManagerKeyForAppiraterKey:oldKey];
-			[defaults setObject:val forKey:newKey];
-			[defaults removeObjectForKey:oldKey];
+			[self.userDefaultsObject setObject:val forKey:newKey];
+			[self.userDefaultsObject removeObjectForKey:oldKey];
 		}
 	}
 	
-	[defaults setBool:YES forKey:appiraterAlreadyCompletedKey];
-	[defaults synchronize];
+	[self.userDefaultsObject setObject:[NSNumber numberWithBool:YES] forKey:appiraterAlreadyCompletedKey];
+	[self.userDefaultsObject synchronize];
 }
 
 
@@ -1090,8 +1095,8 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	static dispatch_once_t singletonToken;
 	dispatch_once(&singletonToken, ^{
 		defaultManager = [[UAAppReviewManager alloc] init];
-		[defaultManager setupNotifications];
 		[defaultManager setDefaultValues];
+		[defaultManager setupNotifications];
 	});
 	return defaultManager;
 }
@@ -1125,11 +1130,11 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	// It is my affiliate code. It is better that somebody's code is used rather than nobody's.
 	self.affiliateCode = @"11l7j9";
 	self.affiliateCampaignCode = @"UAAppReviewManager";
+	self.userDefaultsObject = [NSUserDefaults standardUserDefaults];
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 	self.usesAnimation = YES;
 	self.opensInStoreKit = NO;
 #endif
-
 }
 
 @end

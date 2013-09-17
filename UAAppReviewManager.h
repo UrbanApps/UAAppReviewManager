@@ -27,6 +27,14 @@ typedef enum {
 typedef void(^UAAppReviewManagerBlock)(void);
 typedef void(^UAAppReviewManagerAnimateBlock)(BOOL);
 
+@protocol UAAppReviewManagerDefaultsObject <NSObject>
+@required
+- (id)objectForKey:(NSString *)defaultName;
+- (void)setObject:(id)value forKey:(NSString *)defaultName;
+- (void)removeObjectForKey:(NSString *)defaultName;
+- (BOOL)synchronize;
+@end
+
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 
 // iOS Interface
@@ -94,11 +102,19 @@ typedef void(^UAAppReviewManagerAnimateBlock)(BOOL);
 + (void)setRemindButtonTitle:(NSString *)remindButtonTitle;
 
 /*
- * Get/Set the NSUserDefaultKeys that store the usage data for UAAppReviewManager
+ * Get/Set the NSUserDefault keys that store the usage data for UAAppReviewManager
  * Default values are in the form of "UAAppReviewManagerKey<Setting>"
  */
 + (NSString *)keyForUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType;
 + (void)setKey:(NSString *)key forUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType;
+
+/*
+ * Get/Set the object that stores the usage data for UAAppReviewManager
+ * value is weakly referenced, so ensure it's lifecycle is managed properly.
+ * Default values is [NSUserDefaults standardUserDefaults]
+ */
++ (NSObject<UAAppReviewManagerDefaultsObject> *)userDefaultsObject;
++ (void)setUserDefaultsObject:(NSObject<UAAppReviewManagerDefaultsObject> *)userDefaultsObject;
 
 /*
  * Users will need to have the same version of your app installed for this many

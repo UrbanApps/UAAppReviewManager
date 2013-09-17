@@ -34,7 +34,7 @@ UAAppReviewManager is clean code, well documented and well organized. It is easy
 
 Installation is made simple with [Cocoapods](http://cocoapods.org/). If you want to do it the old fashioned way, just add `UAAppReviewManager.h`, `UAAppReviewManager.m` and the Localization folder into your project.
 
-    pod 'UAAppReviewManager', '~> 0.1.1'
+    pod 'UAAppReviewManager', '~> 0.1.2'
 
 Then, simply place this line in any file that accesses UAAppReviewManager.
 
@@ -246,13 +246,36 @@ UAAppReviewManager uses blocks instead of delegate methods for callbacks. Defaul
     + (void)setOnDidDismissModalView:(UAAppReviewManagerAnimateBlock)didDismissModalViewBlock;
 
 
-### NSUserDefaults Keys
+### NSUserDefaults and Keys
 
 UAAppReviewManager has sensible defaults for the `NSUserDefaults` keys it uses, but you can customize that here if you want. Get/Set the `NSUserDefaults` Keys that store the usage data for UAAppReviewManager. Default values are all in the form of "UAAppReviewManagerKey<Setting>"
 
     + (NSString *)keyForUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType;
     + (void)setKey:(NSString *)key forUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType;
 
+
+You don't have to use NSUserDefaults as your Key/Value store, though UAAppReviewManager defaults to using it. If you want to sync your rating and usage stats across all of your User's devices, you may want to use the NSUbiquitousKeyValueStore instead. This will ensure that the user won't be prompted to rate the same version of the same app on separate devices.
+
+    + (NSObject<UAAppReviewManagerDefaultsObject> *)userDefaultsObject;
+    + (void)setUserDefaultsObject:(NSObject<UAAppReviewManagerDefaultsObject> *)userDefaultsObject;
+
+**IMPORTANT: The `userDefaultsObject` is a *weak* reference so ensure you properly maintain it's lifecycle on your own.**
+
+
+The `userDefaultsObject` can be any NSObject that responds to the `UAAppReviewManagerDefaultsObject` protocol:
+
+    @protocol UAAppReviewManagerDefaultsObject <NSObject>
+    @required
+        - (id)objectForKey:(NSString *)defaultName;
+        - (void)setObject:(id)value forKey:(NSString *)defaultName;
+        - (void)removeObjectForKey:(NSString *)defaultName;
+        - (BOOL)synchronize;
+    @end
+
+So, to use it with iCloud and the `NSUbiquitousKeyValueStore`, set it up like so:
+
+    [UAAppReviewManager setUserDefaultsObject:(NSObject<UAAppReviewManagerDefaultsObject> *)[NSUbiquitousKeyValueStore defaultStore]];
+    
 
 ### Configuration/Usage Examples
 
