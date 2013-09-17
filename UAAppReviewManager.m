@@ -641,7 +641,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		return NO;
 	
 	// check if the app has been used enough
-	NSInteger useCount = [self.userDefaultsObject objectForKey:[[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyUseCount] integerValue]];
+	NSInteger useCount = [[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyUseCount]] integerValue];
 	if (useCount <= self.usesUntilPrompt)
 		return NO;
 	
@@ -666,18 +666,18 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		return NO;
 	
 	// if we have a global set to not show if the end-user has already rated once, and the developer has not opted out of displaying on minor updates
-	if (!self.shouldPromptIfRated && [[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedAnyVersion]] boo])
+	if (!self.shouldPromptIfRated && [[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedAnyVersion]] boolValue])
 		return NO;
 	
 	return YES;
 }
 
 - (BOOL)userHasDeclinedToRate {
-    return [ boolForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyDeclinedToRate]];
+    return [[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyDeclinedToRate]] boolValue];
 }
 
 - (BOOL)userHasRatedCurrentVersion {
-    return [ boolForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedCurrentVersion]];
+    return [[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedCurrentVersion]] boolValue];
 }
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
@@ -1130,7 +1130,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	// It is my affiliate code. It is better that somebody's code is used rather than nobody's.
 	self.affiliateCode = @"11l7j9";
 	self.affiliateCampaignCode = @"UAAppReviewManager";
-	self.userDefaultsObject = [NSUserDefaults standardUserDefaults];
+	self.userDefaultsObject = (NSObject<UAAppReviewManagerDefaultsObject> *)[NSUserDefaults standardUserDefaults];
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 	self.usesAnimation = YES;
 	self.opensInStoreKit = NO;
