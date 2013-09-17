@@ -1,5 +1,4 @@
 # UAAppReviewManager Changelog
--
 
 ### 0.1.3
  - Added the Changelog
