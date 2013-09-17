@@ -21,6 +21,10 @@ UAAppReviewManager is fully configurable, even at runtime. This means that the p
 
 If you choose to use the default UAAppReviewManager strings for your app, you will get the added benefit of localization in 27 languages. Otherwise, customization is easy, and overriding the localization strings is a piece of cake, simply by including your own strings files and letting UAAppReviewManager know.
 
+##### Prevent Rating Prompts on Different Devices
+
+If your users have the same app, same version installed on two different devices, you really shouldn't pop up the same rating prompt on each one. UAAppReviewManager allows you to optionally keep your user's usage stats in the `NSUbiquitousKeyValueStore`, or any other store you want to keep track of syncing yourself to prevent dual prompts.
+
 ##### iTunes Affiliate Codes
 
 If you are an iTunes Affiliate, you can easily setup UAAppReviewManager to use your code and campaign. Full disclosure: If you aren't an iTunes Affiliate, the default code used in the app is the author's. It is better to have somebody's code rather than nobody's, so please leave it at the default setting if you aren't going to set one yourself. Think of it as a tiny tip for creating and open-sourcing UAAppReviewManager.
