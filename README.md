@@ -347,6 +347,7 @@ UAAppReviewManager will automatically convert the NSUserDefault keys store under
 
 There are some ideas we have for future versions of UAAppReviewManager. Feel free to fork/implement if you would like to expedite the process.
 
+- ~~Add the ability to sync the usage stats via iCloud~~ **Added in [0.1.3](https://github.com/UrbanApps/UAAppReviewManager/releases/tag/0.1.3)**
 - Add the ability to present the prompt using a custom class other than a `UIAlertView` or `NSAlert`
 - Add additional localizations
 -  [Your idea](https://github.com/coneybeare/UAAppReviewManager/issues).
