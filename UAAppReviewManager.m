@@ -578,7 +578,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	NSString *currentVersionKey = [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyCurrentVersion];
 	NSString *trackingVersion = [self.userDefaultsObject objectForKey:currentVersionKey];
 	// New install, or changed keys
-	if (!trackingVersion) {
+	if (!trackingVersion || ![trackingVersion isKindOfClass:[NSString class]]) {
 		trackingVersion = currentVersion;
 		[self.userDefaultsObject setObject:currentVersion forKey:currentVersionKey];
 	}
