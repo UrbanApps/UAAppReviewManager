@@ -295,6 +295,7 @@ For more information on how to use and setup UAAppReviewManager, please see the 
 - Utilizes the ancient Delegate pattern for callbacks in the age of Blocks
 - Is not able to be disabled on minor patch updates
 - No iTunes affiliate support
+- No way to prevent dual prompts for the same app and version on two separate devices
 
 I started addressing these issues in a fork of Appirater, but quickly realized that the entire project could be re-written in a better way to address the above points. UAAppReviewManager is:
 
@@ -304,6 +305,7 @@ I started addressing these issues in a fork of Appirater, but quickly realized t
 - Uses Blocks for all event callbacks and notifications.
 - Allows developers to disable the prompt easily on minor updates
 - Allows iTunes affiliate codes to be used.
+- Allows you to prevent prompts for the same app and version on two separate devices
 
 Once all these additions, alteration and features were added, it was too much to push back up to Appirater, so UAAppReviewManager was born. That being said, some of the existing code logic, methods, and language translations (27 of them!) are used from [Appirater](https://github.com/arashpayan/appirater) and due credit needs to be given. UAAppReviewManager could not have existed without it. Thank you!
 
