@@ -387,7 +387,11 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		// Check for a localized version of the CFBundleDisplayName
 		NSString *appName = [[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:@"CFBundleDisplayName"];
 		if (!appName)
+			appName = [[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:(id)kCFBundleNameKey];
+		if (!appName)
 			appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
+		if (!appName)
+			appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:(id)kCFBundleNameKey];
 		
 		self.appName = appName;
 	}
@@ -819,7 +823,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 - (void)rateApp {
 
-	[self.userDefaultsObject setObject:[NSNumber numberWithBool:YES] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyCurrentVersion]];
+	[self.userDefaultsObject setObject:[NSNumber numberWithBool:YES] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedCurrentVersion]];
 	[self.userDefaultsObject setObject:[NSNumber numberWithBool:YES] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedAnyVersion]];
 	[self.userDefaultsObject synchronize];
 	
@@ -1069,11 +1073,13 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	if (self.ratingAlert.visible) {
 		UAAppReviewManagerDebugLog(@"Hiding Alert");
 		[self.ratingAlert dismissWithClickedButtonIndex:-1 animated:NO];
-	}
 #else
-	UAAppReviewManagerDebugLog(@"Hiding Alert");
-	[NSApp endSheet:[[NSApplication sharedApplication] keyWindow]];
+	if (self.ratingAlert) {
+		UAAppReviewManagerDebugLog(@"Hiding Alert");
+		[NSApp endSheet:[[NSApplication sharedApplication] keyWindow]];
 #endif
+		self.ratingAlert = nil;
+	}
 }
 
 - (void)appWillResignActive {
