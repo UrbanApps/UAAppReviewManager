@@ -843,12 +843,17 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 			[self setModalPanelOpen:YES];
 			//Temporarily use a  status bar to match the StoreKit view.
 			[self setCurrentStatusBarStyle:[UIApplication sharedApplication].statusBarStyle];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
 			if (UAAppReviewManagerSystemVersionLessThan(@"7.0")) {
 				// UIStatusBarStyleBlackOpaque is 2
 				[[UIApplication sharedApplication]setStatusBarStyle:2 animated:self.usesAnimation];
 			} else {
-				[[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault animated:self.usesAnimation];	
+				[[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault animated:self.usesAnimation];
 			}
+#else
+			[[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:self.usesAnimation];
+#endif
+			
 		}];
 	
 	//Use the standard openUrl method
