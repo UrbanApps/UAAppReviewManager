@@ -1,7 +1,8 @@
 # UAAppReviewManager Changelog
 
-### 0.1.4 (Unreleased)
+### 0.1.4
  - Allow compilation in Xcode 4
+ - Remove LANGUAGE placeholder from iOS 7 template URL, allowing AppStore.app to decide
 
 ### 0.1.3
  - Added the Changelog
