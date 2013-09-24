@@ -110,7 +110,7 @@ typedef void(^UAAppReviewManagerAnimateBlock)(BOOL);
 
 /*
  * Get/Set the prefix to the NSUserDefault keys that store the usage data for UAAppReviewManager
- * Default value is the App Name, and it is prepended to the keys for key type, above
+ * Default value is the App ID, and it is prepended to the keys for key type, above
  * This prevents different apps using a shared Key/Value store from overwriting each other.
  */
 + (NSString *)keyPrefix;

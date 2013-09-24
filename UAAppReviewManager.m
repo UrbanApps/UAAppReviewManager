@@ -958,7 +958,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 - (NSString *)keyPrefix {
 	if (!_keyPrefix) {
-		self.keyPrefix = self.appName;
+		self.keyPrefix = [self.appID stringByAppendingString:@"_"];
 	}
 	return _keyPrefix;
 }

@@ -252,7 +252,7 @@ UAAppReviewManager uses blocks instead of delegate methods for callbacks. Defaul
 
 ### NSUserDefaults and Keys
 
-UAAppReviewManager has sensible defaults for the `NSUserDefaults` keys it uses, but you can customize that here if you want. Get/Set the `NSUserDefaults` Keys that store the usage data for UAAppReviewManager. Default values are all in the form of "UAAppReviewManagerKey<Setting>"
+UAAppReviewManager has sensible defaults for the `NSUserDefaults` keys it uses, but you can customize that here if you want. Get/Set the `NSUserDefaults` Keys that store the usage data for UAAppReviewManager. Default values are all in the form of "<keyPrefix>UAAppReviewManagerKey<Setting>"
 
     + (NSString *)keyForUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType;
     + (void)setKey:(NSString *)key forUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType;
@@ -279,6 +279,12 @@ The `userDefaultsObject` can be any NSObject that responds to the `UAAppReviewMa
 So, to use it with iCloud and the `NSUbiquitousKeyValueStore`, set it up like so:
 
     [UAAppReviewManager setUserDefaultsObject:(NSObject<UAAppReviewManagerDefaultsObject> *)[NSUbiquitousKeyValueStore defaultStore]];
+    
+
+You can get/set the `keyPrefix` to the keys above that store the usage data for UAAppReviewManager. The default value  is the `AppID`, and it is prepended to the keys for key type. Setting a `keyPrefix` prevents different apps using a shared Key/Value store from overwriting each other.
+
+    + (NSString *)keyPrefix;
+    + (void)setKeyPrefix:(NSString *)keyPrefix;
     
 
 ### Configuration/Usage Examples
