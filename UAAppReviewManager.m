@@ -960,7 +960,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	if (!keyPrefix) // prevent nil prefixes
 		keyPrefix = @"";
 	
-	_keyPrefix = keyPrefix
+	_keyPrefix = keyPrefix;
 }
 
 - (void)migrateAppiraterKeysIfNecessary {
