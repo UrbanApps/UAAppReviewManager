@@ -109,6 +109,13 @@ typedef void(^UAAppReviewManagerAnimateBlock)(BOOL);
 + (void)setKey:(NSString *)key forUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType;
 
 /*
+ * Get/Set the prefix to the NSUserDefault keys that store the usage data for UAAppReviewManager
+ * Default value is @"", and is prepended to the keys for key type, above
+ */
++ (NSString *)keyPrefix;
++ (void)setKeyPrefix:(NSString *)keyPrefix;
+
+/*
  * Get/Set the object that stores the usage data for UAAppReviewManager
  * value is weakly referenced, so ensure it's lifecycle is managed properly.
  * Default values is [NSUserDefaults standardUserDefaults]

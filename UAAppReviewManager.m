@@ -84,6 +84,8 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 @property (nonatomic, strong) NSString *appReviewManagerKeyReminderRequestDate;
 @property (nonatomic, strong) NSString *appReviewManagerKeyAppiraterMigrationCompleted;
 
+@property (nonatomic, strong) NSString *keyPrefix;
+
 @property (nonatomic, weak) NSObject<UAAppReviewManagerDefaultsObject> *userDefaultsObject;
 
 // Blocks
@@ -160,6 +162,15 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 + (void)setKey:(NSString *)key forUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType {
 	[[UAAppReviewManager defaultManager] setKey:key forUAAppReviewManagerKeyType:keyType];
 }
+
++ (NSString *)keyPrefix {
+	return [[UAAppReviewManager defaultManager] keyPrefix];
+}
+
++ (void)setKeyPrefix:(NSString *)keyPrefix {
+	[[UAAppReviewManager defaultManager] setKeyPrefix:keyPrefix];
+}
+
 
 + (NSObject<UAAppReviewManagerDefaultsObject> *)userDefaultsObject {
 	return [[UAAppReviewManager defaultManager] userDefaultsObject];
@@ -894,15 +905,15 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 - (NSString *)keyForUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType {
 	switch (keyType) {
-		case UAAppReviewManagerKeyFirstUseDate:                 return [self appReviewManagerKeyFirstUseDate];
-		case UAAppReviewManagerKeyUseCount:                     return [self appReviewManagerKeyUseCount];
-		case UAAppReviewManagerKeySignificantEventCount:        return [self appReviewManagerKeySignificantEventCount];
-		case UAAppReviewManagerKeyCurrentVersion:               return [self appReviewManagerKeyCurrentVersion];
-		case UAAppReviewManagerKeyRatedCurrentVersion:          return [self appReviewManagerKeyRatedCurrentVersion];
-		case UAAppReviewManagerKeyRatedAnyVersion:              return [self appReviewManagerKeyRatedAnyVersion];
-		case UAAppReviewManagerKeyDeclinedToRate:               return [self appReviewManagerKeyDeclinedToRate];
-		case UAAppReviewManagerKeyReminderRequestDate:          return [self appReviewManagerKeyReminderRequestDate];
-		case UAAppReviewManagerKeyAppiraterMigrationCompleted:  return [self appReviewManagerKeyAppiraterMigrationCompleted];
+		case UAAppReviewManagerKeyFirstUseDate:                 return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyFirstUseDate]];
+		case UAAppReviewManagerKeyUseCount:                     return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyUseCount]];
+		case UAAppReviewManagerKeySignificantEventCount:        return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeySignificantEventCount]];
+		case UAAppReviewManagerKeyCurrentVersion:               return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyCurrentVersion]];
+		case UAAppReviewManagerKeyRatedCurrentVersion:          return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyRatedCurrentVersion]];
+		case UAAppReviewManagerKeyRatedAnyVersion:              return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyRatedAnyVersion]];
+		case UAAppReviewManagerKeyDeclinedToRate:               return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyDeclinedToRate]];
+		case UAAppReviewManagerKeyReminderRequestDate:          return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyReminderRequestDate]];
+		case UAAppReviewManagerKeyAppiraterMigrationCompleted:  return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyAppiraterMigrationCompleted]];
 		default:
 			return nil;
 	}
@@ -943,6 +954,13 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		return [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyReminderRequestDate];
 	else
 		return nil;
+}
+
+- (void)setKeyPrefix:(NSString *)keyPrefix {
+	if (!keyPrefix) // prevent nil prefixes
+		keyPrefix = @"";
+	
+	_keyPrefix = keyPrefix
 }
 
 - (void)migrateAppiraterKeysIfNecessary {
@@ -1138,6 +1156,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	// It is my affiliate code. It is better that somebody's code is used rather than nobody's.
 	self.affiliateCode = @"11l7j9";
 	self.affiliateCampaignCode = @"UAAppReviewManager";
+	self.keyPrefix = @"";
 	self.userDefaultsObject = (NSObject<UAAppReviewManagerDefaultsObject> *)[NSUserDefaults standardUserDefaults];
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 	self.usesAnimation = YES;
