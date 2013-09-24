@@ -956,11 +956,11 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		return nil;
 }
 
-- (void)setKeyPrefix:(NSString *)keyPrefix {
-	if (!keyPrefix) // prevent nil prefixes
-		keyPrefix = @"";
-	
-	_keyPrefix = keyPrefix;
+- (NSString *)keyPrefix {
+	if (!_keyPrefix) {
+		self.keyPrefix = self.appName;
+	}
+	return _keyPrefix;
 }
 
 - (void)migrateAppiraterKeysIfNecessary {
@@ -1156,7 +1156,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	// It is my affiliate code. It is better that somebody's code is used rather than nobody's.
 	self.affiliateCode = @"11l7j9";
 	self.affiliateCampaignCode = @"UAAppReviewManager";
-	self.keyPrefix = @"";
+	self.keyPrefix = nil; // gets set as AppName
 	self.userDefaultsObject = (NSObject<UAAppReviewManagerDefaultsObject> *)[NSUserDefaults standardUserDefaults];
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 	self.usesAnimation = YES;
