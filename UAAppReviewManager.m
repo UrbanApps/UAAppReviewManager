@@ -307,7 +307,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 }
 
 + (NSString *)reviewURLString {
-	[[UAAppReviewManager defaultManager] reviewURLString];
+	return [[UAAppReviewManager defaultManager] reviewURLString];
 }
 
 + (void)rateApp {
@@ -538,7 +538,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 #pragma mark - PRIVATE Methods
 
-- (BOOL)appLaunched:(BOOL)canPromptForRating {
+- (void)appLaunched:(BOOL)canPromptForRating {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
 		[self incrementAndRate:canPromptForRating];
 	});
@@ -844,7 +844,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	
 		SKStoreProductViewController *storeViewController = [[SKStoreProductViewController alloc] init];
 		NSNumber *appId = [NSNumber numberWithInteger:self.appID.integerValue];
-		[storeViewController loadProductWithParameters:@{ SKStoreProductParameterITunesItemIdentifier : self.appID } completionBlock:nil];
+		[storeViewController loadProductWithParameters:@{ SKStoreProductParameterITunesItemIdentifier : appID } completionBlock:nil];
 		storeViewController.delegate = self;
 		
 		if (self.willPresentModalViewBlock)
