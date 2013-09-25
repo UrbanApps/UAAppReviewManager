@@ -843,8 +843,8 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	if (self.opensInStoreKit && NSStringFromClass([SKStoreProductViewController class]) != nil) {
 	
 		SKStoreProductViewController *storeViewController = [[SKStoreProductViewController alloc] init];
-		NSNumber *appId = [NSNumber numberWithInteger:self.appID.integerValue];
-		[storeViewController loadProductWithParameters:@{ SKStoreProductParameterITunesItemIdentifier : appID } completionBlock:nil];
+		NSNumber *appIDNumber = [NSNumber numberWithInteger:self.appID.integerValue];
+		[storeViewController loadProductWithParameters:@{ SKStoreProductParameterITunesItemIdentifier : appIDNumber } completionBlock:nil];
 		storeViewController.delegate = self;
 		
 		if (self.willPresentModalViewBlock)
