@@ -1,5 +1,9 @@
 # UAAppReviewManager Changelog
 
+### 0.1.5
+ - Fixed some innocuous compiler warnings
+ - Fixed a bug that may have prevented the Store Kit Controller from openeing when `opensInStoreKit` was set to YES
+
 ### 0.1.4
  - Allow compilation in Xcode 4
  - Remove LANGUAGE placeholder from iOS 7 template URL, allowing AppStore.app to decide
