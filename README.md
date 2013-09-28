@@ -264,7 +264,7 @@ UAAppReviewManager allows you to set a block that is called immediately precedin
 
     typedef BOOL (^UAAppReviewManagerShouldPromptBlock)(NSDictionary *trackingInfo);
     
-The `UAAppReviewManagerShouldPromptBlock` block passes you the keys and values UAAppReviewManager used to determine that the prompt should be called, and expects a `BOOL` return value on whether or not the prompt should still be displayed. This allows you to have one last change to do any of your own custom logic to determine whether or not this is an appropriate time to display the prompt.
+The `UAAppReviewManagerShouldPromptBlock` block passes you the keys and values UAAppReviewManager used to determine that the prompt should be called, and expects a `BOOL` return value on whether or not the prompt should still be displayed. This allows you to have one last chance to do any of your own custom logic to determine whether or not this is an appropriate time to display the prompt.
 
     + (void)setShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
     
@@ -275,7 +275,7 @@ In addition to the global `shouldPromptBlock`, each of the class methods that tr
     + (void)appEnteredForegroundWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
     + (void)userDidSignificantEventWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
     
-When using these methods instead of their `BOOL` sister-methods, none of the internal UAAppReviewManager logic is used to determine whether or not to display the prompt. Only your block is used to decide whether or not it should be presented, based solely on the return value you pass back in the block.
+When using these methods instead of their `BOOL` sister-methods, none of the internal UAAppReviewManager logic is used to determine whether or not to display the prompt. **Only** your block is used to decide whether or not it should be presented, based solely on the return value you pass back in the block. This also means that even the global `shouldPromptBlock` (if set) will not be called when using these methods.
 
 ### NSUserDefaults and Keys
 
