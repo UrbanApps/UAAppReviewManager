@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name                  = "UAAppReviewManager"
-  s.version               = "0.1.1"
-  s.summary               = "UAAppReviewManager is AppIRater all grown up. For iOS and OS X."
+  s.version               = "0.1.5"
+  s.summary               = "UAAppReviewManager is a simple and lightweight App review prompting tool for iOS and Mac App Store apps."
   s.description           = <<-DESC
-                          UAAppReviewManager is AppIRater all grown up. It allows you to use it on iOS and Mac targets, allows affiliate links and it rewritten from the ground up for the modern app.
+                          UAAppReviewManager is a simple and lightweight App review prompting tool for iOS and Mac App Store apps. It allows you to use it on iOS and Mac targets, allows affiliate links and it rewritten from the ground up for the modern, primetime app.
                           DESC
-  s.homepage              = "https://github.com/UrbanApps/UAAppReviewManager"
+  s.homepage              = "https://github.com/urbanapps/UAAppReviewManager"
   s.author                = { "Matt Coneybeare" => "coneybeare@urbanapps.com" }
   s.license               = 'MIT'
   s.ios.deployment_target = '5.1'

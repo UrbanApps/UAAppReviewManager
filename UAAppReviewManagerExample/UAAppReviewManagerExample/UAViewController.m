@@ -117,6 +117,19 @@
 	
 	// YES here means it is ok to show, but it doesn't matter because we have debug on.
 	[UAAppReviewManager userDidSignificantEvent:YES];
+	
+	// You can also call it with a block to circumvent any of UAAppReviewManager's should rate logic.
+	[UAAppReviewManager userDidSignificantEventWithShouldPromptBlock:^BOOL(NSDictionary *trackingInfo) {
+		//the tracking info dictionary has all the keys/value UAAppReviewManager uses to determine whether or not to show a prompt
+		return NO;
+	}];
+	
+	// Or you can set a global one to get one last chance to stop the prompt, or do your own logic
+	[UAAppReviewManager setShouldPromptBlock:^BOOL(NSDictionary *trackingInfo) {
+		// This will be called once all other rating conditions have been met, but before the prompt.
+		// if a local UAAppReviewManagerShouldPromptBlock is called using the local methods, this will not be called.
+		return NO;
+	}];
 }
 
 

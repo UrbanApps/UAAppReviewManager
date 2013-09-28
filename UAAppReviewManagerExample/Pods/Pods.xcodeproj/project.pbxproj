@@ -1,2711 +1,1060 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>01164142A76847038FC00F99</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>E7829AFA9D2C4164ABD02F88</string>
-			<key>buildPhases</key>
-			<array>
-				<string>50BDCB4C3662416EB22851FD</string>
-				<string>219BF6A048D642688C842CB1</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>8D7B7D988C8D4673AB62CEAD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-UAAppReviewManagerExampleiOS</string>
-			<key>productName</key>
-			<string>Pods-UAAppReviewManagerExampleiOS</string>
-			<key>productReference</key>
-			<string>B2406B54F53B4320A09CEACF</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>0319D65E2330417A87292DE5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CFNetwork.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CFNetwork.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>0453149DD4F645E1801FB5F8</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6B645D36265143FFA18A388E</string>
-				<string>B2406B54F53B4320A09CEACF</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05592EA86E1B4872950FB442</key>
-		<dict>
-			<key>fileRef</key>
-			<string>08E928E591E943B5A15890FF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>0569BA2BB5664AB8AA854EB3</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>bundle</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>05EC84FBE5DB4DB39AA6A6D6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>28345F9724FE4044A15E273F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>06185F1FED6C4708AD5ADD0A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>es.lproj</string>
-			<key>path</key>
-			<string>Localization/es.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>064DA3AEAE0A440F849E9C8B</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>644CAC1ACDC74EC9B4F614DB</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_64_BIT)</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.7</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>08B5A6B942BC46CA954C1083</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>42511C8A549048FEB7796362</string>
-			<key>targetProxy</key>
-			<string>8E126672402C4FF38ED7A41D</string>
-		</dict>
-		<key>08BF4DA49C7D415AAFCBD84E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>8810BEFD3EFD47A5B199C466</string>
-				<string>7C7953000E3D416F96F4DD47</string>
-				<string>9090163A9C46494084614A79</string>
-				<string>1B8E401309F94EA6B6165F80</string>
-				<string>5EBBBE8BACAF4E3289AC268F</string>
-				<string>173D5FC60E4245A4AF3A76FD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-UAAppReviewManagerExampleiOS</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>08E928E591E943B5A15890FF</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CFNetwork.framework</string>
-			<key>path</key>
-			<string>Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CFNetwork.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>125F2C5455A6438CB1BEE0D6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>B1C8385EC93F4190AD3B8216</string>
-			<key>targetProxy</key>
-			<string>C6824CBE6B734C01BB5599D8</string>
-		</dict>
-		<key>1267555285E941FE85C9C495</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>el.lproj</string>
-			<key>path</key>
-			<string>Localization/el.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>16F1AE10739C4F98AE3C90D9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleMac-UAAppReviewManager.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>173D5FC60E4245A4AF3A76FD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleiOS.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>185EAF73516240F7A41F3A28</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-UAAppReviewManagerExampleMac-UAAppReviewManager.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>19FF249E11C943CD86E41B99</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B04D870DE1754F4596E38CF5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1AB2F0C478F7460C8C7E1A37</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>CC97818AC2B749CD94787AF4</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_64_BIT)</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
-				<string>YES</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-prefix.pch</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.7</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>1AB4308790BB4A2798A058BC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6A35D1D4D201492291942637</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1B67BB207AF34FF9A8C1ECBF</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>96980BFD500046D89EC2736C</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-prefix.pch</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>5.1</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>1B8E401309F94EA6B6165F80</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleiOS-environment.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1BA0228F9C9246FE842B0048</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>hu.lproj</string>
-			<key>path</key>
-			<string>Localization/hu.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1C4E7A095D074294B7C85D00</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>de.lproj</string>
-			<key>path</key>
-			<string>Localization/de.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1D11EC6FBC1B48F187D4D836</key>
-		<dict>
-			<key>fileRef</key>
-			<string>49B666D2951F46DF92F41538</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1F13B102FED84C4D9D26AF1B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1267555285E941FE85C9C495</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1FAADE78329841F4BB249EC4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>24D5B5639C4C4C4AAA93A839</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>219BF6A048D642688C842CB1</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>6BCD14A12E654E7E9BB8C801</string>
-				<string>DD2F5157441049F298915072</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>2310F9C0F0EF48C99ADB66C3</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0450</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>7F0C2C09BD66475E9DC8AB3B</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>710A1C36D1FC4A0BBD75CB73</string>
-			<key>productRefGroup</key>
-			<string>0453149DD4F645E1801FB5F8</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>42511C8A549048FEB7796362</string>
-				<string>B1B7D27FFF914B4086ACB090</string>
-				<string>DE0B73EEDC604263A43468D1</string>
-				<string>B1C8385EC93F4190AD3B8216</string>
-				<string>57147B56DCFE462B9072C224</string>
-				<string>01164142A76847038FC00F99</string>
-			</array>
-		</dict>
-		<key>24D5B5639C4C4C4AAA93A839</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>pl.lproj</string>
-			<key>path</key>
-			<string>Localization/pl.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>25E2DD6CB34C4E2EA6A4C6F1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>274207916ECE4CDEB428EBD8</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B9796A3E299043DD9BC1EC87</string>
-				<string>97569AF1C0784D138F5BB096</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>2762C84B9A294AB495B71336</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>CC97818AC2B749CD94787AF4</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_64_BIT)</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.7</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>28345F9724FE4044A15E273F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>2B946E37386A4D33831B4541</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>zh-Hans.lproj</string>
-			<key>path</key>
-			<string>Localization/zh-Hans.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2EF8C38D37FA4084A5317DF4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>0319D65E2330417A87292DE5</string>
-				<string>08E928E591E943B5A15890FF</string>
-				<string>8AE64C13627F469F880ACE05</string>
-				<string>28345F9724FE4044A15E273F</string>
-				<string>9491EFD645E44D69B0F96778</string>
-				<string>E5D74BE5EA6A40BEB6F0A58C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>316403336B204E7CB8238D53</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>88B6A09803F248928A4B4DE3</string>
-				<string>05592EA86E1B4872950FB442</string>
-				<string>BCCC02AF12EA4AB7AD2B4E2F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>31D0C7679DD446E19F95E06F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>name</key>
-			<string>Podfile</string>
-			<key>path</key>
-			<string>../Podfile</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.ruby</string>
-		</dict>
-		<key>31DB404439C84D75BA7A20D9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>632EB112F61048C8AF7E7600</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>32889783E6F3423393F25BD7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleMac-environment.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>32E75111C3D0429B81A2BEB1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleMac-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>364DC00B61384AE1990E740E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9F9427C69C44472FA7EF2418</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3893ED4E3CF64DA68D5D3B08</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3A9B0D8BBB2C463D89D0D06A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>pt.lproj</string>
-			<key>path</key>
-			<string>Localization/pt.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3B1E50C8914641E3832753A0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>B1B7D27FFF914B4086ACB090</string>
-			<key>targetProxy</key>
-			<string>4010AAF553DC4DF0A5F612DF</string>
-		</dict>
-		<key>3BC75C20703648DBAC0FC1BC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>tr.lproj</string>
-			<key>path</key>
-			<string>Localization/tr.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3D4E3E6AE85348D393C1AAD8</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>32E75111C3D0429B81A2BEB1</string>
-				<string>AA6332F24C3B41E7829E5BE9</string>
-				<string>51815EEC06964C86BE539A6F</string>
-				<string>32889783E6F3423393F25BD7</string>
-				<string>B3DD5B70A2DD4E09B0054777</string>
-				<string>644CAC1ACDC74EC9B4F614DB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-UAAppReviewManagerExampleMac</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3E062873F9B045048F36F469</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3A9B0D8BBB2C463D89D0D06A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3EE716A0AE604CE9A5D58CFE</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>4BB51CAB89284F47B1A05ACB</string>
-				<string>92D75AB31BE948FCACDA541B</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>4004536EB46A48DA9727E4FF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>ca.lproj</string>
-			<key>path</key>
-			<string>Localization/ca.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4010AAF553DC4DF0A5F612DF</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>2310F9C0F0EF48C99ADB66C3</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>B1B7D27FFF914B4086ACB090</string>
-			<key>remoteInfo</key>
-			<string>UAAppReviewManager-OSX</string>
-		</dict>
-		<key>42511C8A549048FEB7796362</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>6D557A968B8948DFBA992141</string>
-			<key>buildPhases</key>
-			<array>
-				<string>ABC74CEFAA5542AAA05069BF</string>
-				<string>316403336B204E7CB8238D53</string>
-				<string>C69E9A2894EA4B519EDB244B</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>3B1E50C8914641E3832753A0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-UAAppReviewManagerExampleMac-UAAppReviewManager</string>
-			<key>productName</key>
-			<string>Pods-UAAppReviewManagerExampleMac-UAAppReviewManager</string>
-			<key>productReference</key>
-			<string>185EAF73516240F7A41F3A28</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>42C51AC4DFBC4115B57D49BF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DEE152E9362D4B5086D0E690</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>49B666D2951F46DF92F41538</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>fr.lproj</string>
-			<key>path</key>
-			<string>Localization/fr.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4ACAB0E9B1F34418B0277CF7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3BC75C20703648DBAC0FC1BC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4BB51CAB89284F47B1A05ACB</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>bundle</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>4F5910D20F294F6FAA318C04</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2B946E37386A4D33831B4541</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>50BDCB4C3662416EB22851FD</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E9074D6B14A24A3C93DB8710</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>51815EEC06964C86BE539A6F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleMac-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5278E3AE07124695BE08B83B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>632EB112F61048C8AF7E7600</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>53A6453E15894FB8A8F315DA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>53D2CD9CC7114BEB82D63DC0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>53D2CD9CC7114BEB82D63DC0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>ko.lproj</string>
-			<key>path</key>
-			<string>Localization/ko.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5400B8B0A1504B3E9165DDF7</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>F68CDF14901F4EA398A3A821</string>
-				<string>0569BA2BB5664AB8AA854EB3</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>55495EFD87244ED389FD1FB8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57147B56DCFE462B9072C224</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>BEC93FFEF92949119738C259</string>
-			<key>buildPhases</key>
-			<array>
-				<string>A1741BB60B9140A0B2F97761</string>
-				<string>FBC94F065B954D059860988F</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>08B5A6B942BC46CA954C1083</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-UAAppReviewManagerExampleMac</string>
-			<key>productName</key>
-			<string>Pods-UAAppReviewManagerExampleMac</string>
-			<key>productReference</key>
-			<string>6B645D36265143FFA18A388E</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>59B28406C859461A95345959</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1C4E7A095D074294B7C85D00</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5C5AE1A758044938B8721214</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CC97818AC2B749CD94787AF4</string>
-				<string>55495EFD87244ED389FD1FB8</string>
-				<string>FB6B66B7DE9040D9A68B1291</string>
-				<string>16F1AE10739C4F98AE3C90D9</string>
-				<string>96980BFD500046D89EC2736C</string>
-				<string>DD4401407B34463E9F3BC638</string>
-				<string>3893ED4E3CF64DA68D5D3B08</string>
-				<string>25E2DD6CB34C4E2EA6A4C6F1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>5EBBBE8BACAF4E3289AC268F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleiOS-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6084568DB5EA4F389EB84FDA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C8A19D82937A40688453287B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>61DE08B4F1254341AEFF21C9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>he.lproj</string>
-			<key>path</key>
-			<string>Localization/he.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>632EB112F61048C8AF7E7600</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>nl.lproj</string>
-			<key>path</key>
-			<string>Localization/nl.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>644CAC1ACDC74EC9B4F614DB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleMac.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6937039F085942C2893BF39F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F16B50887A8A4FED92762B57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>69638CA35E124895AB129C12</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A17A20E9FCFB4458B97E8783</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>698D403D63F4401681442BF6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>fi.lproj</string>
-			<key>path</key>
-			<string>Localization/fi.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6A35D1D4D201492291942637</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>sk.lproj</string>
-			<key>path</key>
-			<string>Localization/sk.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6AB28FDA34AD43A58E6B9212</key>
-		<dict>
-			<key>fileRef</key>
-			<string>698D403D63F4401681442BF6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6B645D36265143FFA18A388E</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-UAAppReviewManagerExampleMac.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>6BCD14A12E654E7E9BB8C801</key>
-		<dict>
-			<key>fileRef</key>
-			<string>28345F9724FE4044A15E273F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6D060D1C55EA4E57A4869E98</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8AE64C13627F469F880ACE05</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6D557A968B8948DFBA992141</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>1AB2F0C478F7460C8C7E1A37</string>
-				<string>2762C84B9A294AB495B71336</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>7045C824D406460DB26176D0</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>1B67BB207AF34FF9A8C1ECBF</string>
-				<string>F4409C97873A42FDB188F811</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>710A1C36D1FC4A0BBD75CB73</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F63532F4810147A2967C424D</string>
-				<string>2EF8C38D37FA4084A5317DF4</string>
-				<string>0453149DD4F645E1801FB5F8</string>
-				<string>7A8E8D2B07AD4CCFBB5DB35C</string>
-				<string>31D0C7679DD446E19F95E06F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7131B02C4CD642D8BC746B76</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4004536EB46A48DA9727E4FF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>72677DB7B2384FBCBD118749</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EADD29D541F2406495C8BE46</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>76630B6FE2044A6DA4E0113C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EADD29D541F2406495C8BE46</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>76964F37F85E4F038FEB327F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>185EAF73516240F7A41F3A28</string>
-				<string>FF272FF3B6C1408E8E5A2972</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>791EF9A5B2FB40E0A31DCB11</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>173D5FC60E4245A4AF3A76FD</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>5.1</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>7A8E8D2B07AD4CCFBB5DB35C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>3D4E3E6AE85348D393C1AAD8</string>
-				<string>08BF4DA49C7D415AAFCBD84E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7C7953000E3D416F96F4DD47</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleiOS-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7F0C2C09BD66475E9DC8AB3B</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>B053E49A78564244A68C76F0</string>
-				<string>D398EBB512FD42E1AE3E2487</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>80C4B2CFA39F45D19D5F3483</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6A35D1D4D201492291942637</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>82D7E99CC2E1432785325AF2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>en.lproj</string>
-			<key>path</key>
-			<string>Localization/en.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>85AF83AF31574AEFA8DD4704</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1BA0228F9C9246FE842B0048</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8810BEFD3EFD47A5B199C466</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleiOS-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>88B6A09803F248928A4B4DE3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8AE64C13627F469F880ACE05</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8AE64C13627F469F880ACE05</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Cocoa.framework</string>
-			<key>path</key>
-			<string>Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>8B942F06CAF042A78BDDD9AD</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FF5A6008DDE0409BAD004F2F</string>
-				<string>9801329D774A4F5EA7078448</string>
-				<string>4004536EB46A48DA9727E4FF</string>
-				<string>F16B50887A8A4FED92762B57</string>
-				<string>EFF3A624C6394CB1B3CF095D</string>
-				<string>1C4E7A095D074294B7C85D00</string>
-				<string>1267555285E941FE85C9C495</string>
-				<string>82D7E99CC2E1432785325AF2</string>
-				<string>06185F1FED6C4708AD5ADD0A</string>
-				<string>698D403D63F4401681442BF6</string>
-				<string>49B666D2951F46DF92F41538</string>
-				<string>61DE08B4F1254341AEFF21C9</string>
-				<string>1BA0228F9C9246FE842B0048</string>
-				<string>B04D870DE1754F4596E38CF5</string>
-				<string>9DA8CCCADD5349D6957BC57B</string>
-				<string>A17A20E9FCFB4458B97E8783</string>
-				<string>53D2CD9CC7114BEB82D63DC0</string>
-				<string>B77C3A3BD2BE42B393DD76B2</string>
-				<string>632EB112F61048C8AF7E7600</string>
-				<string>24D5B5639C4C4C4AAA93A839</string>
-				<string>3A9B0D8BBB2C463D89D0D06A</string>
-				<string>DEE152E9362D4B5086D0E690</string>
-				<string>9F9427C69C44472FA7EF2418</string>
-				<string>6A35D1D4D201492291942637</string>
-				<string>CC898BB2BFF64F3E9FC3A848</string>
-				<string>3BC75C20703648DBAC0FC1BC</string>
-				<string>2B946E37386A4D33831B4541</string>
-				<string>EADD29D541F2406495C8BE46</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8D7B7D988C8D4673AB62CEAD</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>DE0B73EEDC604263A43468D1</string>
-			<key>targetProxy</key>
-			<string>D24EB30AFE074AAB8B807DB4</string>
-		</dict>
-		<key>8E126672402C4FF38ED7A41D</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>2310F9C0F0EF48C99ADB66C3</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>42511C8A549048FEB7796362</string>
-			<key>remoteInfo</key>
-			<string>Pods-UAAppReviewManagerExampleMac-UAAppReviewManager</string>
-		</dict>
-		<key>9090163A9C46494084614A79</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleiOS-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>917FAFF160F648C189A515B4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3A9B0D8BBB2C463D89D0D06A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>92D75AB31BE948FCACDA541B</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>bundle</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>9491EFD645E44D69B0F96778</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>SystemConfiguration.framework</string>
-			<key>path</key>
-			<string>Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/SystemConfiguration.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>94A9470B91244768B61B3CE6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>82D7E99CC2E1432785325AF2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>95A5A0F9CD744A45BE722FB3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>51815EEC06964C86BE539A6F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>96980BFD500046D89EC2736C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-Private.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>96B3C17419F04BABA3BE045F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B77C3A3BD2BE42B393DD76B2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>97569AF1C0784D138F5BB096</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DD4401407B34463E9F3BC638</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9801329D774A4F5EA7078448</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>UAAppReviewManager-iOS.bundle</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>99119B65FC934CE6A9CD92A2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>61DE08B4F1254341AEFF21C9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>99BFE4A550964878A7EC5212</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9DA8CCCADD5349D6957BC57B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9A18DB2B5A3D4D58896FE822</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2B946E37386A4D33831B4541</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9A690048FD2846E88EFAD77F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CC898BB2BFF64F3E9FC3A848</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9CBF4F0F7E824CDC8BAD6A9F</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>644CAC1ACDC74EC9B4F614DB</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_64_BIT)</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
-				<string>YES</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.7</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>9DA8CCCADD5349D6957BC57B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>it.lproj</string>
-			<key>path</key>
-			<string>Localization/it.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9F9427C69C44472FA7EF2418</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>ru.lproj</string>
-			<key>path</key>
-			<string>Localization/ru.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A06547FCA4BF4E68A9B32A44</key>
-		<dict>
-			<key>fileRef</key>
-			<string>55495EFD87244ED389FD1FB8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A1741BB60B9140A0B2F97761</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>95A5A0F9CD744A45BE722FB3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>A17A20E9FCFB4458B97E8783</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>ja.lproj</string>
-			<key>path</key>
-			<string>Localization/ja.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A199219B3A3D4056AB9B5331</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>A3B829F7568B4DD88FFBF1CA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9DA8CCCADD5349D6957BC57B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A3E32BBFB72A465F8C576049</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CC898BB2BFF64F3E9FC3A848</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A4310A8410374FB7BDCA68F7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B77C3A3BD2BE42B393DD76B2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A4678C5C3D624EAB976098CF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B04D870DE1754F4596E38CF5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A57EC6E712A448C6BD030B49</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>173D5FC60E4245A4AF3A76FD</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>5.1</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>AA6332F24C3B41E7829E5BE9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleMac-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AAE0567859F54667A8E6FA67</key>
-		<dict>
-			<key>fileRef</key>
-			<string>06185F1FED6C4708AD5ADD0A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AB6AB488B19E4C0980D0FDFC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFF3A624C6394CB1B3CF095D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>ABC74CEFAA5542AAA05069BF</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>6084568DB5EA4F389EB84FDA</string>
-				<string>A06547FCA4BF4E68A9B32A44</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>ACA1B37F26214A84980971A1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>24D5B5639C4C4C4AAA93A839</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>ACAD2D91BF3C4FE893F9815E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>49B666D2951F46DF92F41538</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B04D870DE1754F4596E38CF5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>id.lproj</string>
-			<key>path</key>
-			<string>Localization/id.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B053E49A78564244A68C76F0</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>5.1</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.7</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>B08817397C8842D99AC37BB5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>61DE08B4F1254341AEFF21C9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B1B7D27FFF914B4086ACB090</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>5400B8B0A1504B3E9165DDF7</string>
-			<key>buildPhases</key>
-			<array>
-				<string>BE861F9AD34C465E8EF9F1DD</string>
-				<string>CF94F15AEBAC4F53BE3E4D4A</string>
-				<string>E1A98FE210F64C44AA7C4B05</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>UAAppReviewManager-OSX</string>
-			<key>productName</key>
-			<string>UAAppReviewManager-OSX</string>
-			<key>productReference</key>
-			<string>FF5A6008DDE0409BAD004F2F</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle</string>
-		</dict>
-		<key>B1C8385EC93F4190AD3B8216</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>3EE716A0AE604CE9A5D58CFE</string>
-			<key>buildPhases</key>
-			<array>
-				<string>EC869087785A40CCB742506F</string>
-				<string>A199219B3A3D4056AB9B5331</string>
-				<string>CC82B9CCA7324426952A2462</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>UAAppReviewManager-iOS</string>
-			<key>productName</key>
-			<string>UAAppReviewManager-iOS</string>
-			<key>productReference</key>
-			<string>9801329D774A4F5EA7078448</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle</string>
-		</dict>
-		<key>B2406B54F53B4320A09CEACF</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-UAAppReviewManagerExampleiOS.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>B3DD5B70A2DD4E09B0054777</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleMac-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B41AB448F1E145DE87E571B1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>698D403D63F4401681442BF6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B4ABABA45BE4466D908C573B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1C4E7A095D074294B7C85D00</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B5CC676ECA3B4CFB94546D89</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DD36EA60B68C4CD4A15A45FB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B66BA55C9DEB4A02B1158434</key>
-		<dict>
-			<key>fileRef</key>
-			<string>06185F1FED6C4708AD5ADD0A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B77C3A3BD2BE42B393DD76B2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>nb.lproj</string>
-			<key>path</key>
-			<string>Localization/nb.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B9699EAC43694D149750FF96</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DEE152E9362D4B5086D0E690</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B9796A3E299043DD9BC1EC87</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C8A19D82937A40688453287B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>BB3C9088CDA9412A9D83C6DB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F16B50887A8A4FED92762B57</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BCCC02AF12EA4AB7AD2B4E2F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9491EFD645E44D69B0F96778</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE861F9AD34C465E8EF9F1DD</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BEC93FFEF92949119738C259</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>9CBF4F0F7E824CDC8BAD6A9F</string>
-				<string>064DA3AEAE0A440F849E9C8B</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>C161AB7B566F41F582918C72</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B5CC676ECA3B4CFB94546D89</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C1A0D45DA37E4340A7276442</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3BC75C20703648DBAC0FC1BC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C6824CBE6B734C01BB5599D8</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>2310F9C0F0EF48C99ADB66C3</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>B1C8385EC93F4190AD3B8216</string>
-			<key>remoteInfo</key>
-			<string>UAAppReviewManager-iOS</string>
-		</dict>
-		<key>C69E9A2894EA4B519EDB244B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>DF5166798A75479EBABF9D5A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C8A19D82937A40688453287B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UAAppReviewManager.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CA9287AF8DC94D17BC1977E8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E5D74BE5EA6A40BEB6F0A58C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CC82B9CCA7324426952A2462</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>7131B02C4CD642D8BC746B76</string>
-				<string>BB3C9088CDA9412A9D83C6DB</string>
-				<string>E11223C45BE94F11BEA07D92</string>
-				<string>B4ABABA45BE4466D908C573B</string>
-				<string>1F13B102FED84C4D9D26AF1B</string>
-				<string>D3C74A19332A4F62B2390583</string>
-				<string>B66BA55C9DEB4A02B1158434</string>
-				<string>B41AB448F1E145DE87E571B1</string>
-				<string>ACAD2D91BF3C4FE893F9815E</string>
-				<string>99119B65FC934CE6A9CD92A2</string>
-				<string>E0077826C0324EC896C71AD1</string>
-				<string>19FF249E11C943CD86E41B99</string>
-				<string>99BFE4A550964878A7EC5212</string>
-				<string>FD50DA6BC29049E19E1B7CE9</string>
-				<string>FE4409C6F81B49D0ABE6C235</string>
-				<string>96B3C17419F04BABA3BE045F</string>
-				<string>5278E3AE07124695BE08B83B</string>
-				<string>1FAADE78329841F4BB249EC4</string>
-				<string>3E062873F9B045048F36F469</string>
-				<string>42C51AC4DFBC4115B57D49BF</string>
-				<string>364DC00B61384AE1990E740E</string>
-				<string>1AB4308790BB4A2798A058BC</string>
-				<string>9A690048FD2846E88EFAD77F</string>
-				<string>C1A0D45DA37E4340A7276442</string>
-				<string>9A18DB2B5A3D4D58896FE822</string>
-				<string>76630B6FE2044A6DA4E0113C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>CC898BB2BFF64F3E9FC3A848</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>sv.lproj</string>
-			<key>path</key>
-			<string>Localization/sv.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CC97818AC2B749CD94787AF4</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-Private.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CF3B1C36662546E186C6687E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>185EAF73516240F7A41F3A28</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CF94F15AEBAC4F53BE3E4D4A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D24EB30AFE074AAB8B807DB4</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>2310F9C0F0EF48C99ADB66C3</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>DE0B73EEDC604263A43468D1</string>
-			<key>remoteInfo</key>
-			<string>Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager</string>
-		</dict>
-		<key>D398EBB512FD42E1AE3E2487</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>5.1</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.7</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>D3C74A19332A4F62B2390583</key>
-		<dict>
-			<key>fileRef</key>
-			<string>82D7E99CC2E1432785325AF2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DD2F5157441049F298915072</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FF272FF3B6C1408E8E5A2972</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DD36EA60B68C4CD4A15A45FB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UAAppReviewManager.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DD4401407B34463E9F3BC638</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DE0B73EEDC604263A43468D1</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>7045C824D406460DB26176D0</string>
-			<key>buildPhases</key>
-			<array>
-				<string>274207916ECE4CDEB428EBD8</string>
-				<string>FEE8206978D3421993227014</string>
-				<string>C161AB7B566F41F582918C72</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>125F2C5455A6438CB1BEE0D6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager</string>
-			<key>productName</key>
-			<string>Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager</string>
-			<key>productReference</key>
-			<string>FF272FF3B6C1408E8E5A2972</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>DEE152E9362D4B5086D0E690</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>ro.lproj</string>
-			<key>path</key>
-			<string>Localization/ro.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DF5166798A75479EBABF9D5A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DD36EA60B68C4CD4A15A45FB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E0077826C0324EC896C71AD1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1BA0228F9C9246FE842B0048</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E11223C45BE94F11BEA07D92</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFF3A624C6394CB1B3CF095D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1A98FE210F64C44AA7C4B05</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>EF65B65C5B77412F8D5CA660</string>
-				<string>6937039F085942C2893BF39F</string>
-				<string>AB6AB488B19E4C0980D0FDFC</string>
-				<string>59B28406C859461A95345959</string>
-				<string>F32C9EFF1D3D4486BE4CCF8B</string>
-				<string>94A9470B91244768B61B3CE6</string>
-				<string>AAE0567859F54667A8E6FA67</string>
-				<string>6AB28FDA34AD43A58E6B9212</string>
-				<string>1D11EC6FBC1B48F187D4D836</string>
-				<string>B08817397C8842D99AC37BB5</string>
-				<string>85AF83AF31574AEFA8DD4704</string>
-				<string>A4678C5C3D624EAB976098CF</string>
-				<string>A3B829F7568B4DD88FFBF1CA</string>
-				<string>69638CA35E124895AB129C12</string>
-				<string>53A6453E15894FB8A8F315DA</string>
-				<string>A4310A8410374FB7BDCA68F7</string>
-				<string>31DB404439C84D75BA7A20D9</string>
-				<string>ACA1B37F26214A84980971A1</string>
-				<string>917FAFF160F648C189A515B4</string>
-				<string>B9699EAC43694D149750FF96</string>
-				<string>FEF499B627DD4CB9AA6DD7A5</string>
-				<string>80C4B2CFA39F45D19D5F3483</string>
-				<string>A3E32BBFB72A465F8C576049</string>
-				<string>4ACAB0E9B1F34418B0277CF7</string>
-				<string>4F5910D20F294F6FAA318C04</string>
-				<string>72677DB7B2384FBCBD118749</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E5D74BE5EA6A40BEB6F0A58C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>SystemConfiguration.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/SystemConfiguration.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>E7829AFA9D2C4164ABD02F88</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>A57EC6E712A448C6BD030B49</string>
-				<string>791EF9A5B2FB40E0A31DCB11</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>E9074D6B14A24A3C93DB8710</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9090163A9C46494084614A79</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EADD29D541F2406495C8BE46</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>zh-Hant.lproj</string>
-			<key>path</key>
-			<string>Localization/zh-Hant.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EC869087785A40CCB742506F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>EF65B65C5B77412F8D5CA660</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4004536EB46A48DA9727E4FF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFF3A624C6394CB1B3CF095D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>da.lproj</string>
-			<key>path</key>
-			<string>Localization/da.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F16B50887A8A4FED92762B57</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>cs.lproj</string>
-			<key>path</key>
-			<string>Localization/cs.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32C9EFF1D3D4486BE4CCF8B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1267555285E941FE85C9C495</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F4409C97873A42FDB188F811</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>96980BFD500046D89EC2736C</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>5.1</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>F4BE15BEC44B4BAC9C23B63D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DD36EA60B68C4CD4A15A45FB</string>
-				<string>C8A19D82937A40688453287B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Source Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F4D2D5E727244E5E9101A660</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0319D65E2330417A87292DE5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F63532F4810147A2967C424D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F8A7DE5CDF0F4626923162E6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Development Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F68CDF14901F4EA398A3A821</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>bundle</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>F8A7DE5CDF0F4626923162E6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>76964F37F85E4F038FEB327F</string>
-				<string>8B942F06CAF042A78BDDD9AD</string>
-				<string>F4BE15BEC44B4BAC9C23B63D</string>
-				<string>5C5AE1A758044938B8721214</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>UAAppReviewManager</string>
-			<key>path</key>
-			<string>../..</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FB6B66B7DE9040D9A68B1291</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FBC94F065B954D059860988F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>6D060D1C55EA4E57A4869E98</string>
-				<string>CF3B1C36662546E186C6687E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>FD50DA6BC29049E19E1B7CE9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A17A20E9FCFB4458B97E8783</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FE4409C6F81B49D0ABE6C235</key>
-		<dict>
-			<key>fileRef</key>
-			<string>53D2CD9CC7114BEB82D63DC0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FEE8206978D3421993227014</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>05EC84FBE5DB4DB39AA6A6D6</string>
-				<string>F4D2D5E727244E5E9101A660</string>
-				<string>CA9287AF8DC94D17BC1977E8</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>FEF499B627DD4CB9AA6DD7A5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9F9427C69C44472FA7EF2418</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FF272FF3B6C1408E8E5A2972</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-UAAppReviewManagerExampleiOS-UAAppReviewManager.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>FF5A6008DDE0409BAD004F2F</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>UAAppReviewManager-OSX.bundle</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>2310F9C0F0EF48C99ADB66C3</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05592EA86E1B4872950FB442 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E928E591E943B5A15890FF /* CFNetwork.framework */; };
+		05EC84FBE5DB4DB39AA6A6D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28345F9724FE4044A15E273F /* Foundation.framework */; };
+		19FF249E11C943CD86E41B99 /* id.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B04D870DE1754F4596E38CF5 /* id.lproj */; };
+		1AB4308790BB4A2798A058BC /* sk.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 6A35D1D4D201492291942637 /* sk.lproj */; };
+		1D11EC6FBC1B48F187D4D836 /* fr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 49B666D2951F46DF92F41538 /* fr.lproj */; };
+		1F13B102FED84C4D9D26AF1B /* el.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 1267555285E941FE85C9C495 /* el.lproj */; };
+		1FAADE78329841F4BB249EC4 /* pl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 24D5B5639C4C4C4AAA93A839 /* pl.lproj */; };
+		31DB404439C84D75BA7A20D9 /* nl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 632EB112F61048C8AF7E7600 /* nl.lproj */; };
+		364DC00B61384AE1990E740E /* ru.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 9F9427C69C44472FA7EF2418 /* ru.lproj */; };
+		3E062873F9B045048F36F469 /* pt.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 3A9B0D8BBB2C463D89D0D06A /* pt.lproj */; };
+		42C51AC4DFBC4115B57D49BF /* ro.lproj in Resources */ = {isa = PBXBuildFile; fileRef = DEE152E9362D4B5086D0E690 /* ro.lproj */; };
+		4ACAB0E9B1F34418B0277CF7 /* tr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 3BC75C20703648DBAC0FC1BC /* tr.lproj */; };
+		4F5910D20F294F6FAA318C04 /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2B946E37386A4D33831B4541 /* zh-Hans.lproj */; };
+		5278E3AE07124695BE08B83B /* nl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 632EB112F61048C8AF7E7600 /* nl.lproj */; };
+		53A6453E15894FB8A8F315DA /* ko.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 53D2CD9CC7114BEB82D63DC0 /* ko.lproj */; };
+		59B28406C859461A95345959 /* de.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 1C4E7A095D074294B7C85D00 /* de.lproj */; };
+		6084568DB5EA4F389EB84FDA /* UAAppReviewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A19D82937A40688453287B /* UAAppReviewManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		6937039F085942C2893BF39F /* cs.lproj in Resources */ = {isa = PBXBuildFile; fileRef = F16B50887A8A4FED92762B57 /* cs.lproj */; };
+		69638CA35E124895AB129C12 /* ja.lproj in Resources */ = {isa = PBXBuildFile; fileRef = A17A20E9FCFB4458B97E8783 /* ja.lproj */; };
+		6AB28FDA34AD43A58E6B9212 /* fi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 698D403D63F4401681442BF6 /* fi.lproj */; };
+		6BCD14A12E654E7E9BB8C801 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28345F9724FE4044A15E273F /* Foundation.framework */; };
+		6D060D1C55EA4E57A4869E98 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE64C13627F469F880ACE05 /* Cocoa.framework */; };
+		7131B02C4CD642D8BC746B76 /* ca.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4004536EB46A48DA9727E4FF /* ca.lproj */; };
+		72677DB7B2384FBCBD118749 /* zh-Hant.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EADD29D541F2406495C8BE46 /* zh-Hant.lproj */; };
+		76630B6FE2044A6DA4E0113C /* zh-Hant.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EADD29D541F2406495C8BE46 /* zh-Hant.lproj */; };
+		80C4B2CFA39F45D19D5F3483 /* sk.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 6A35D1D4D201492291942637 /* sk.lproj */; };
+		85AF83AF31574AEFA8DD4704 /* hu.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 1BA0228F9C9246FE842B0048 /* hu.lproj */; };
+		88B6A09803F248928A4B4DE3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE64C13627F469F880ACE05 /* Cocoa.framework */; };
+		917FAFF160F648C189A515B4 /* pt.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 3A9B0D8BBB2C463D89D0D06A /* pt.lproj */; };
+		94A9470B91244768B61B3CE6 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 82D7E99CC2E1432785325AF2 /* en.lproj */; };
+		95A5A0F9CD744A45BE722FB3 /* Pods-UAAppReviewManagerExampleMac-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 51815EEC06964C86BE539A6F /* Pods-UAAppReviewManagerExampleMac-dummy.m */; };
+		96B3C17419F04BABA3BE045F /* nb.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B77C3A3BD2BE42B393DD76B2 /* nb.lproj */; };
+		97569AF1C0784D138F5BB096 /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4401407B34463E9F3BC638 /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-dummy.m */; };
+		99119B65FC934CE6A9CD92A2 /* he.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 61DE08B4F1254341AEFF21C9 /* he.lproj */; };
+		99BFE4A550964878A7EC5212 /* it.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 9DA8CCCADD5349D6957BC57B /* it.lproj */; };
+		9A18DB2B5A3D4D58896FE822 /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2B946E37386A4D33831B4541 /* zh-Hans.lproj */; };
+		9A690048FD2846E88EFAD77F /* sv.lproj in Resources */ = {isa = PBXBuildFile; fileRef = CC898BB2BFF64F3E9FC3A848 /* sv.lproj */; };
+		A06547FCA4BF4E68A9B32A44 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 55495EFD87244ED389FD1FB8 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-dummy.m */; };
+		A3B829F7568B4DD88FFBF1CA /* it.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 9DA8CCCADD5349D6957BC57B /* it.lproj */; };
+		A3E32BBFB72A465F8C576049 /* sv.lproj in Resources */ = {isa = PBXBuildFile; fileRef = CC898BB2BFF64F3E9FC3A848 /* sv.lproj */; };
+		A4310A8410374FB7BDCA68F7 /* nb.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B77C3A3BD2BE42B393DD76B2 /* nb.lproj */; };
+		A4678C5C3D624EAB976098CF /* id.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B04D870DE1754F4596E38CF5 /* id.lproj */; };
+		AAE0567859F54667A8E6FA67 /* es.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 06185F1FED6C4708AD5ADD0A /* es.lproj */; };
+		AB6AB488B19E4C0980D0FDFC /* da.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EFF3A624C6394CB1B3CF095D /* da.lproj */; };
+		ACA1B37F26214A84980971A1 /* pl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 24D5B5639C4C4C4AAA93A839 /* pl.lproj */; };
+		ACAD2D91BF3C4FE893F9815E /* fr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 49B666D2951F46DF92F41538 /* fr.lproj */; };
+		B08817397C8842D99AC37BB5 /* he.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 61DE08B4F1254341AEFF21C9 /* he.lproj */; };
+		B41AB448F1E145DE87E571B1 /* fi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 698D403D63F4401681442BF6 /* fi.lproj */; };
+		B4ABABA45BE4466D908C573B /* de.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 1C4E7A095D074294B7C85D00 /* de.lproj */; };
+		B5CC676ECA3B4CFB94546D89 /* UAAppReviewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DD36EA60B68C4CD4A15A45FB /* UAAppReviewManager.h */; };
+		B66BA55C9DEB4A02B1158434 /* es.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 06185F1FED6C4708AD5ADD0A /* es.lproj */; };
+		B9699EAC43694D149750FF96 /* ro.lproj in Resources */ = {isa = PBXBuildFile; fileRef = DEE152E9362D4B5086D0E690 /* ro.lproj */; };
+		B9796A3E299043DD9BC1EC87 /* UAAppReviewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A19D82937A40688453287B /* UAAppReviewManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		BB3C9088CDA9412A9D83C6DB /* cs.lproj in Resources */ = {isa = PBXBuildFile; fileRef = F16B50887A8A4FED92762B57 /* cs.lproj */; };
+		BCCC02AF12EA4AB7AD2B4E2F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9491EFD645E44D69B0F96778 /* SystemConfiguration.framework */; };
+		C1A0D45DA37E4340A7276442 /* tr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 3BC75C20703648DBAC0FC1BC /* tr.lproj */; };
+		CA9287AF8DC94D17BC1977E8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D74BE5EA6A40BEB6F0A58C /* SystemConfiguration.framework */; };
+		CF3B1C36662546E186C6687E /* libPods-UAAppReviewManagerExampleMac-UAAppReviewManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 185EAF73516240F7A41F3A28 /* libPods-UAAppReviewManagerExampleMac-UAAppReviewManager.a */; };
+		D3C74A19332A4F62B2390583 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 82D7E99CC2E1432785325AF2 /* en.lproj */; };
+		DD2F5157441049F298915072 /* libPods-UAAppReviewManagerExampleiOS-UAAppReviewManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF272FF3B6C1408E8E5A2972 /* libPods-UAAppReviewManagerExampleiOS-UAAppReviewManager.a */; };
+		DF5166798A75479EBABF9D5A /* UAAppReviewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DD36EA60B68C4CD4A15A45FB /* UAAppReviewManager.h */; };
+		E0077826C0324EC896C71AD1 /* hu.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 1BA0228F9C9246FE842B0048 /* hu.lproj */; };
+		E11223C45BE94F11BEA07D92 /* da.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EFF3A624C6394CB1B3CF095D /* da.lproj */; };
+		E9074D6B14A24A3C93DB8710 /* Pods-UAAppReviewManagerExampleiOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9090163A9C46494084614A79 /* Pods-UAAppReviewManagerExampleiOS-dummy.m */; };
+		EF65B65C5B77412F8D5CA660 /* ca.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4004536EB46A48DA9727E4FF /* ca.lproj */; };
+		F32C9EFF1D3D4486BE4CCF8B /* el.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 1267555285E941FE85C9C495 /* el.lproj */; };
+		F4D2D5E727244E5E9101A660 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0319D65E2330417A87292DE5 /* CFNetwork.framework */; };
+		FD50DA6BC29049E19E1B7CE9 /* ja.lproj in Resources */ = {isa = PBXBuildFile; fileRef = A17A20E9FCFB4458B97E8783 /* ja.lproj */; };
+		FE4409C6F81B49D0ABE6C235 /* ko.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 53D2CD9CC7114BEB82D63DC0 /* ko.lproj */; };
+		FEF499B627DD4CB9AA6DD7A5 /* ru.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 9F9427C69C44472FA7EF2418 /* ru.lproj */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4010AAF553DC4DF0A5F612DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2310F9C0F0EF48C99ADB66C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1B7D27FFF914B4086ACB090;
+			remoteInfo = "UAAppReviewManager-OSX";
+		};
+		8E126672402C4FF38ED7A41D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2310F9C0F0EF48C99ADB66C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 42511C8A549048FEB7796362;
+			remoteInfo = "Pods-UAAppReviewManagerExampleMac-UAAppReviewManager";
+		};
+		C6824CBE6B734C01BB5599D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2310F9C0F0EF48C99ADB66C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1C8385EC93F4190AD3B8216;
+			remoteInfo = "UAAppReviewManager-iOS";
+		};
+		D24EB30AFE074AAB8B807DB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2310F9C0F0EF48C99ADB66C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE0B73EEDC604263A43468D1;
+			remoteInfo = "Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0319D65E2330417A87292DE5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		06185F1FED6C4708AD5ADD0A /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = es.lproj; path = Localization/es.lproj; sourceTree = "<group>"; };
+		08E928E591E943B5A15890FF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		1267555285E941FE85C9C495 /* el.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = el.lproj; path = Localization/el.lproj; sourceTree = "<group>"; };
+		16F1AE10739C4F98AE3C90D9 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UAAppReviewManagerExampleMac-UAAppReviewManager.xcconfig"; sourceTree = "<group>"; };
+		173D5FC60E4245A4AF3A76FD /* Pods-UAAppReviewManagerExampleiOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UAAppReviewManagerExampleiOS.xcconfig"; sourceTree = "<group>"; };
+		185EAF73516240F7A41F3A28 /* libPods-UAAppReviewManagerExampleMac-UAAppReviewManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UAAppReviewManagerExampleMac-UAAppReviewManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B8E401309F94EA6B6165F80 /* Pods-UAAppReviewManagerExampleiOS-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UAAppReviewManagerExampleiOS-environment.h"; sourceTree = "<group>"; };
+		1BA0228F9C9246FE842B0048 /* hu.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = hu.lproj; path = Localization/hu.lproj; sourceTree = "<group>"; };
+		1C4E7A095D074294B7C85D00 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = de.lproj; path = Localization/de.lproj; sourceTree = "<group>"; };
+		24D5B5639C4C4C4AAA93A839 /* pl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = pl.lproj; path = Localization/pl.lproj; sourceTree = "<group>"; };
+		25E2DD6CB34C4E2EA6A4C6F1 /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager.xcconfig"; sourceTree = "<group>"; };
+		28345F9724FE4044A15E273F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		2B946E37386A4D33831B4541 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hans.lproj"; path = "Localization/zh-Hans.lproj"; sourceTree = "<group>"; };
+		31D0C7679DD446E19F95E06F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		32889783E6F3423393F25BD7 /* Pods-UAAppReviewManagerExampleMac-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UAAppReviewManagerExampleMac-environment.h"; sourceTree = "<group>"; };
+		32E75111C3D0429B81A2BEB1 /* Pods-UAAppReviewManagerExampleMac-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UAAppReviewManagerExampleMac-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3893ED4E3CF64DA68D5D3B08 /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-prefix.pch"; sourceTree = "<group>"; };
+		3A9B0D8BBB2C463D89D0D06A /* pt.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = pt.lproj; path = Localization/pt.lproj; sourceTree = "<group>"; };
+		3BC75C20703648DBAC0FC1BC /* tr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = tr.lproj; path = Localization/tr.lproj; sourceTree = "<group>"; };
+		4004536EB46A48DA9727E4FF /* ca.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ca.lproj; path = Localization/ca.lproj; sourceTree = "<group>"; };
+		49B666D2951F46DF92F41538 /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = fr.lproj; path = Localization/fr.lproj; sourceTree = "<group>"; };
+		51815EEC06964C86BE539A6F /* Pods-UAAppReviewManagerExampleMac-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UAAppReviewManagerExampleMac-dummy.m"; sourceTree = "<group>"; };
+		53D2CD9CC7114BEB82D63DC0 /* ko.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ko.lproj; path = Localization/ko.lproj; sourceTree = "<group>"; };
+		55495EFD87244ED389FD1FB8 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-dummy.m"; sourceTree = "<group>"; };
+		5EBBBE8BACAF4E3289AC268F /* Pods-UAAppReviewManagerExampleiOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UAAppReviewManagerExampleiOS-resources.sh"; sourceTree = "<group>"; };
+		61DE08B4F1254341AEFF21C9 /* he.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = he.lproj; path = Localization/he.lproj; sourceTree = "<group>"; };
+		632EB112F61048C8AF7E7600 /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = nl.lproj; path = Localization/nl.lproj; sourceTree = "<group>"; };
+		644CAC1ACDC74EC9B4F614DB /* Pods-UAAppReviewManagerExampleMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UAAppReviewManagerExampleMac.xcconfig"; sourceTree = "<group>"; };
+		698D403D63F4401681442BF6 /* fi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = fi.lproj; path = Localization/fi.lproj; sourceTree = "<group>"; };
+		6A35D1D4D201492291942637 /* sk.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = sk.lproj; path = Localization/sk.lproj; sourceTree = "<group>"; };
+		6B645D36265143FFA18A388E /* libPods-UAAppReviewManagerExampleMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UAAppReviewManagerExampleMac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C7953000E3D416F96F4DD47 /* Pods-UAAppReviewManagerExampleiOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UAAppReviewManagerExampleiOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		82D7E99CC2E1432785325AF2 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = Localization/en.lproj; sourceTree = "<group>"; };
+		8810BEFD3EFD47A5B199C466 /* Pods-UAAppReviewManagerExampleiOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UAAppReviewManagerExampleiOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8AE64C13627F469F880ACE05 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		9090163A9C46494084614A79 /* Pods-UAAppReviewManagerExampleiOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UAAppReviewManagerExampleiOS-dummy.m"; sourceTree = "<group>"; };
+		9491EFD645E44D69B0F96778 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		96980BFD500046D89EC2736C /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-Private.xcconfig"; sourceTree = "<group>"; };
+		9801329D774A4F5EA7078448 /* UAAppReviewManager-iOS.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UAAppReviewManager-iOS.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DA8CCCADD5349D6957BC57B /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = it.lproj; path = Localization/it.lproj; sourceTree = "<group>"; };
+		9F9427C69C44472FA7EF2418 /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ru.lproj; path = Localization/ru.lproj; sourceTree = "<group>"; };
+		A17A20E9FCFB4458B97E8783 /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ja.lproj; path = Localization/ja.lproj; sourceTree = "<group>"; };
+		AA6332F24C3B41E7829E5BE9 /* Pods-UAAppReviewManagerExampleMac-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UAAppReviewManagerExampleMac-acknowledgements.plist"; sourceTree = "<group>"; };
+		B04D870DE1754F4596E38CF5 /* id.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = id.lproj; path = Localization/id.lproj; sourceTree = "<group>"; };
+		B2406B54F53B4320A09CEACF /* libPods-UAAppReviewManagerExampleiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UAAppReviewManagerExampleiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3DD5B70A2DD4E09B0054777 /* Pods-UAAppReviewManagerExampleMac-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UAAppReviewManagerExampleMac-resources.sh"; sourceTree = "<group>"; };
+		B77C3A3BD2BE42B393DD76B2 /* nb.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = nb.lproj; path = Localization/nb.lproj; sourceTree = "<group>"; };
+		C8A19D82937A40688453287B /* UAAppReviewManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = UAAppReviewManager.m; sourceTree = "<group>"; };
+		CC898BB2BFF64F3E9FC3A848 /* sv.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = sv.lproj; path = Localization/sv.lproj; sourceTree = "<group>"; };
+		CC97818AC2B749CD94787AF4 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-Private.xcconfig"; sourceTree = "<group>"; };
+		DD36EA60B68C4CD4A15A45FB /* UAAppReviewManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UAAppReviewManager.h; sourceTree = "<group>"; };
+		DD4401407B34463E9F3BC638 /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-dummy.m"; sourceTree = "<group>"; };
+		DEE152E9362D4B5086D0E690 /* ro.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ro.lproj; path = Localization/ro.lproj; sourceTree = "<group>"; };
+		E5D74BE5EA6A40BEB6F0A58C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		EADD29D541F2406495C8BE46 /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hant.lproj"; path = "Localization/zh-Hant.lproj"; sourceTree = "<group>"; };
+		EFF3A624C6394CB1B3CF095D /* da.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = da.lproj; path = Localization/da.lproj; sourceTree = "<group>"; };
+		F16B50887A8A4FED92762B57 /* cs.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = cs.lproj; path = Localization/cs.lproj; sourceTree = "<group>"; };
+		FB6B66B7DE9040D9A68B1291 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-prefix.pch"; sourceTree = "<group>"; };
+		FF272FF3B6C1408E8E5A2972 /* libPods-UAAppReviewManagerExampleiOS-UAAppReviewManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UAAppReviewManagerExampleiOS-UAAppReviewManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF5A6008DDE0409BAD004F2F /* UAAppReviewManager-OSX.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UAAppReviewManager-OSX.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		219BF6A048D642688C842CB1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BCD14A12E654E7E9BB8C801 /* Foundation.framework in Frameworks */,
+				DD2F5157441049F298915072 /* libPods-UAAppReviewManagerExampleiOS-UAAppReviewManager.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		316403336B204E7CB8238D53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88B6A09803F248928A4B4DE3 /* Cocoa.framework in Frameworks */,
+				05592EA86E1B4872950FB442 /* CFNetwork.framework in Frameworks */,
+				BCCC02AF12EA4AB7AD2B4E2F /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A199219B3A3D4056AB9B5331 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF94F15AEBAC4F53BE3E4D4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBC94F065B954D059860988F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D060D1C55EA4E57A4869E98 /* Cocoa.framework in Frameworks */,
+				CF3B1C36662546E186C6687E /* libPods-UAAppReviewManagerExampleMac-UAAppReviewManager.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEE8206978D3421993227014 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05EC84FBE5DB4DB39AA6A6D6 /* Foundation.framework in Frameworks */,
+				F4D2D5E727244E5E9101A660 /* CFNetwork.framework in Frameworks */,
+				CA9287AF8DC94D17BC1977E8 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0453149DD4F645E1801FB5F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B645D36265143FFA18A388E /* libPods-UAAppReviewManagerExampleMac.a */,
+				B2406B54F53B4320A09CEACF /* libPods-UAAppReviewManagerExampleiOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		08BF4DA49C7D415AAFCBD84E /* Pods-UAAppReviewManagerExampleiOS */ = {
+			isa = PBXGroup;
+			children = (
+				8810BEFD3EFD47A5B199C466 /* Pods-UAAppReviewManagerExampleiOS-acknowledgements.markdown */,
+				7C7953000E3D416F96F4DD47 /* Pods-UAAppReviewManagerExampleiOS-acknowledgements.plist */,
+				9090163A9C46494084614A79 /* Pods-UAAppReviewManagerExampleiOS-dummy.m */,
+				1B8E401309F94EA6B6165F80 /* Pods-UAAppReviewManagerExampleiOS-environment.h */,
+				5EBBBE8BACAF4E3289AC268F /* Pods-UAAppReviewManagerExampleiOS-resources.sh */,
+				173D5FC60E4245A4AF3A76FD /* Pods-UAAppReviewManagerExampleiOS.xcconfig */,
+			);
+			name = "Pods-UAAppReviewManagerExampleiOS";
+			sourceTree = "<group>";
+		};
+		2EF8C38D37FA4084A5317DF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0319D65E2330417A87292DE5 /* CFNetwork.framework */,
+				08E928E591E943B5A15890FF /* CFNetwork.framework */,
+				8AE64C13627F469F880ACE05 /* Cocoa.framework */,
+				28345F9724FE4044A15E273F /* Foundation.framework */,
+				9491EFD645E44D69B0F96778 /* SystemConfiguration.framework */,
+				E5D74BE5EA6A40BEB6F0A58C /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3D4E3E6AE85348D393C1AAD8 /* Pods-UAAppReviewManagerExampleMac */ = {
+			isa = PBXGroup;
+			children = (
+				32E75111C3D0429B81A2BEB1 /* Pods-UAAppReviewManagerExampleMac-acknowledgements.markdown */,
+				AA6332F24C3B41E7829E5BE9 /* Pods-UAAppReviewManagerExampleMac-acknowledgements.plist */,
+				51815EEC06964C86BE539A6F /* Pods-UAAppReviewManagerExampleMac-dummy.m */,
+				32889783E6F3423393F25BD7 /* Pods-UAAppReviewManagerExampleMac-environment.h */,
+				B3DD5B70A2DD4E09B0054777 /* Pods-UAAppReviewManagerExampleMac-resources.sh */,
+				644CAC1ACDC74EC9B4F614DB /* Pods-UAAppReviewManagerExampleMac.xcconfig */,
+			);
+			name = "Pods-UAAppReviewManagerExampleMac";
+			sourceTree = "<group>";
+		};
+		5C5AE1A758044938B8721214 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CC97818AC2B749CD94787AF4 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-Private.xcconfig */,
+				55495EFD87244ED389FD1FB8 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-dummy.m */,
+				FB6B66B7DE9040D9A68B1291 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-prefix.pch */,
+				16F1AE10739C4F98AE3C90D9 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager.xcconfig */,
+				96980BFD500046D89EC2736C /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-Private.xcconfig */,
+				DD4401407B34463E9F3BC638 /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-dummy.m */,
+				3893ED4E3CF64DA68D5D3B08 /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-prefix.pch */,
+				25E2DD6CB34C4E2EA6A4C6F1 /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager.xcconfig */,
+			);
+			name = "Support Files";
+			sourceTree = SOURCE_ROOT;
+		};
+		710A1C36D1FC4A0BBD75CB73 = {
+			isa = PBXGroup;
+			children = (
+				F63532F4810147A2967C424D /* Development Pods */,
+				2EF8C38D37FA4084A5317DF4 /* Frameworks */,
+				0453149DD4F645E1801FB5F8 /* Products */,
+				7A8E8D2B07AD4CCFBB5DB35C /* Targets Support Files */,
+				31D0C7679DD446E19F95E06F /* Podfile */,
+			);
+			sourceTree = "<group>";
+		};
+		76964F37F85E4F038FEB327F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				185EAF73516240F7A41F3A28 /* libPods-UAAppReviewManagerExampleMac-UAAppReviewManager.a */,
+				FF272FF3B6C1408E8E5A2972 /* libPods-UAAppReviewManagerExampleiOS-UAAppReviewManager.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7A8E8D2B07AD4CCFBB5DB35C /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3D4E3E6AE85348D393C1AAD8 /* Pods-UAAppReviewManagerExampleMac */,
+				08BF4DA49C7D415AAFCBD84E /* Pods-UAAppReviewManagerExampleiOS */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		8B942F06CAF042A78BDDD9AD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF5A6008DDE0409BAD004F2F /* UAAppReviewManager-OSX.bundle */,
+				9801329D774A4F5EA7078448 /* UAAppReviewManager-iOS.bundle */,
+				4004536EB46A48DA9727E4FF /* ca.lproj */,
+				F16B50887A8A4FED92762B57 /* cs.lproj */,
+				EFF3A624C6394CB1B3CF095D /* da.lproj */,
+				1C4E7A095D074294B7C85D00 /* de.lproj */,
+				1267555285E941FE85C9C495 /* el.lproj */,
+				82D7E99CC2E1432785325AF2 /* en.lproj */,
+				06185F1FED6C4708AD5ADD0A /* es.lproj */,
+				698D403D63F4401681442BF6 /* fi.lproj */,
+				49B666D2951F46DF92F41538 /* fr.lproj */,
+				61DE08B4F1254341AEFF21C9 /* he.lproj */,
+				1BA0228F9C9246FE842B0048 /* hu.lproj */,
+				B04D870DE1754F4596E38CF5 /* id.lproj */,
+				9DA8CCCADD5349D6957BC57B /* it.lproj */,
+				A17A20E9FCFB4458B97E8783 /* ja.lproj */,
+				53D2CD9CC7114BEB82D63DC0 /* ko.lproj */,
+				B77C3A3BD2BE42B393DD76B2 /* nb.lproj */,
+				632EB112F61048C8AF7E7600 /* nl.lproj */,
+				24D5B5639C4C4C4AAA93A839 /* pl.lproj */,
+				3A9B0D8BBB2C463D89D0D06A /* pt.lproj */,
+				DEE152E9362D4B5086D0E690 /* ro.lproj */,
+				9F9427C69C44472FA7EF2418 /* ru.lproj */,
+				6A35D1D4D201492291942637 /* sk.lproj */,
+				CC898BB2BFF64F3E9FC3A848 /* sv.lproj */,
+				3BC75C20703648DBAC0FC1BC /* tr.lproj */,
+				2B946E37386A4D33831B4541 /* zh-Hans.lproj */,
+				EADD29D541F2406495C8BE46 /* zh-Hant.lproj */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F4BE15BEC44B4BAC9C23B63D /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD36EA60B68C4CD4A15A45FB /* UAAppReviewManager.h */,
+				C8A19D82937A40688453287B /* UAAppReviewManager.m */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		F63532F4810147A2967C424D /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F8A7DE5CDF0F4626923162E6 /* UAAppReviewManager */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		F8A7DE5CDF0F4626923162E6 /* UAAppReviewManager */ = {
+			isa = PBXGroup;
+			children = (
+				76964F37F85E4F038FEB327F /* Products */,
+				8B942F06CAF042A78BDDD9AD /* Resources */,
+				F4BE15BEC44B4BAC9C23B63D /* Source Files */,
+				5C5AE1A758044938B8721214 /* Support Files */,
+			);
+			name = UAAppReviewManager;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C161AB7B566F41F582918C72 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5CC676ECA3B4CFB94546D89 /* UAAppReviewManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C69E9A2894EA4B519EDB244B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF5166798A75479EBABF9D5A /* UAAppReviewManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		01164142A76847038FC00F99 /* Pods-UAAppReviewManagerExampleiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7829AFA9D2C4164ABD02F88 /* Build configuration list for PBXNativeTarget "Pods-UAAppReviewManagerExampleiOS" */;
+			buildPhases = (
+				50BDCB4C3662416EB22851FD /* Sources */,
+				219BF6A048D642688C842CB1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8D7B7D988C8D4673AB62CEAD /* PBXTargetDependency */,
+			);
+			name = "Pods-UAAppReviewManagerExampleiOS";
+			productName = "Pods-UAAppReviewManagerExampleiOS";
+			productReference = B2406B54F53B4320A09CEACF /* libPods-UAAppReviewManagerExampleiOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		42511C8A549048FEB7796362 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D557A968B8948DFBA992141 /* Build configuration list for PBXNativeTarget "Pods-UAAppReviewManagerExampleMac-UAAppReviewManager" */;
+			buildPhases = (
+				ABC74CEFAA5542AAA05069BF /* Sources */,
+				316403336B204E7CB8238D53 /* Frameworks */,
+				C69E9A2894EA4B519EDB244B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B1E50C8914641E3832753A0 /* PBXTargetDependency */,
+			);
+			name = "Pods-UAAppReviewManagerExampleMac-UAAppReviewManager";
+			productName = "Pods-UAAppReviewManagerExampleMac-UAAppReviewManager";
+			productReference = 185EAF73516240F7A41F3A28 /* libPods-UAAppReviewManagerExampleMac-UAAppReviewManager.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		57147B56DCFE462B9072C224 /* Pods-UAAppReviewManagerExampleMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEC93FFEF92949119738C259 /* Build configuration list for PBXNativeTarget "Pods-UAAppReviewManagerExampleMac" */;
+			buildPhases = (
+				A1741BB60B9140A0B2F97761 /* Sources */,
+				FBC94F065B954D059860988F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				08B5A6B942BC46CA954C1083 /* PBXTargetDependency */,
+			);
+			name = "Pods-UAAppReviewManagerExampleMac";
+			productName = "Pods-UAAppReviewManagerExampleMac";
+			productReference = 6B645D36265143FFA18A388E /* libPods-UAAppReviewManagerExampleMac.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B1B7D27FFF914B4086ACB090 /* UAAppReviewManager-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5400B8B0A1504B3E9165DDF7 /* Build configuration list for PBXNativeTarget "UAAppReviewManager-OSX" */;
+			buildPhases = (
+				BE861F9AD34C465E8EF9F1DD /* Sources */,
+				CF94F15AEBAC4F53BE3E4D4A /* Frameworks */,
+				E1A98FE210F64C44AA7C4B05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UAAppReviewManager-OSX";
+			productName = "UAAppReviewManager-OSX";
+			productReference = FF5A6008DDE0409BAD004F2F /* UAAppReviewManager-OSX.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		B1C8385EC93F4190AD3B8216 /* UAAppReviewManager-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EE716A0AE604CE9A5D58CFE /* Build configuration list for PBXNativeTarget "UAAppReviewManager-iOS" */;
+			buildPhases = (
+				EC869087785A40CCB742506F /* Sources */,
+				A199219B3A3D4056AB9B5331 /* Frameworks */,
+				CC82B9CCA7324426952A2462 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UAAppReviewManager-iOS";
+			productName = "UAAppReviewManager-iOS";
+			productReference = 9801329D774A4F5EA7078448 /* UAAppReviewManager-iOS.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		DE0B73EEDC604263A43468D1 /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7045C824D406460DB26176D0 /* Build configuration list for PBXNativeTarget "Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager" */;
+			buildPhases = (
+				274207916ECE4CDEB428EBD8 /* Sources */,
+				FEE8206978D3421993227014 /* Frameworks */,
+				C161AB7B566F41F582918C72 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				125F2C5455A6438CB1BEE0D6 /* PBXTargetDependency */,
+			);
+			name = "Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager";
+			productName = "Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager";
+			productReference = FF272FF3B6C1408E8E5A2972 /* libPods-UAAppReviewManagerExampleiOS-UAAppReviewManager.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2310F9C0F0EF48C99ADB66C3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 7F0C2C09BD66475E9DC8AB3B /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 710A1C36D1FC4A0BBD75CB73;
+			productRefGroup = 0453149DD4F645E1801FB5F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				42511C8A549048FEB7796362 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager */,
+				B1B7D27FFF914B4086ACB090 /* UAAppReviewManager-OSX */,
+				DE0B73EEDC604263A43468D1 /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager */,
+				B1C8385EC93F4190AD3B8216 /* UAAppReviewManager-iOS */,
+				57147B56DCFE462B9072C224 /* Pods-UAAppReviewManagerExampleMac */,
+				01164142A76847038FC00F99 /* Pods-UAAppReviewManagerExampleiOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CC82B9CCA7324426952A2462 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7131B02C4CD642D8BC746B76 /* ca.lproj in Resources */,
+				BB3C9088CDA9412A9D83C6DB /* cs.lproj in Resources */,
+				E11223C45BE94F11BEA07D92 /* da.lproj in Resources */,
+				B4ABABA45BE4466D908C573B /* de.lproj in Resources */,
+				1F13B102FED84C4D9D26AF1B /* el.lproj in Resources */,
+				D3C74A19332A4F62B2390583 /* en.lproj in Resources */,
+				B66BA55C9DEB4A02B1158434 /* es.lproj in Resources */,
+				B41AB448F1E145DE87E571B1 /* fi.lproj in Resources */,
+				ACAD2D91BF3C4FE893F9815E /* fr.lproj in Resources */,
+				99119B65FC934CE6A9CD92A2 /* he.lproj in Resources */,
+				E0077826C0324EC896C71AD1 /* hu.lproj in Resources */,
+				19FF249E11C943CD86E41B99 /* id.lproj in Resources */,
+				99BFE4A550964878A7EC5212 /* it.lproj in Resources */,
+				FD50DA6BC29049E19E1B7CE9 /* ja.lproj in Resources */,
+				FE4409C6F81B49D0ABE6C235 /* ko.lproj in Resources */,
+				96B3C17419F04BABA3BE045F /* nb.lproj in Resources */,
+				5278E3AE07124695BE08B83B /* nl.lproj in Resources */,
+				1FAADE78329841F4BB249EC4 /* pl.lproj in Resources */,
+				3E062873F9B045048F36F469 /* pt.lproj in Resources */,
+				42C51AC4DFBC4115B57D49BF /* ro.lproj in Resources */,
+				364DC00B61384AE1990E740E /* ru.lproj in Resources */,
+				1AB4308790BB4A2798A058BC /* sk.lproj in Resources */,
+				9A690048FD2846E88EFAD77F /* sv.lproj in Resources */,
+				C1A0D45DA37E4340A7276442 /* tr.lproj in Resources */,
+				9A18DB2B5A3D4D58896FE822 /* zh-Hans.lproj in Resources */,
+				76630B6FE2044A6DA4E0113C /* zh-Hant.lproj in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1A98FE210F64C44AA7C4B05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF65B65C5B77412F8D5CA660 /* ca.lproj in Resources */,
+				6937039F085942C2893BF39F /* cs.lproj in Resources */,
+				AB6AB488B19E4C0980D0FDFC /* da.lproj in Resources */,
+				59B28406C859461A95345959 /* de.lproj in Resources */,
+				F32C9EFF1D3D4486BE4CCF8B /* el.lproj in Resources */,
+				94A9470B91244768B61B3CE6 /* en.lproj in Resources */,
+				AAE0567859F54667A8E6FA67 /* es.lproj in Resources */,
+				6AB28FDA34AD43A58E6B9212 /* fi.lproj in Resources */,
+				1D11EC6FBC1B48F187D4D836 /* fr.lproj in Resources */,
+				B08817397C8842D99AC37BB5 /* he.lproj in Resources */,
+				85AF83AF31574AEFA8DD4704 /* hu.lproj in Resources */,
+				A4678C5C3D624EAB976098CF /* id.lproj in Resources */,
+				A3B829F7568B4DD88FFBF1CA /* it.lproj in Resources */,
+				69638CA35E124895AB129C12 /* ja.lproj in Resources */,
+				53A6453E15894FB8A8F315DA /* ko.lproj in Resources */,
+				A4310A8410374FB7BDCA68F7 /* nb.lproj in Resources */,
+				31DB404439C84D75BA7A20D9 /* nl.lproj in Resources */,
+				ACA1B37F26214A84980971A1 /* pl.lproj in Resources */,
+				917FAFF160F648C189A515B4 /* pt.lproj in Resources */,
+				B9699EAC43694D149750FF96 /* ro.lproj in Resources */,
+				FEF499B627DD4CB9AA6DD7A5 /* ru.lproj in Resources */,
+				80C4B2CFA39F45D19D5F3483 /* sk.lproj in Resources */,
+				A3E32BBFB72A465F8C576049 /* sv.lproj in Resources */,
+				4ACAB0E9B1F34418B0277CF7 /* tr.lproj in Resources */,
+				4F5910D20F294F6FAA318C04 /* zh-Hans.lproj in Resources */,
+				72677DB7B2384FBCBD118749 /* zh-Hant.lproj in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		274207916ECE4CDEB428EBD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9796A3E299043DD9BC1EC87 /* UAAppReviewManager.m in Sources */,
+				97569AF1C0784D138F5BB096 /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50BDCB4C3662416EB22851FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9074D6B14A24A3C93DB8710 /* Pods-UAAppReviewManagerExampleiOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1741BB60B9140A0B2F97761 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95A5A0F9CD744A45BE722FB3 /* Pods-UAAppReviewManagerExampleMac-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABC74CEFAA5542AAA05069BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6084568DB5EA4F389EB84FDA /* UAAppReviewManager.m in Sources */,
+				A06547FCA4BF4E68A9B32A44 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE861F9AD34C465E8EF9F1DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC869087785A40CCB742506F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		08B5A6B942BC46CA954C1083 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 42511C8A549048FEB7796362 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager */;
+			targetProxy = 8E126672402C4FF38ED7A41D /* PBXContainerItemProxy */;
+		};
+		125F2C5455A6438CB1BEE0D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1C8385EC93F4190AD3B8216 /* UAAppReviewManager-iOS */;
+			targetProxy = C6824CBE6B734C01BB5599D8 /* PBXContainerItemProxy */;
+		};
+		3B1E50C8914641E3832753A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1B7D27FFF914B4086ACB090 /* UAAppReviewManager-OSX */;
+			targetProxy = 4010AAF553DC4DF0A5F612DF /* PBXContainerItemProxy */;
+		};
+		8D7B7D988C8D4673AB62CEAD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE0B73EEDC604263A43468D1 /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager */;
+			targetProxy = D24EB30AFE074AAB8B807DB4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0569BA2BB5664AB8AA854EB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		064DA3AEAE0A440F849E9C8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 644CAC1ACDC74EC9B4F614DB /* Pods-UAAppReviewManagerExampleMac.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1AB2F0C478F7460C8C7E1A37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC97818AC2B749CD94787AF4 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1B67BB207AF34FF9A8C1ECBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96980BFD500046D89EC2736C /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2762C84B9A294AB495B71336 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC97818AC2B749CD94787AF4 /* Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-UAAppReviewManagerExampleMac-UAAppReviewManager-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4BB51CAB89284F47B1A05ACB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		791EF9A5B2FB40E0A31DCB11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 173D5FC60E4245A4AF3A76FD /* Pods-UAAppReviewManagerExampleiOS.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		92D75AB31BE948FCACDA541B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		9CBF4F0F7E824CDC8BAD6A9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 644CAC1ACDC74EC9B4F614DB /* Pods-UAAppReviewManagerExampleMac.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A57EC6E712A448C6BD030B49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 173D5FC60E4245A4AF3A76FD /* Pods-UAAppReviewManagerExampleiOS.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B053E49A78564244A68C76F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		D398EBB512FD42E1AE3E2487 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Release;
+		};
+		F4409C97873A42FDB188F811 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96980BFD500046D89EC2736C /* Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F68CDF14901F4EA398A3A821 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3EE716A0AE604CE9A5D58CFE /* Build configuration list for PBXNativeTarget "UAAppReviewManager-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BB51CAB89284F47B1A05ACB /* Release */,
+				92D75AB31BE948FCACDA541B /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5400B8B0A1504B3E9165DDF7 /* Build configuration list for PBXNativeTarget "UAAppReviewManager-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F68CDF14901F4EA398A3A821 /* Release */,
+				0569BA2BB5664AB8AA854EB3 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D557A968B8948DFBA992141 /* Build configuration list for PBXNativeTarget "Pods-UAAppReviewManagerExampleMac-UAAppReviewManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AB2F0C478F7460C8C7E1A37 /* Release */,
+				2762C84B9A294AB495B71336 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7045C824D406460DB26176D0 /* Build configuration list for PBXNativeTarget "Pods-UAAppReviewManagerExampleiOS-UAAppReviewManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B67BB207AF34FF9A8C1ECBF /* Release */,
+				F4409C97873A42FDB188F811 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F0C2C09BD66475E9DC8AB3B /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B053E49A78564244A68C76F0 /* Debug */,
+				D398EBB512FD42E1AE3E2487 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEC93FFEF92949119738C259 /* Build configuration list for PBXNativeTarget "Pods-UAAppReviewManagerExampleMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CBF4F0F7E824CDC8BAD6A9F /* Release */,
+				064DA3AEAE0A440F849E9C8B /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7829AFA9D2C4164ABD02F88 /* Build configuration list for PBXNativeTarget "Pods-UAAppReviewManagerExampleiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A57EC6E712A448C6BD030B49 /* Release */,
+				791EF9A5B2FB40E0A31DCB11 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2310F9C0F0EF48C99ADB66C3 /* Project object */;
+}
