@@ -275,11 +275,12 @@ typedef BOOL (^UAAppReviewManagerShouldPromptBlock)(NSDictionary *trackingInfo);
  * count should be incremented. You can call this method at the end of your
  * application delegate's application:didFinishLaunchingWithOptions: method.
  *
- * This is Similar to the appLaunched method, but allows the passing of a
+ * This is similar to the appLaunched method, but allows the passing of a
  * UAAppReviewManagerShouldPromptBlock that will be executed before prompting.
  * The block passes all the keys and values that UAAppReviewManager uses to 
  * determine if it the prompt conditions have been met, and it is up to you
  * to use this info and return a BOOL on whether or not the prompt should be shown.
+ * The block is run synchronous and on the main queue, so be sure to handle it appropriately.
  * Return YES to proceed and show the prompt, return NO to kill the pending presentation.
  */
 + (void)appLaunchedWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
@@ -305,11 +306,12 @@ typedef BOOL (^UAAppReviewManagerShouldPromptBlock)(NSDictionary *trackingInfo);
  * You should call this method from the application delegate's
  * applicationWillEnterForeground: method.
  *
- * This is Similar to the appEnteredForeground method, but allows the passing of a
+ * This is similar to the appEnteredForeground method, but allows the passing of a
  * UAAppReviewManagerShouldPromptBlock that will be executed before prompting.
  * The block passes all the keys and values that UAAppReviewManager uses to
  * determine if it the prompt conditions have been met, and it is up to you
  * to use this info and return a BOOL on whether or not the prompt should be shown.
+ * The block is run synchronous and on the main queue, so be sure to handle it appropriately.
  * Return YES to proceed and show the prompt, return NO to kill the pending presentation.
  */
 + (void)appEnteredForegroundWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
@@ -339,11 +341,12 @@ typedef BOOL (^UAAppReviewManagerShouldPromptBlock)(NSDictionary *trackingInfo);
  * user places a call. If it's a game, you might want to call this whenever
  * the user beats a level boss.
  *
- * This is Similar to the userDidSignificantEvent method, but allows the passing of a
+ * This is similar to the userDidSignificantEvent method, but allows the passing of a
  * UAAppReviewManagerShouldPromptBlock that will be executed before prompting.
  * The block passes all the keys and values that UAAppReviewManager uses to
  * determine if it the prompt conditions have been met, and it is up to you
  * to use this info and return a BOOL on whether or not the prompt should be shown.
+ * The block is run synchronous and on the main queue, so be sure to handle it appropriately.
  * Return YES to proceed and show the prompt, return NO to kill the pending presentation.
  */
 + (void)userDidSignificantEventWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
@@ -401,7 +404,7 @@ typedef BOOL (^UAAppReviewManagerShouldPromptBlock)(NSDictionary *trackingInfo);
 
 /*
  * The setShouldPromptBlock is called just after all the rating coditions
- * have been met and UAAppReviewManager has decided it ishould diaplay a prompt,
+ * have been met and UAAppReviewManager has decided it should display a prompt,
  * and just before the prompt actually displays.
  *
  * The block passes all the keys and values that UAAppReviewManager used to
