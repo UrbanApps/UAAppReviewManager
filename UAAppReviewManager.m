@@ -712,9 +712,14 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 - (void)showPromptIfNecessary:(BOOL)canPromptForRating {
 	if (canPromptForRating && [self ratingConditionsHaveBeenMet] && [self connectedToNetwork]) {
-		BOOL shouldPrompt = YES;
-		if (self.shouldPromptBlock)
-			shouldPrompt = self.shouldPromptBlock([self trackingInfo]);
+
+		__block BOOL shouldPrompt = YES;
+		if (self.shouldPromptBlock) {
+			dispatch_sync(dispatch_get_main_queue(), ^{
+				shouldPrompt = self.shouldPromptBlock([self trackingInfo]);
+			});
+		}
+			
 		
 		if (shouldPrompt) {
 			dispatch_async(dispatch_get_main_queue(), ^{

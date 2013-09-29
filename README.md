@@ -277,6 +277,8 @@ In addition to the global `shouldPromptBlock`, each of the class methods that tr
     
 When using these methods instead of their `BOOL` sister-methods, none of the internal UAAppReviewManager logic is used to determine whether or not to display the prompt. **Only** your block is used to decide whether or not it should be presented, based solely on the return value you pass back in the block. This also means that even the global `shouldPromptBlock` (if set) will not be called when using these methods.
 
+**Note:** The `shouldPromptBlock` is run synchronous and on the main queue, so be sure to handle it appropriately.
+
 ### NSUserDefaults and Keys
 
 UAAppReviewManager has sensible defaults for the `NSUserDefaults` keys it uses, but you can customize that here if you want. Get/Set the `NSUserDefaults` Keys that store the usage data for UAAppReviewManager. Default values are all in the form of "<keyPrefix>UAAppReviewManagerKey<Setting>"
