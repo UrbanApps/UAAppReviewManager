@@ -1,6 +1,6 @@
 # UAAppReviewManager Changelog
 
-### 0.2
+### 0.1.6
  - Added UAAppReviewManagerShouldPromptBlock methods and logic. This allows you to have total control and the last say in whether or not a rating prompt should be displayed. More info about these methods and blocks in the README.
  
 ### 0.1.5
