@@ -214,6 +214,14 @@ There are 2 reasons why the default is `NO`.
 
     + (void)userDidSignificantEvent:(BOOL)canPromptForRating;
 
+In addition to each of the class methods that trigger the presentation of the prompt (`appLaunched:`, `appEnteredForeground:` and `userDidSignificantEvent:`), there are block based variants that allow you to customize whether or not this is an appropriate time to display the prompt.
+
+    + (void)appLaunchedWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
+    + (void)appEnteredForegroundWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
+    + (void)userDidSignificantEventWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
+
+Read more about these methods below in the [Should-Prompt Blocks](#should-prompt-blocks) section.    
+
 
 `showPrompt` tells UAAppReviewManager to show the review prompt alert. The prompt will be showed if there is an internet connection available, the user hasn't already declined to rate, hasn't rated the current version and you are tracking new versions. You could call to show the prompt regardless of UAAppReviewManager settings, for instance, in the case of some special event in your app like positive feedback given.
 
@@ -249,6 +257,27 @@ UAAppReviewManager uses blocks instead of delegate methods for callbacks. Defaul
     + (void)setOnWillPresentModalView:(UAAppReviewManagerAnimateBlock)willPresentModalViewBlock;
     + (void)setOnDidDismissModalView:(UAAppReviewManagerAnimateBlock)didDismissModalViewBlock;
 
+
+##### Should-Prompt Blocks
+
+UAAppReviewManager allows you to set a block that is called immediately preceding the display of the popup.
+
+    typedef BOOL (^UAAppReviewManagerShouldPromptBlock)(NSDictionary *trackingInfo);
+    
+The `UAAppReviewManagerShouldPromptBlock` block passes you the keys and values UAAppReviewManager used to determine that the prompt should be called, and expects a `BOOL` return value on whether or not the prompt should still be displayed. This allows you to have one last chance to do any of your own custom logic to determine whether or not this is an appropriate time to display the prompt.
+
+    + (void)setShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
+    
+
+In addition to the global `shouldPromptBlock`, each of the class methods that trigger the presentation of the prompt (`appLaunched:`, `appEnteredForeground:` and `userDidSignificantEvent:`) have their own block based variant that allows you to customize whether or not this is an appropriate time to display the prompt.
+
+    + (void)appLaunchedWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
+    + (void)appEnteredForegroundWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
+    + (void)userDidSignificantEventWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
+    
+When using these methods instead of their `BOOL` sister-methods, none of the internal UAAppReviewManager logic is used to determine whether or not to display the prompt. **Only** your block is used to decide whether or not it should be presented, based solely on the return value you pass back in the block. This also means that even the global `shouldPromptBlock` (if set) will not be called when using these methods.
+
+**Note:** The `shouldPromptBlock` is run synchronous and on the main queue, so be sure to handle it appropriately.
 
 ### NSUserDefaults and Keys
 

@@ -79,22 +79,28 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 @property (nonatomic, strong) NSString *appReviewManagerKeySignificantEventCount;
 @property (nonatomic, strong) NSString *appReviewManagerKeyCurrentVersion;
 @property (nonatomic, strong) NSString *appReviewManagerKeyRatedCurrentVersion;
-@property (nonatomic, strong) NSString *appReviewManagerKeyRatedAnyVersion;
 @property (nonatomic, strong) NSString *appReviewManagerKeyDeclinedToRate;
 @property (nonatomic, strong) NSString *appReviewManagerKeyReminderRequestDate;
+@property (nonatomic, strong) NSString *appReviewManagerKeyPreviousVersion;
+@property (nonatomic, strong) NSString *appReviewManagerKeyPreviousVersionRated;
+@property (nonatomic, strong) NSString *appReviewManagerKeyPreviousVersionDeclinedToRate;
+@property (nonatomic, strong) NSString *appReviewManagerKeyRatedAnyVersion;
 @property (nonatomic, strong) NSString *appReviewManagerKeyAppiraterMigrationCompleted;
 
 @property (nonatomic, strong) NSString *keyPrefix;
 
-@property (nonatomic, weak) NSObject<UAAppReviewManagerDefaultsObject> *userDefaultsObject;
+@property (nonatomic, strong) NSObject<UAAppReviewManagerDefaultsObject> *userDefaultsObject;
 
 // Blocks
-@property (nonatomic, copy) UAAppReviewManagerBlock         didDisplayAlertBlock;
-@property (nonatomic, copy) UAAppReviewManagerBlock         didDeclineToRateBlock;
-@property (nonatomic, copy) UAAppReviewManagerBlock         didOptToRateBlock;
-@property (nonatomic, copy) UAAppReviewManagerBlock         didOptToRemindLaterBlock;
-@property (nonatomic, copy) UAAppReviewManagerAnimateBlock  willPresentModalViewBlock;
-@property (nonatomic, copy) UAAppReviewManagerAnimateBlock  didDismissModalViewBlock;
+@property (nonatomic, copy) UAAppReviewManagerBlock				didDisplayAlertBlock;
+@property (nonatomic, copy) UAAppReviewManagerBlock				didDeclineToRateBlock;
+@property (nonatomic, copy) UAAppReviewManagerBlock				didOptToRateBlock;
+@property (nonatomic, copy) UAAppReviewManagerBlock				didOptToRemindLaterBlock;
+#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+@property (nonatomic, copy) UAAppReviewManagerAnimateBlock		willPresentModalViewBlock;
+@property (nonatomic, copy) UAAppReviewManagerAnimateBlock		didDismissModalViewBlock;
+#endif
+@property (nonatomic, copy) UAAppReviewManagerShouldPromptBlock	shouldPromptBlock;
 
 // State ivars
 @property (nonatomic, assign) BOOL modalPanelOpen;
@@ -294,12 +300,24 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	[[UAAppReviewManager defaultManager] appLaunched:canPromptForRating];
 }
 
++ (void)appLaunchedWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
+	[[UAAppReviewManager defaultManager] appLaunchedWithShouldPromptBlock:shouldPromptBlock];
+}
+
 + (void)appEnteredForeground:(BOOL)canPromptForRating {
 	[[UAAppReviewManager defaultManager] appEnteredForeground:canPromptForRating];
 }
 
++ (void)appEnteredForegroundWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
+	[[UAAppReviewManager defaultManager] appEnteredForegroundWithShouldPromptBlock:shouldPromptBlock];
+}
+
 + (void)userDidSignificantEvent:(BOOL)canPromptForRating {
 	[[UAAppReviewManager defaultManager] userDidSignificantEvent:canPromptForRating];
+}
+
++ (void)userDidSignificantEventWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
+	[[UAAppReviewManager defaultManager] userDidSignificantEventWithShouldPromptBlock:shouldPromptBlock];
 }
 
 + (void)showPrompt {
@@ -345,6 +363,10 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	[[UAAppReviewManager defaultManager] setDidDismissModalViewBlock:didDismissModalViewBlock];
 }
 #endif
+
++ (void)setShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
+	[[UAAppReviewManager defaultManager] setShouldPromptBlock:shouldPromptBlock];
+}
 
 #pragma mark - PUBLIC Class Convenience Methods (backwards compatibility)
 
@@ -504,14 +526,6 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	return _appReviewManagerKeyRatedCurrentVersion;
 }
 
-- (NSString *)appReviewManagerKeyRatedAnyVersion {
-	if (!_appReviewManagerKeyRatedAnyVersion) {
-		// Provide a sensible default
-		self.appReviewManagerKeyRatedAnyVersion = @"UAAppReviewManagerKeyRatedAnyVersion";
-	}
-	return _appReviewManagerKeyRatedAnyVersion;
-}
-
 - (NSString *)appReviewManagerKeyDeclinedToRate {
 	if (!_appReviewManagerKeyDeclinedToRate) {
 		// Provide a sensible default
@@ -526,6 +540,38 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		self.appReviewManagerKeyReminderRequestDate = @"UAAppReviewManagerKeyReminderRequestDate";
 	}
 	return _appReviewManagerKeyReminderRequestDate;
+}
+
+- (NSString *)appReviewManagerKeyPreviousVersion {
+	if (!_appReviewManagerKeyPreviousVersion) {
+		// Provide a sensible default
+		self.appReviewManagerKeyPreviousVersion = @"UAAppReviewManagerKeyPreviousVersion";
+	}
+	return _appReviewManagerKeyPreviousVersion;
+}
+
+- (NSString *)appReviewManagerKeyPreviousVersionRated {
+	if (!_appReviewManagerKeyPreviousVersionRated) {
+		// Provide a sensible default
+		self.appReviewManagerKeyPreviousVersionRated = @"UAAppReviewManagerKeyPreviousVersionRated";
+	}
+	return _appReviewManagerKeyPreviousVersionRated;
+}
+
+- (NSString *)appReviewManagerKeyPreviousVersionDeclinedToRate {
+	if (!_appReviewManagerKeyPreviousVersionDeclinedToRate) {
+		// Provide a sensible default
+		self.appReviewManagerKeyPreviousVersionDeclinedToRate = @"UAAppReviewManagerKeyPreviousVersionDeclinedToRate";
+	}
+	return _appReviewManagerKeyPreviousVersionDeclinedToRate;
+}
+
+- (NSString *)appReviewManagerKeyRatedAnyVersion {
+	if (!_appReviewManagerKeyRatedAnyVersion) {
+		// Provide a sensible default
+		self.appReviewManagerKeyRatedAnyVersion = @"UAAppReviewManagerKeyRatedAnyVersion";
+	}
+	return _appReviewManagerKeyRatedAnyVersion;
 }
 
 - (NSString *)appReviewManagerKeyAppiraterMigrationCompleted {
@@ -544,15 +590,33 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	});
 }
 
+- (void)appLaunchedWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+		[self incrementAndRateWithShouldPromptBlock:shouldPromptBlock];
+	});
+}
+
 - (void)appEnteredForeground:(BOOL)canPromptForRating {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
 		[self incrementAndRate:canPromptForRating];
 	});
 }
 
+- (void)appEnteredForegroundWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+		[self incrementAndRateWithShouldPromptBlock:shouldPromptBlock];
+	});
+}
+
 - (void)userDidSignificantEvent:(BOOL)canPromptForRating {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
 		[self incrementSignificantEventAndRate:canPromptForRating];
+	});
+}
+
+- (void)userDidSignificantEventWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+		[self incrementSignificantEventWithShouldPromptBlock:shouldPromptBlock];
 	});
 }
 
@@ -565,10 +629,22 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	[self showPromptIfNecessary:canPromptForRating];
 }
 
+- (void)incrementAndRateWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
+	[self migrateAppiraterKeysIfNecessary];
+	[self incrementUseCount];
+	[self showPromptWithShouldPromptBlock:shouldPromptBlock];
+}
+
 - (void)incrementSignificantEventAndRate:(BOOL)canPromptForRating {
 	[self migrateAppiraterKeysIfNecessary];
 	[self incrementSignificantEventCount];
 	[self showPromptIfNecessary:canPromptForRating];
+}
+
+- (void)incrementSignificantEventWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
+	[self migrateAppiraterKeysIfNecessary];
+	[self incrementSignificantEventCount];
+	[self showPromptWithShouldPromptBlock:shouldPromptBlock];
 }
 
 - (void)incrementUseCount {
@@ -615,6 +691,13 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	
 	} else if (self.tracksNewVersions) {
 		// it's a new version of the app, so restart tracking
+		[self.userDefaultsObject setObject:trackingVersion
+									forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyPreviousVersion]];
+		[self.userDefaultsObject setObject:[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedCurrentVersion]]
+									forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyPreviousVersionRated]];
+		[self.userDefaultsObject setObject:[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyDeclinedToRate]]
+									forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyPreviousVersionDeclinedToRate]];
+		
 		[self.userDefaultsObject setObject:currentVersion forKey:currentVersionKey];
 		[self.userDefaultsObject setObject:[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyFirstUseDate]];
 		[self.userDefaultsObject setObject:[NSNumber numberWithInteger:1] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyUseCount]];
@@ -629,6 +712,32 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 - (void)showPromptIfNecessary:(BOOL)canPromptForRating {
 	if (canPromptForRating && [self ratingConditionsHaveBeenMet] && [self connectedToNetwork]) {
+
+		__block BOOL shouldPrompt = YES;
+		if (self.shouldPromptBlock) {
+			dispatch_sync(dispatch_get_main_queue(), ^{
+				shouldPrompt = self.shouldPromptBlock([self trackingInfo]);
+			});
+		}
+			
+		
+		if (shouldPrompt) {
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[self showRatingAlert];
+			});
+		}
+	}
+}
+
+- (void)showPromptWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
+	__block BOOL shouldPrompt = NO;
+	if (shouldPromptBlock) {
+		dispatch_sync(dispatch_get_main_queue(), ^{
+			shouldPrompt = shouldPromptBlock([self trackingInfo]);
+		});
+	}
+		
+	if (shouldPrompt) {
         dispatch_async(dispatch_get_main_queue(), ^{
 			[self showRatingAlert];
 		});
@@ -903,17 +1012,54 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 #pragma mark PRIVATE Key Helpers
 
+- (NSArray *)allKeys {
+	return
+	@[ [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyFirstUseDate],
+	   [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyUseCount],
+	   [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeySignificantEventCount],
+	   [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyCurrentVersion],
+	   [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedCurrentVersion],
+	   [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyDeclinedToRate],
+	   [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyReminderRequestDate],
+	   [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyPreviousVersion],
+	   [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyPreviousVersionRated],
+	   [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyPreviousVersionDeclinedToRate],
+	   [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedAnyVersion],
+	   [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyAppiraterMigrationCompleted]
+	];
+}
+
+- (NSDictionary *)trackingInfo {
+	NSMutableDictionary *trackingInfo = [NSMutableDictionary dictionary];
+	
+	for (NSString *key in [self allKeys]) {
+		id obj = [self.userDefaultsObject objectForKey:key];
+		if (!obj)
+			obj = [NSNull null];
+		
+		[trackingInfo setObject:obj forKey:key];
+	}
+	return trackingInfo;
+}
+
 - (NSString *)keyForUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType {
+	if (!self.keyPrefix)
+		self.keyPrefix = @"";
+	
 	switch (keyType) {
-		case UAAppReviewManagerKeyFirstUseDate:                 return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyFirstUseDate]];
-		case UAAppReviewManagerKeyUseCount:                     return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyUseCount]];
-		case UAAppReviewManagerKeySignificantEventCount:        return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeySignificantEventCount]];
-		case UAAppReviewManagerKeyCurrentVersion:               return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyCurrentVersion]];
-		case UAAppReviewManagerKeyRatedCurrentVersion:          return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyRatedCurrentVersion]];
-		case UAAppReviewManagerKeyRatedAnyVersion:              return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyRatedAnyVersion]];
-		case UAAppReviewManagerKeyDeclinedToRate:               return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyDeclinedToRate]];
-		case UAAppReviewManagerKeyReminderRequestDate:          return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyReminderRequestDate]];
-		case UAAppReviewManagerKeyAppiraterMigrationCompleted:  return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyAppiraterMigrationCompleted]];
+		case UAAppReviewManagerKeyFirstUseDate:						return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyFirstUseDate]];
+		case UAAppReviewManagerKeyUseCount:							return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyUseCount]];
+		case UAAppReviewManagerKeySignificantEventCount:			return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeySignificantEventCount]];
+		case UAAppReviewManagerKeyCurrentVersion:					return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyCurrentVersion]];
+		case UAAppReviewManagerKeyRatedCurrentVersion:				return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyRatedCurrentVersion]];
+		case UAAppReviewManagerKeyDeclinedToRate:					return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyDeclinedToRate]];
+		case UAAppReviewManagerKeyReminderRequestDate:				return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyReminderRequestDate]];
+		case UAAppReviewManagerKeyPreviousVersion:					return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyPreviousVersion]];
+		case UAAppReviewManagerKeyPreviousVersionRated:				return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyPreviousVersionRated]];
+		case UAAppReviewManagerKeyPreviousVersionDeclinedToRate:	return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyPreviousVersionDeclinedToRate]];
+		case UAAppReviewManagerKeyRatedAnyVersion:					return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyRatedAnyVersion]];
+		case UAAppReviewManagerKeyAppiraterMigrationCompleted:		return [self appReviewManagerKeyAppiraterMigrationCompleted];
+
 		default:
 			return nil;
 	}
@@ -921,15 +1067,18 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 - (void)setKey:(NSString *)key forUAAppReviewManagerKeyType:(UAAppReviewManagerKeyType)keyType {
 	switch (keyType) {
-		case UAAppReviewManagerKeyFirstUseDate:                 [self setAppReviewManagerKeyFirstUseDate:key]; break;
-		case UAAppReviewManagerKeyUseCount:                     [self setAppReviewManagerKeyUseCount:key]; break;
-		case UAAppReviewManagerKeySignificantEventCount:        [self setAppReviewManagerKeySignificantEventCount:key]; break;
-		case UAAppReviewManagerKeyCurrentVersion:               [self setAppReviewManagerKeyCurrentVersion:key]; break;
-		case UAAppReviewManagerKeyRatedCurrentVersion:          [self setAppReviewManagerKeyRatedCurrentVersion:key]; break;
-		case UAAppReviewManagerKeyRatedAnyVersion:              [self setAppReviewManagerKeyRatedAnyVersion:key]; break;
-		case UAAppReviewManagerKeyDeclinedToRate:               [self setAppReviewManagerKeyDeclinedToRate:key]; break;
-		case UAAppReviewManagerKeyReminderRequestDate:          [self setAppReviewManagerKeyReminderRequestDate:key]; break;
-		case UAAppReviewManagerKeyAppiraterMigrationCompleted:  [self setAppReviewManagerKeyAppiraterMigrationCompleted:key]; break;
+		case UAAppReviewManagerKeyFirstUseDate:						[self setAppReviewManagerKeyFirstUseDate:key]; break;
+		case UAAppReviewManagerKeyUseCount:							[self setAppReviewManagerKeyUseCount:key]; break;
+		case UAAppReviewManagerKeySignificantEventCount:			[self setAppReviewManagerKeySignificantEventCount:key]; break;
+		case UAAppReviewManagerKeyCurrentVersion:					[self setAppReviewManagerKeyCurrentVersion:key]; break;
+		case UAAppReviewManagerKeyRatedCurrentVersion:				[self setAppReviewManagerKeyRatedCurrentVersion:key]; break;
+		case UAAppReviewManagerKeyDeclinedToRate:					[self setAppReviewManagerKeyDeclinedToRate:key]; break;
+		case UAAppReviewManagerKeyReminderRequestDate:				[self setAppReviewManagerKeyReminderRequestDate:key]; break;
+		case UAAppReviewManagerKeyPreviousVersion:					[self setAppReviewManagerKeyPreviousVersion:key]; break;
+		case UAAppReviewManagerKeyPreviousVersionRated:				[self setAppReviewManagerKeyPreviousVersionRated:key]; break;
+		case UAAppReviewManagerKeyPreviousVersionDeclinedToRate:	[self setAppReviewManagerKeyPreviousVersionDeclinedToRate:key]; break;
+		case UAAppReviewManagerKeyRatedAnyVersion:					[self setAppReviewManagerKeyRatedAnyVersion:key]; break;
+		case UAAppReviewManagerKeyAppiraterMigrationCompleted:		[self setAppReviewManagerKeyAppiraterMigrationCompleted:key]; break;
 		default:
 			break;
 	}
@@ -946,12 +1095,12 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		return [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyCurrentVersion];
 	else if ([appiraterKey isEqualToString:kAppiraterRatedCurrentVersion])
 		return [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedCurrentVersion];
-	else if ([appiraterKey isEqualToString:kAppiraterRatedAnyVersion])
-		return [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedAnyVersion];
 	else if ([appiraterKey isEqualToString:kAppiraterDeclinedToRate])
 		return [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyDeclinedToRate];
 	else if ([appiraterKey isEqualToString:kAppiraterReminderRequestDate])
 		return [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyReminderRequestDate];
+	else if ([appiraterKey isEqualToString:kAppiraterRatedAnyVersion])
+		return [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedAnyVersion];
 	else
 		return nil;
 }
@@ -966,7 +1115,8 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 - (void)migrateAppiraterKeysIfNecessary {
 
 	NSString *appiraterAlreadyCompletedKey = [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyAppiraterMigrationCompleted];
-	BOOL appiraterMigrationAlreadyCompleted = [[self.userDefaultsObject objectForKey:appiraterAlreadyCompletedKey] boolValue];
+	BOOL appiraterMigrationAlreadyCompleted = NO;
+	[[self.userDefaultsObject objectForKey:appiraterAlreadyCompletedKey] boolValue];
 	if (appiraterMigrationAlreadyCompleted)
 		return;
 	

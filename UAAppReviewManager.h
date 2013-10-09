@@ -15,17 +15,21 @@ typedef enum {
     UAAppReviewManagerKeyFirstUseDate = 0,
     UAAppReviewManagerKeyUseCount,
     UAAppReviewManagerKeySignificantEventCount,
-    UAAppReviewManagerKeyCurrentVersion,
+	UAAppReviewManagerKeyCurrentVersion,
     UAAppReviewManagerKeyRatedCurrentVersion,
-    UAAppReviewManagerKeyRatedAnyVersion,
     UAAppReviewManagerKeyDeclinedToRate,
     UAAppReviewManagerKeyReminderRequestDate,
+	UAAppReviewManagerKeyPreviousVersion,
+	UAAppReviewManagerKeyPreviousVersionRated,
+	UAAppReviewManagerKeyPreviousVersionDeclinedToRate,
+	UAAppReviewManagerKeyRatedAnyVersion,
     UAAppReviewManagerKeyAppiraterMigrationCompleted
 } UAAppReviewManagerKeyType;
 
 @class UAAppReviewManager;
-typedef void(^UAAppReviewManagerBlock)(void);
-typedef void(^UAAppReviewManagerAnimateBlock)(BOOL);
+typedef void (^UAAppReviewManagerBlock)(void);
+typedef void (^UAAppReviewManagerAnimateBlock)(BOOL);
+typedef BOOL (^UAAppReviewManagerShouldPromptBlock)(NSDictionary *trackingInfo);
 
 @protocol UAAppReviewManagerDefaultsObject <NSObject>
 @required
@@ -265,6 +269,23 @@ typedef void(^UAAppReviewManagerAnimateBlock)(BOOL);
  */
 + (void)appLaunched:(BOOL)canPromptForRating;
 
+
+/*
+ * Tells UAAppReviewManager that the app has launched and that the 'uses'
+ * count should be incremented. You can call this method at the end of your
+ * application delegate's application:didFinishLaunchingWithOptions: method.
+ *
+ * This is similar to the appLaunched method, but allows the passing of a
+ * UAAppReviewManagerShouldPromptBlock that will be executed before prompting.
+ * The block passes all the keys and values that UAAppReviewManager uses to 
+ * determine if it the prompt conditions have been met, and it is up to you
+ * to use this info and return a BOOL on whether or not the prompt should be shown.
+ * The block is run synchronous and on the main queue, so be sure to handle it appropriately.
+ * Return YES to proceed and show the prompt, return NO to kill the pending presentation.
+ */
++ (void)appLaunchedWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
+
+
 /*
  * Tells UAAppReviewManager that the app was brought to the foreground.
  * You should call this method from the application delegate's
@@ -278,6 +299,23 @@ typedef void(^UAAppReviewManagerAnimateBlock)(BOOL);
  * (as long as you pass YES for canPromptForRating in those methods).
  */
 + (void)appEnteredForeground:(BOOL)canPromptForRating;
+
+
+/*
+ * Tells UAAppReviewManager that the app was brought to the foreground.
+ * You should call this method from the application delegate's
+ * applicationWillEnterForeground: method.
+ *
+ * This is similar to the appEnteredForeground method, but allows the passing of a
+ * UAAppReviewManagerShouldPromptBlock that will be executed before prompting.
+ * The block passes all the keys and values that UAAppReviewManager uses to
+ * determine if it the prompt conditions have been met, and it is up to you
+ * to use this info and return a BOOL on whether or not the prompt should be shown.
+ * The block is run synchronous and on the main queue, so be sure to handle it appropriately.
+ * Return YES to proceed and show the prompt, return NO to kill the pending presentation.
+ */
++ (void)appEnteredForegroundWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
+
 
 /*
  * Tells UAAppReviewManager that the user performed a significant event.
@@ -294,6 +332,25 @@ typedef void(^UAAppReviewManagerAnimateBlock)(BOOL);
  * in those methods).
  */
 + (void)userDidSignificantEvent:(BOOL)canPromptForRating;
+
+
+/*
+ * Tells UAAppReviewManager that the user performed a significant event.
+ * A significant event is whatever you want it to be. If you're app is used
+ * to make VoIP calls, then you might want to call this method whenever the
+ * user places a call. If it's a game, you might want to call this whenever
+ * the user beats a level boss.
+ *
+ * This is similar to the userDidSignificantEvent method, but allows the passing of a
+ * UAAppReviewManagerShouldPromptBlock that will be executed before prompting.
+ * The block passes all the keys and values that UAAppReviewManager uses to
+ * determine if it the prompt conditions have been met, and it is up to you
+ * to use this info and return a BOOL on whether or not the prompt should be shown.
+ * The block is run synchronous and on the main queue, so be sure to handle it appropriately.
+ * Return YES to proceed and show the prompt, return NO to kill the pending presentation.
+ */
++ (void)userDidSignificantEventWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
+
 
 /*
  * Tells UAAppReviewManager to show the prompt (a rating alert). The prompt
@@ -344,6 +401,18 @@ typedef void(^UAAppReviewManagerAnimateBlock)(BOOL);
 + (void)setOnWillPresentModalView:(UAAppReviewManagerAnimateBlock)willPresentModalViewBlock;
 + (void)setOnDidDismissModalView:(UAAppReviewManagerAnimateBlock)didDismissModalViewBlock;
 #endif
+
+/*
+ * The setShouldPromptBlock is called just after all the rating coditions
+ * have been met and UAAppReviewManager has decided it should display a prompt,
+ * and just before the prompt actually displays.
+ *
+ * The block passes all the keys and values that UAAppReviewManager used to
+ * determine that the prompt conditions had been met, but it is up to you
+ * to use this info and return a BOOL on whether or not the prompt should be shown.
+ * Return YES to proceed and show the prompt, return NO to kill the pending presentation.
+ */
++ (void)setShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
 
 /*
  * These methods are for backwards compatibility with Appirater. They simply call the
