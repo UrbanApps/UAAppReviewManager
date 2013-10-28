@@ -363,13 +363,12 @@ typedef BOOL (^UAAppReviewManagerShouldPromptBlock)(NSDictionary *trackingInfo);
 + (void)showPrompt;
 
 /*
- * Tells UAAppReviewManager to show the prompt (a rating alert) if all restrictions have
- * been met. The prompt will be shown if all resrictions are met, there is an internet
- * connection available, the user hasn't declined to rate, hasn't rated current versio
- * and you are tracking new versions.
+ * Tells UAAppReviewManager to show the review prompt alert if all restrictions have been met.
+ * The prompt will be shown if all restrictions are met, there is an internet connection available,
+ * the user hasn't declined to rate, hasn't rated current version, and you are tracking new versions.
  *
- * You could call to show the prompt regardless of UAAppReviewManager settings,
- * for instance, in the case of some special event in your app.
+ * You could call to show the prompt, for instance, in the case of some special event in your app,
+ * like a user login.
  */
 + (void)showPromptIfNecessary;
 
