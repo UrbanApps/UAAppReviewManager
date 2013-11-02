@@ -325,7 +325,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 }
 
 + (void)showPromptIfNecessary {
-	[[UAAppReviewManager defaultCenter] showPromptIfNecessary:YES];
+	[[UAAppReviewManager defaultManager] showPromptIfNecessary:YES];
 }
 
 + (NSString *)reviewURLString {
