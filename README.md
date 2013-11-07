@@ -17,9 +17,9 @@ Many developers publish apps for both iOS and OS X. Out of the box, UAAppReviewM
 
 UAAppReviewManager is fully configurable, even at runtime. This means that the prompt you display can be dynamic, based on the end-user's score or status. The rules that govern how and when it should be shown can all be set the same way, allowing you to have the most control over the presentation and timing of your review prompt.
 
-##### Default Localizations for 27 Languages
+##### Default Localizations for 30 Languages
 
-If you choose to use the default UAAppReviewManager strings for your app, you will get the added benefit of localization in 27 languages. Otherwise, customization is easy, and overriding the localization strings is a piece of cake, simply by including your own strings files and letting UAAppReviewManager know.
+If you choose to use the default UAAppReviewManager strings for your app, you will get the added benefit of localization in 30 languages. Otherwise, customization is easy, and overriding the localization strings is a piece of cake, simply by including your own strings files and letting UAAppReviewManager know.
 
 ##### Prevent Rating Prompts on Different Devices
 
