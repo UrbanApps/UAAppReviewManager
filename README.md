@@ -412,7 +412,7 @@ Let us know if you see ways to improve UAAppReviewManager or see something wrong
 
 If you want to thank us for open-sourcing UAAppReviewManager, you can [buy one of our apps](http://itunes.com/apps/urbanapps?at=11l7j9&ct=github) or even donate something small.
 
-<a href='http://www.pledgie.com/campaigns/21926'><img alt='Click here to lend your support to: Support UAAppReviewManager Development and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/21926.png?skin_name=chrome' border='0' /></a>
+<a href='https://pledgie.com/campaigns/21926'><img alt='Click here to lend your support to: Support UAAppReviewManager Development and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/21926.png?skin_name=chrome' border='0' ></a>
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/coneybeare/uaappreviewmanager/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
