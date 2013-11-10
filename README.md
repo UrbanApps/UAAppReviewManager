@@ -407,6 +407,7 @@ Let us know if you see ways to improve UAAppReviewManager or see something wrong
 
 - [UAModalPanel](https://github.com/coneybeare/UAModalPanel) - An animated modal panel alternative for iOS
 - [UALogger](https://github.com/coneybeare/UALogger) - A logging utility for Mac/iOS apps
+- [UAObfuscatedString](https://github.com/urbanapps/UAObfuscatedString) - A simple NSString category to hide sensitive strings
 
 ## Feeling Generous?
 
