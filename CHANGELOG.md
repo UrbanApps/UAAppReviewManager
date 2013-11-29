@@ -1,8 +1,11 @@
 # UAAppReviewManager Changelog
 
+### 0.2.0
+ - UAAppReviewManager now listens to UIApplication and NSApplication lifecycle notifications. This means you no longer have to call `appLaunched:` or `appWillEnterForeground` and thus, those methods have been deprecated.
+
 ### 0.1.6
  - Added UAAppReviewManagerShouldPromptBlock methods and logic. This allows you to have total control and the last say in whether or not a rating prompt should be displayed. More info about these methods and blocks in the README.
- 
+
 ### 0.1.5
  - Fixed some innocuous compiler warnings
  - Fixed a bug that may have prevented the Store Kit Controller from openeing when `opensInStoreKit` was set to YES
