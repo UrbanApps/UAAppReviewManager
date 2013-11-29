@@ -59,7 +59,7 @@ UAAppReviewManager works on iOS 5.1 and up, and OS X 10.7 and up.
    
 ## Usage
 
-### 2-line Setup
+### Simple 2-line Setup
 
 UAAppReviewManager includes sensible defaults as well as reads data from your localized, or unlocalized `info.plist` to set itself up. While everything is configurable, the only **required** item to configure is your App Store ID. This call is the same for iOS and Mac apps.
 
@@ -74,7 +74,6 @@ That's it to get started. Setting UAAppReviewManager up with these two lines use
 
 Typical configuration is to show the prompt in `application:didFinishLaunchingWithOptions:` and `applicationWillEnterForeground:`, but it can be called from anywhere. There are tons of custom configuration options below that give you the ability to fine tune the setup, block syntax, deep customization and more, but these 2 lines are all you need to get started.
 
-----------------
     
 ### Custom Configuration
 
