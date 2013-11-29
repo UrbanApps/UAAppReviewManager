@@ -13,7 +13,7 @@ Here are just a few of the things that make UAAppReviewManager better than the o
 
 Many developers publish apps for both iOS and OS X. Out of the box, UAAppReviewManager supports iOS and OS X apps that are sold through the Mac App Store. The API is the same for both with the exception of a few iOS specific methods, described in Usage.
 
-##### Fully Configurable at Runtime.
+##### Fully Configurable at Runtime
 
 UAAppReviewManager is fully configurable, even at runtime. This means that the prompt you display can be dynamic, based on the end-user's score or status. The rules that govern how and when it should be shown can all be set the same way, allowing you to have the most control over the presentation and timing of your review prompt.
 
@@ -21,9 +21,20 @@ UAAppReviewManager is fully configurable, even at runtime. This means that the p
 
 If you choose to use the default UAAppReviewManager strings for your app, you will get the added benefit of localization in 27 languages. Otherwise, customization is easy, and overriding the localization strings is a piece of cake, simply by including your own strings files and letting UAAppReviewManager know.
 
+
 ##### Prevent Rating Prompts on Different Devices
 
 If your users have the same app, same version installed on two different devices, you really shouldn't pop up the same rating prompt on each one. UAAppReviewManager allows you to optionally keep your user's usage stats in the `NSUbiquitousKeyValueStore`, or any other store you want to keep track of syncing yourself to prevent dual prompts.
+
+##### Uses UIApplication/NSApplication Lifecycle Notifications
+
+UAAppReviewManager listens for ApplicationDidLaunch and ApplicationWillEnterForeground notifications. This allows
+you to worry about your app, and not about tracking in your application delegate methods, so there are fewer lines of code for you to write.
+
+##### Easy to Setup
+
+It takes only 2 lines of code to get started. UAAppReviewManager is very powerful when digging under the hood, but also very simple to setup for standard configurations.
+
 
 ##### iTunes Affiliate Codes
 
@@ -48,22 +59,22 @@ UAAppReviewManager works on iOS 5.1 and up, and OS X 10.7 and up.
    
 ## Usage
 
-### Basic Configuration
+### 2-line Setup
 
 UAAppReviewManager includes sensible defaults as well as reads data from your localized, or unlocalized `info.plist` to set itself up. While everything is configurable, the only **required** item to configure is your App Store ID. This call is the same for iOS and Mac apps.
 
     [UAAppReviewManager setAppID:@"12345678"];
     
-Aside from the `appID` configuration, you also have to let UAAppReviewManager know when the app is being used as this determines when the rating prompt can fire.
-
-    - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-        [UAAppReviewManager appLaunched:YES];
-	    return YES;
-    }
+Aside from the `appID` configuration, you also have to let UAAppReviewManager know when it an appropriate time to show a rating prompt.
     
-    - (void)applicationWillEnterForeground:(UIApplication *)application {
-        [UAAppReviewManager appEnteredForeground:YES];
-    }
+    [UAAppReviewManager showPromptIfNecessary];
+	
+    
+That's it to get started. Setting UAAppReviewManager up with these two lines uses the sensible defaults (detailed below) and will present a rating prompt whenever they are met and `showPromptIfNecessary` is called.
+
+Typical configuration is to show the prompt in `application:didFinishLaunchingWithOptions:` and `applicationWillEnterForeground:`, but it can be called from anywhere. There are tons of custom configuration options below that give you the ability to fine tune the setup, block syntax, deep customization and more, but these 2 lines are all you need to get started.
+
+----------------
     
 ### Custom Configuration
 
@@ -126,11 +137,7 @@ The `usesUntilPrompt` configuration determines how many times the user will need
     + (NSUInteger)usesUntilPrompt;
     + (void)setUsesUntilPrompt:(NSUInteger)usesUntilPrompt;
 
-An example of a 'use' would be if the user launched the app, or brings it to the foreground. You tell UAAppReviewManager about these events using the two methods:
-    
-    [UAAppReviewManager appLaunched:]
-    [UAAppReviewManager appEnteredForeground:]
- 
+An example of a 'use' would be if the user launched the app, or brings it to the foreground. UAAppReviewManager keeps track of these internally by listening to UIApplication/NSApplication lifecycle notifications. 
 
 As discussed briefly above, the `significantEventsUntilPrompt` configuration determines how many "significant events" the user will need to have before they will be prompted to rate the App. It defaults to 0 significant events.
 
@@ -201,15 +208,6 @@ There are 2 reasons why the default is `NO`.
 
 ### UAAppReviewManager Methods
 
-`appLaunched:` tells UAAppReviewManager that the app has launched and that the 'uses' count should be incremented. You should call this method at the end of your Application Delegate's `application:didFinishLaunchingWithOptions:` method. If the App has been used enough to be rated (and enough significant events), you can suppress the rating alert by passing `NO` for `canPromptForRating`. The rating alert will simply be postponed until it is called again with `YES` for `canPromptForRating`. The rating alert can also be triggered by `appEnteredForeground:` and `userDidSignificantEvent:` (as long as you pass `YES` for `canPromptForRating` in those methods).
-
-    + (void)appLaunched:(BOOL)canPromptForRating;
-
-
-`appEnteredForeground:` tells UAAppReviewManager that the app was brought to the foreground. You should call this method from the Application Delegate's `applicationWillEnterForeground:` method. If the app has been used enough to be rated (and enough significant events), you can suppress the rating alert by passing `NO` for `canPromptForRating`. The rating alert will simply be postponed until it is called again with `YES` for `canPromptForRating`. The rating alert can also be triggered by `appLaunched:` and `userDidSignificantEvent:` (as long as you pass `YES` for `canPromptForRating` in those methods).
-
-    + (void)appEnteredForeground:(BOOL)canPromptForRating;
-
 `userDidSignificantEvent:` tells UAAppReviewManager that the user performed a significant event. A significant event is whatever you want it to be. If you're app is used to make VoIP calls, then you might want to call this method whenever the user places a call. If it's a game, you might want to call this whenever the user beats a level boss. If the user has performed enough significant events and used the app enough, you can suppress the rating alert by passing `NO` for `canPromptForRating`. The rating alert will simply be postponed until it is called again with `YES` for `canPromptForRating`. The rating alert can also be triggered by `appLaunched:` and `appEnteredForeground:` (as long as you pass `YES` for `canPromptForRating` in those methods).
 
     + (void)userDidSignificantEvent:(BOOL)canPromptForRating;
@@ -227,9 +225,10 @@ Read more about these methods below in the [Should-Prompt Blocks](#should-prompt
 
     + (void)showPrompt;
 
-`showPromptIfNecessary` tell UAAppReviewManager to show the review prompt alert if all restrictions have been met. The prompt will be shown if all restrictions are met, there is an internet connection available, the user hasn't declined to rate, hasn't rated current version, and you are tracking new versions. You could call to show the prompt, for instance, in the case of some special event in your app like a user login.
+`showPromptIfNecessary` tells UAAppReviewManager to show the review prompt alert if all restrictions have been met. The prompt will be shown if all restrictions are met, there is an internet connection available, the user hasn't declined to rate, hasn't rated current version, and you are tracking new versions. You could call to show the prompt, for instance, in the case of some special event in your app like a user login.
 
     + (void)showPromptIfNecessary;
+
 
 The `reviewURLString` method is the review URL string, generated by substituting the `appID`, `affiliateCode` and `affiliateCampaignCode` into the template URL for the current platform.
 
@@ -273,11 +272,10 @@ The `UAAppReviewManagerShouldPromptBlock` block passes you the keys and values U
     + (void)setShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
     
 
-In addition to the global `shouldPromptBlock`, each of the class methods that trigger the presentation of the prompt (`appLaunched:`, `appEnteredForeground:` and `userDidSignificantEvent:`) have their own block based variant that allows you to customize whether or not this is an appropriate time to display the prompt.
+In addition to the global `shouldPromptBlock`, each of the class methods that trigger the presentation of the prompt (`showPromptIfNecessary:` and `userDidSignificantEvent:`) have their own block based variant that allows you to customize whether or not this is an appropriate time to display the prompt.
 
-    + (void)appLaunchedWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
-    + (void)appEnteredForegroundWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
     + (void)userDidSignificantEventWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
+    + (void)showPromptWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock
     
 When using these methods instead of their `BOOL` sister-methods, none of the internal UAAppReviewManager logic is used to determine whether or not to display the prompt. **Only** your block is used to decide whether or not it should be presented, based solely on the return value you pass back in the block. This also means that even the global `shouldPromptBlock` (if set) will not be called when using these methods.
 
@@ -335,6 +333,7 @@ For more information on how to use and setup UAAppReviewManager, please see the 
 - Is not able to be disabled on minor patch updates
 - No iTunes affiliate support
 - No way to prevent dual prompts for the same app and version on two separate devices
+- Makes the implementer write more code for lifecycle events
 
 I started addressing these issues in a fork of Appirater, but quickly realized that the entire project could be re-written in a better way to address the above points. UAAppReviewManager is:
 
@@ -345,6 +344,7 @@ I started addressing these issues in a fork of Appirater, but quickly realized t
 - Allows developers to disable the prompt easily on minor updates
 - Allows iTunes affiliate codes to be used.
 - Allows you to prevent prompts for the same app and version on two separate devices
+- Makes the implementer write less code by listening to notifications of lifecycle events
 
 Once all these additions, alteration and features were added, it was too much to push back up to Appirater, so UAAppReviewManager was born. That being said, some of the existing code logic, methods, and language translations (27 of them!) are used from [Appirater](https://github.com/arashpayan/appirater) and due credit needs to be given. UAAppReviewManager could not have existed without it. Thank you!
 
@@ -388,13 +388,15 @@ For most people doing an upgrade, __all that will be needed for upgrading is a s
 UAAppReviewManager will automatically convert the NSUserDefault keys store under Appirater apps into the keys used by UAAppReviewManager. The values will transfer over, and the old, unused Appirater keys will be deleted from the settings.
 
 
+
 ## What's Planned?
 
 There are some ideas we have for future versions of UAAppReviewManager. Feel free to fork/implement if you would like to expedite the process.
 
 - ~~Add the ability to sync the usage stats via iCloud~~ **Added in [0.1.3](https://github.com/UrbanApps/UAAppReviewManager/releases/tag/0.1.3)**
+- ~~Add lifecycle notification listeners so code can be removed (Issue #8)~~ **Added in [0.2.0](https://github.com/UrbanApps/UAAppReviewManager/releases/tag/0.2.0)**
 - Add the ability to present the prompt using a custom class other than a `UIAlertView` or `NSAlert`
-- Add additional localizations
+- Add additional localizations: ongoing
 -  [Your idea](https://github.com/coneybeare/UAAppReviewManager/issues).
 
 ## Bugs / Pull Requests
@@ -405,8 +407,9 @@ Let us know if you see ways to improve UAAppReviewManager or see something wrong
 
 ## Open-Source Urban Apps Projects
 
-- [UAModalPanel](https://github.com/coneybeare/UAModalPanel) - An animated modal panel alternative for iOS
-- [UALogger](https://github.com/coneybeare/UALogger) - A logging utility for Mac/iOS apps
+- [UAModalPanel](https://github.com/UrbanApps/UAModalPanel) - An animated modal panel alternative for iOS
+- [UALogger](https://github.com/UrbanApps/UALogger) - A logging utility for Mac/iOS apps
+- [UAObfuscatedString](https:github.com/UrbanApps/UAObfuscatedString) - A simple NSString category to hide sensitive strings
 
 ## Feeling Generous?
 
