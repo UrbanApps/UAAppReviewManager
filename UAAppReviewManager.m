@@ -295,23 +295,6 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 #endif
 
-
-+ (void)appLaunched:(BOOL)canPromptForRating {
-	[[UAAppReviewManager defaultManager] appLaunched:canPromptForRating];
-}
-
-+ (void)appLaunchedWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
-	[[UAAppReviewManager defaultManager] appLaunchedWithShouldPromptBlock:shouldPromptBlock];
-}
-
-+ (void)appEnteredForeground:(BOOL)canPromptForRating {
-	[[UAAppReviewManager defaultManager] appEnteredForeground:canPromptForRating];
-}
-
-+ (void)appEnteredForegroundWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
-	[[UAAppReviewManager defaultManager] appEnteredForegroundWithShouldPromptBlock:shouldPromptBlock];
-}
-
 + (void)userDidSignificantEvent:(BOOL)canPromptForRating {
 	[[UAAppReviewManager defaultManager] userDidSignificantEvent:canPromptForRating];
 }
@@ -326,6 +309,10 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 + (void)showPromptIfNecessary {
 	[[UAAppReviewManager defaultManager] showPromptIfNecessary:YES];
+}
+	
++ (void)showPromptWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
+	[[UAAppReviewManager defaultManager] showPromptWithShouldPromptBlock:shouldPromptBlock];
 }
 
 + (NSString *)reviewURLString {
@@ -374,6 +361,22 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 #pragma mark - PUBLIC Class Convenience Methods (backwards compatibility)
 
++ (void)appLaunched:(BOOL)canPromptForRating {
+	[[UAAppReviewManager defaultManager] showPromptIfNecessary:canPromptForRating];
+}
+	
++ (void)appLaunchedWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
+	[[UAAppReviewManager defaultManager] showPromptWithShouldPromptBlock:shouldPromptBlock];
+}
+	
++ (void)appEnteredForeground:(BOOL)canPromptForRating {
+	[[UAAppReviewManager defaultManager] showPromptIfNecessary:canPromptForRating];
+}
+	
++ (void)appEnteredForegroundWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
+	[[UAAppReviewManager defaultManager] showPromptWithShouldPromptBlock:shouldPromptBlock];
+}
+	
 + (void)setAppId:(NSString*)appId {
 	[UAAppReviewManager setAppID:appId];
 }
@@ -588,30 +591,6 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 #pragma mark - PRIVATE Methods
 
-- (void)appLaunched:(BOOL)canPromptForRating {
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-		[self incrementAndRate:canPromptForRating];
-	});
-}
-
-- (void)appLaunchedWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-		[self incrementAndRateWithShouldPromptBlock:shouldPromptBlock];
-	});
-}
-
-- (void)appEnteredForeground:(BOOL)canPromptForRating {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-		[self incrementAndRate:canPromptForRating];
-	});
-}
-
-- (void)appEnteredForegroundWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-		[self incrementAndRateWithShouldPromptBlock:shouldPromptBlock];
-	});
-}
-
 - (void)userDidSignificantEvent:(BOOL)canPromptForRating {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
 		[self incrementSignificantEventAndRate:canPromptForRating];
@@ -719,11 +698,14 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 		__block BOOL shouldPrompt = YES;
 		if (self.shouldPromptBlock) {
-			dispatch_sync(dispatch_get_main_queue(), ^{
+			if (dispatch_get_main_queue() == dispatch_get_current_queue()) {
 				shouldPrompt = self.shouldPromptBlock([self trackingInfo]);
-			});
+			} else {
+				dispatch_sync(dispatch_get_main_queue(), ^{
+					shouldPrompt = self.shouldPromptBlock([self trackingInfo]);
+				});
+			}
 		}
-			
 		
 		if (shouldPrompt) {
 			dispatch_async(dispatch_get_main_queue(), ^{
@@ -736,9 +718,13 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 - (void)showPromptWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
 	__block BOOL shouldPrompt = NO;
 	if (shouldPromptBlock) {
-		dispatch_sync(dispatch_get_main_queue(), ^{
+		if (dispatch_get_main_queue() == dispatch_get_current_queue()) {
 			shouldPrompt = shouldPromptBlock([self trackingInfo]);
-		});
+		} else {
+			dispatch_sync(dispatch_get_main_queue(), ^{
+				shouldPrompt = shouldPromptBlock([self trackingInfo]);
+			});
+		}
 	}
 		
 	if (shouldPrompt) {
@@ -1256,13 +1242,31 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	}
 }
 
-- (void)appWillResignActive {
-	UAAppReviewManagerDebugLog(@"appWillResignActive");
+#pragma mark - Notification Handlers
+	
+- (void)appWillResignActive:(NSNotification *)notification {
+	UAAppReviewManagerDebugLog(@"appWillResignActive:");
 	[self hideRatingAlert];
 }
 
-#pragma mark - Singleton
+- (void)applicationDidFinishLaunching:(NSNotification *)notification {
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+		UAAppReviewManagerDebugLog(@"applicationDidFinishLaunching:");
+		[self migrateAppiraterKeysIfNecessary];
+		[self incrementUseCount];
+	});
+}
+	
+- (void)applicationWillEnterForeground:(NSNotification *)notification {
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+		UAAppReviewManagerDebugLog(@"applicationWillEnterForeground:");
+		[self migrateAppiraterKeysIfNecessary];
+		[self incrementUseCount];
+	});
+}
 
+#pragma mark - Singleton
+	
 /**
  * defaultManager is the singleton accessor for UAAppReviewManager.
  * defaultManager is not exposed publicly because all public methods
@@ -1291,9 +1295,13 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
  */
 - (void)setupNotifications {
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive) name:UIApplicationWillResignActiveNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:)				name:UIApplicationWillResignActiveNotification		object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching:)	name:UIApplicationDidFinishLaunchingNotification	object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:)	name:UIApplicationWillEnterForegroundNotification	object:nil];
 #else
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive) name:NSApplicationWillResignActiveNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:)				name:NSApplicationWillResignActiveNotification		object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching:)	name:NSApplicationDidFinishLaunchingNotification	object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:)	name:NSApplicationWillBecomeActiveNotification		object:nil];
 #endif
 }
 
