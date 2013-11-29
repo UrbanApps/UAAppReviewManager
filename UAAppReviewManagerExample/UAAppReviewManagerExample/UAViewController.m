@@ -128,7 +128,8 @@
 	[UAAppReviewManager setShouldPromptBlock:^BOOL(NSDictionary *trackingInfo) {
 		// This will be called once all other rating conditions have been met, but before the prompt.
 		// if a local UAAppReviewManagerShouldPromptBlock is called using the local methods, this will not be called.
-		return NO;
+		// Return YES to allow the prompt, NO to stop the presentation.
+		return YES;
 	}];
 }
 

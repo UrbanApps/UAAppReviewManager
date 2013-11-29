@@ -16,21 +16,36 @@
 
 @implementation UAAppDelegate
 
++ (void)initialize {
+	[UAAppDelegate setupUAAppReviewManager];
+}
+	
++ (void)setupUAAppReviewManager {
+	// Normally, all the setup would be here.
+	// But, because we are presenting a few different setups in the example,
+	// The config will be in the view controllers
+	//	 [UAAppReviewManager setAppID:@"364709193"]; // iBooks
+	//
+	// It is always best to load UAAppReviewManager as early as possible
+	// because it needs to receive application life-cycle notifications,
+	// so we will call a simple method on it here to load it up now.
+	[UAAppReviewManager setDebug:NO];
+}
+
+	
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	[self setupUAAppReviewManager];
-	[UAAppReviewManager appLaunched:YES];
+	[UAAppReviewManager showPromptIfNecessary];
 }
 
 - (void)applicationWillBecomeActive:(NSNotification *)notification {
-	[UAAppReviewManager appEnteredForeground:NO];
-}
-
-- (void)setupUAAppReviewManager {
-	// Normally, all the setup would be here.
-	// But, because we are presenting a few different setups in the example,
-	// The config will be in the button methods
-	//	[UAAppReviewManager setAppID:@"364709193"]; // iBooks
-	//	[UAAppReviewManager setDebug:YES];
+	[UAAppReviewManager showPromptWithShouldPromptBlock:^(NSDictionary *trackingInfo) {
+		// This is the block syntx for showing prompts.
+		// It lets you decide if it should be shown now or not based on
+		// the UAAppReviewManager trackingInfo or any other factor.
+		NSLog(@"UAAppReviewManager trackingInfo: %@", trackingInfo);
+		// Don't show the prompt now, but do it from the buttons in the example app.
+		return NO;
+	}];
 }
 
 - (void)presentStandardPrompt:(id)sender {
