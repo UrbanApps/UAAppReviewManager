@@ -17,9 +17,9 @@ Many developers publish apps for both iOS and OS X. Out of the box, UAAppReviewM
 
 UAAppReviewManager is fully configurable, even at runtime. This means that the prompt you display can be dynamic, based on the end-user's score or status. The rules that govern how and when it should be shown can all be set the same way, allowing you to have the most control over the presentation and timing of your review prompt.
 
-##### Default Localizations for 27 Languages
+##### Default Localizations for 32 Languages
 
-If you choose to use the default UAAppReviewManager strings for your app, you will get the added benefit of localization in 27 languages. Otherwise, customization is easy, and overriding the localization strings is a piece of cake, simply by including your own strings files and letting UAAppReviewManager know.
+If you choose to use the default UAAppReviewManager strings for your app, you will get the added benefit of localization in 32 languages. Otherwise, customization is easy, and overriding the localization strings is a piece of cake, simply by including your own strings files and letting UAAppReviewManager know.
 
 
 ##### Prevent Rating Prompts on Different Devices
@@ -345,7 +345,7 @@ I started addressing these issues in a fork of Appirater, but quickly realized t
 - Allows you to prevent prompts for the same app and version on two separate devices
 - Makes the implementer write less code by listening to notifications of lifecycle events
 
-Once all these additions, alteration and features were added, it was too much to push back up to Appirater, so UAAppReviewManager was born. That being said, some of the existing code logic, methods, and language translations (27 of them!) are used from [Appirater](https://github.com/arashpayan/appirater) and due credit needs to be given. UAAppReviewManager could not have existed without it. Thank you!
+Once all these additions, alteration and features were added, it was too much to push back up to Appirater, so UAAppReviewManager was born. That being said, some of the existing code logic, methods, and language translations (32 of them!) are used from [Appirater](https://github.com/arashpayan/appirater) and due credit needs to be given. UAAppReviewManager could not have existed without it. Thank you!
 
 
 ##  Upgrading From Appirater
