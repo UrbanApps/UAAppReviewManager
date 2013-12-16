@@ -34,7 +34,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
 	[UAAppReviewManager showPromptWithShouldPromptBlock:^(NSDictionary *trackingInfo) {
-		// This is the block syntx for showing prompts.
+		// This is the block syntax for showing prompts.
 		// It lets you decide if it should be shown now or not based on
 		// the UAAppReviewManager trackingInfo or any other factor.
 		NSLog(@"UAAppReviewManager trackingInfo: %@", trackingInfo);
