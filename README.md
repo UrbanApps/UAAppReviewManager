@@ -59,7 +59,7 @@ UAAppReviewManager works on iOS 5.1 and up, and OS X 10.7 and up.
    
 ## Usage
 
-### Simple 2-line Setup
+### Simple 2-or-3-line Setup
 
 UAAppReviewManager includes sensible defaults as well as reads data from your localized, or unlocalized `info.plist` to set itself up. While everything is configurable, the only **required** item to configure is your App Store ID. This call is the same for iOS and Mac apps.
 
@@ -67,9 +67,9 @@ UAAppReviewManager includes sensible defaults as well as reads data from your lo
 
 Next you need to tell UAAppReviewManager when something happens in your app that you would consider significant, in terms of a user doing the 'thing' that your app lets them do. The passed `BOOL` here lets UAAppReviewManager know if it is ok to show a prompt now, it the requirments have been met.
     
-    [UAAppReviewManager userDidSignificantEvent:NO];
+    [UAAppReviewManager userDidSignificantEvent:YES];
     
-If you set that bool to NO in your app configuration, you still do have to let UAAppReviewManager know when it is more appropriate time to show a rating prompt.
+If you have this `BOOL` above set to `YES` then you are done. If you set that `BOOL` to `NO`, you still do have to let UAAppReviewManager know when it is more appropriate time to show a rating prompt.
     
     [UAAppReviewManager showPromptIfNecessary];
 	
