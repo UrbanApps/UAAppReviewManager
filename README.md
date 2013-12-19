@@ -33,7 +33,7 @@ you to worry about your app, and not about tracking in your application delegate
 
 ##### Easy to Setup
 
-It takes only 2 lines of code to get started. UAAppReviewManager is very powerful when digging under the hood, but also very simple to setup for standard configurations.
+It takes only 3 lines of code to get started. UAAppReviewManager is very powerful when digging under the hood, but also very simple to setup for standard configurations.
 
 
 ##### iTunes Affiliate Codes
@@ -64,13 +64,16 @@ UAAppReviewManager works on iOS 5.1 and up, and OS X 10.7 and up.
 UAAppReviewManager includes sensible defaults as well as reads data from your localized, or unlocalized `info.plist` to set itself up. While everything is configurable, the only **required** item to configure is your App Store ID. This call is the same for iOS and Mac apps.
 
     [UAAppReviewManager setAppID:@"12345678"];
+
+Next you need to tell UAAppReviewManager when something happens in your app that you would consider significant, in terms of a user doing the 'thing' that your app lets them do. The passed `BOOL` here lets UAAppReviewManager know if it is ok to show a prompt now, it the requirments have been met.
     
-Aside from the `appID` configuration, you also have to let UAAppReviewManager know when it an appropriate time to show a rating prompt.
+    [UAAppReviewManager userDidSignificantEvent:NO];
+    
+If you set that bool to NO in your app configuration, you still do have to let UAAppReviewManager know when it is more appropriate time to show a rating prompt.
     
     [UAAppReviewManager showPromptIfNecessary];
 	
-    
-That's it to get started. Setting UAAppReviewManager up with these two lines uses the sensible defaults (detailed below) and will present a rating prompt whenever they are met and `showPromptIfNecessary` is called.
+That's it to get started. Setting UAAppReviewManager up with these three lines uses the sensible defaults (detailed below) and will present a rating prompt whenever they are met and `showPromptIfNecessary` is called.
 
 Typical configuration is to show the prompt in `application:didFinishLaunchingWithOptions:` and `applicationWillEnterForeground:`, but it can be called from anywhere. There are tons of custom configuration options below that give you the ability to fine tune the setup, block syntax, deep customization and more, but these 2 lines are all you need to get started.
 
