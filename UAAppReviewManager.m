@@ -61,7 +61,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 @property (nonatomic, assign) NSUInteger        daysUntilPrompt;
 @property (nonatomic, assign) NSUInteger        usesUntilPrompt;
 @property (nonatomic, assign) NSUInteger        significantEventsUntilPrompt;
-@property (nonatomic, assign) NSUInteger        daysBeforeReminding;
+@property (nonatomic, assign) NSInteger         daysBeforeReminding;
 @property (nonatomic, assign) BOOL              tracksNewVersions;
 @property (nonatomic, assign) BOOL              shouldPromptIfRated;
 @property (nonatomic, assign) BOOL              useMainAppBundleForLocalizations;
@@ -218,11 +218,11 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	[[UAAppReviewManager defaultManager] setSignificantEventsUntilPrompt:significantEventsUntilPrompt];
 }
 
-+ (NSUInteger)daysBeforeReminding {
++ (NSInteger)daysBeforeReminding {
 	return [[UAAppReviewManager defaultManager] daysBeforeReminding];
 }
 
-+ (void)setDaysBeforeReminding:(NSUInteger)daysBeforeReminding {
++ (void)setDaysBeforeReminding:(NSInteger)daysBeforeReminding {
 	[[UAAppReviewManager defaultManager] setDaysBeforeReminding:daysBeforeReminding];
 }
 
@@ -382,7 +382,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 }
 
 + (void)setTimeBeforeReminding:(double)value {
-	[UAAppReviewManager setDaysBeforeReminding:(NSUInteger)value];
+	[UAAppReviewManager setDaysBeforeReminding:(NSInteger)value];
 }
 
 + (void)setAlwaysUseMainBundle:(BOOL)useMainBundle {
@@ -482,7 +482,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 }
 
 - (NSString *)remindButtonTitle {
-	if (!_remindButtonTitle) {
+	if (!_remindButtonTitle && self.daysBeforeReminding >= 0) {
 		// Check for a localized version of the default title
 		self.remindButtonTitle = NSLocalizedStringFromTableInBundle(@"Remind me later", @"UAAppReviewManagerLocalizable", [self bundle], nil);
 	}
@@ -776,7 +776,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	NSDate *reminderRequestDate = [NSDate dateWithTimeIntervalSince1970:[[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyReminderRequestDate]] doubleValue]];
 	NSTimeInterval timeSinceReminderRequest = [[NSDate date] timeIntervalSinceDate:reminderRequestDate];
 	NSTimeInterval timeUntilReminder = 60 * 60 * 24 * self.daysBeforeReminding;
-	if (timeSinceReminderRequest < timeUntilReminder)
+	if (self.daysBeforeReminding >= 0 && timeSinceReminderRequest < timeUntilReminder)
 		return NO;
 	
 	// if we have a global set to not show if the end-user has already rated once, and the developer has not opted out of displaying on minor updates
