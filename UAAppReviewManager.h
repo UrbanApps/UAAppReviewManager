@@ -168,7 +168,8 @@ typedef BOOL (^UAAppReviewManagerShouldPromptBlock)(NSDictionary *trackingInfo);
 /*
  * Once the rating alert is presented to the user, they might select
  * 'Remind me later'. This value specifies how many days UAAppReviewManager
- * will wait before reminding them.
+ * will wait before reminding them. A value of 0 disables reminders and
+ * removes the 'Remind me later' button.
  * Default => 1
  */
 + (NSUInteger)daysBeforeReminding;
