@@ -61,7 +61,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 @property (nonatomic, assign) NSUInteger        daysUntilPrompt;
 @property (nonatomic, assign) NSUInteger        usesUntilPrompt;
 @property (nonatomic, assign) NSUInteger        significantEventsUntilPrompt;
-@property (nonatomic, assign) NSUInteger        daysBeforeReminding;
+@property (nonatomic, assign) NSUInteger         daysBeforeReminding;
 @property (nonatomic, assign) BOOL              tracksNewVersions;
 @property (nonatomic, assign) BOOL              shouldPromptIfRated;
 @property (nonatomic, assign) BOOL              useMainAppBundleForLocalizations;
@@ -214,7 +214,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	return [[UAAppReviewManager defaultManager] significantEventsUntilPrompt];
 }
 
-+ (void)setSignificantEventsUntilPrompt:(NSInteger)significantEventsUntilPrompt {
++ (void)setSignificantEventsUntilPrompt:(NSUInteger)significantEventsUntilPrompt {
 	[[UAAppReviewManager defaultManager] setSignificantEventsUntilPrompt:significantEventsUntilPrompt];
 }
 
@@ -482,8 +482,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 }
 
 - (NSString *)remindButtonTitle {
-    if (self.daysBeforeReminding == 0)
-    {
+    if (self.daysBeforeReminding == 0) {
         return nil; //if reminders are disabled, return a nil title to supress the button
     }
 	if (!_remindButtonTitle) {
