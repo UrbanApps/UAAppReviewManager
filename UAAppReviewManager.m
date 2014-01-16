@@ -482,6 +482,10 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 }
 
 - (NSString *)remindButtonTitle {
+    if (self.daysBeforeReminding == 0)
+    {
+        return nil; //if reminders are disabled, return a nil title to supress the button
+    }
 	if (!_remindButtonTitle) {
 		// Check for a localized version of the default title
 		self.remindButtonTitle = NSLocalizedStringFromTableInBundle(@"Remind me later", @"UAAppReviewManagerLocalizable", [self bundle], nil);
