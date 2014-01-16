@@ -61,7 +61,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 @property (nonatomic, assign) NSUInteger        daysUntilPrompt;
 @property (nonatomic, assign) NSUInteger        usesUntilPrompt;
 @property (nonatomic, assign) NSUInteger        significantEventsUntilPrompt;
-@property (nonatomic, assign) NSUInteger         daysBeforeReminding;
+@property (nonatomic, assign) NSUInteger        daysBeforeReminding;
 @property (nonatomic, assign) BOOL              tracksNewVersions;
 @property (nonatomic, assign) BOOL              shouldPromptIfRated;
 @property (nonatomic, assign) BOOL              useMainAppBundleForLocalizations;
