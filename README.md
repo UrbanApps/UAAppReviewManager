@@ -147,7 +147,7 @@ A significant event can be anything you want to be in your app. In a telephone a
 
     [UAAppReviewManager userDidSignificantEvent:];
 
-The `daysBeforeReminding` configuration determines how many days UAAPpReviewManager will wait before reminding the user to rate again, should they select the "Remind Me Later" option on the first alert. It defaults to 1 day.
+The `daysBeforeReminding` configuration determines how many days UAAPpReviewManager will wait before reminding the user to rate again, should they select the "Remind Me Later" option on the first alert. It defaults to 1 day. A value of 0 will remove the "Remind Me Later" button and disable this feature.
 
     + (NSUInteger)daysBeforeReminding;
     + (void)setDaysBeforeReminding:(NSUInteger)daysBeforeReminding;
