@@ -101,6 +101,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 @property (nonatomic, copy) UAAppReviewManagerAnimateBlock		didDismissModalViewBlock;
 #endif
 @property (nonatomic, copy) UAAppReviewManagerShouldPromptBlock	shouldPromptBlock;
+@property (nonatomic, copy) UAAppReviewManagerShouldIncrementBlock shouldIncrementUseCountBlock;
 
 // State ivars
 @property (nonatomic, assign) BOOL modalPanelOpen;
@@ -357,6 +358,10 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 + (void)setShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
 	[[UAAppReviewManager defaultManager] setShouldPromptBlock:shouldPromptBlock];
+}
+
++ (void)setShouldIncrementUseCountBlock:(UAAppReviewManagerShouldIncrementBlock)shouldIncrementUseCountBlock {
+    [[UAAppReviewManager defaultManager] setShouldIncrementUseCountBlock:shouldIncrementUseCountBlock];
 }
 
 #pragma mark - PUBLIC Class Convenience Methods (backwards compatibility)
@@ -634,7 +639,10 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 }
 
 - (void)incrementUseCount {
-	[self _incrementCountForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyUseCount]];
+    if (self.shouldIncrementUseCountBlock == nil || self.shouldIncrementUseCountBlock())
+    {
+        [self _incrementCountForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyUseCount]];
+    }
 }
 
 

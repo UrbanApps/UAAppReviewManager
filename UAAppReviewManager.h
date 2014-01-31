@@ -30,6 +30,7 @@ typedef enum {
 typedef void (^UAAppReviewManagerBlock)(void);
 typedef void (^UAAppReviewManagerAnimateBlock)(BOOL);
 typedef BOOL (^UAAppReviewManagerShouldPromptBlock)(NSDictionary *trackingInfo);
+typedef BOOL (^UAAppReviewManagerShouldIncrementBlock)(void);
 
 @protocol UAAppReviewManagerDefaultsObject <NSObject>
 @required
@@ -163,7 +164,7 @@ typedef BOOL (^UAAppReviewManagerShouldPromptBlock)(NSDictionary *trackingInfo);
  * Default => 0
  */
 + (NSUInteger)significantEventsUntilPrompt;
-+ (void)setSignificantEventsUntilPrompt:(NSInteger)significantEventsUntilPrompt;
++ (void)setSignificantEventsUntilPrompt:(NSUInteger)significantEventsUntilPrompt;
 
 /*
  * Once the rating alert is presented to the user, they might select
@@ -437,6 +438,14 @@ typedef BOOL (^UAAppReviewManagerShouldPromptBlock)(NSDictionary *trackingInfo);
  * Return YES to proceed and show the prompt, return NO to kill the pending presentation.
  */
 + (void)setShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock;
+
+/*
+ * The setShouldIncrementUseBlock, if valid, is called before incrementing the use count.
+ * Returning NO allows you to ignore a use.  This may be usefull in cases such as Facebook login
+ * where the app is backgrounded momentarily and the resultant enter foreground event should
+ * not be considered another use.
+ */
++ (void)setShouldIncrementUseCountBlock:(UAAppReviewManagerShouldIncrementBlock)shouldIncrementUseCountBlock;
 
 /*
  * These methods are for backwards compatibility with Appirater. They simply call the

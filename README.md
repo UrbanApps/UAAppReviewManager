@@ -259,6 +259,11 @@ UAAppReviewManager uses blocks instead of delegate methods for callbacks. Defaul
     + (void)setOnWillPresentModalView:(UAAppReviewManagerAnimateBlock)willPresentModalViewBlock;
     + (void)setOnDidDismissModalView:(UAAppReviewManagerAnimateBlock)didDismissModalViewBlock;
 
+##### Should-Increment Block
+
+    +(void)setShouldIncrementUseCountBlock:(UAAppReviewManagerShouldIncrementBlock)shouldIncrementUseCountBlock;
+
+By default UAAppReviewManager increments the use count every time the app enters the foreground.  If you want to suppress  this behavior (i.e. not counting a foreground event caused by switching apps during a Facebook login) you can do so with a UAAppReviewManagerShouldIncrementBlock that returns NO to ignore a foreground event or YES to count it as normal.
 
 ##### Should-Prompt Blocks
 
