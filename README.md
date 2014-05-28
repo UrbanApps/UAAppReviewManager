@@ -414,6 +414,7 @@ Let us know if you see ways to improve UAAppReviewManager or see something wrong
 - [UAModalPanel](https://github.com/UrbanApps/UAModalPanel) - An animated modal panel alternative for iOS
 - [UALogger](https://github.com/UrbanApps/UALogger) - A logging utility for Mac/iOS apps
 - [UAObfuscatedString](https://github.com/UrbanApps/UAObfuscatedString) - A simple NSString category to hide sensitive strings
+- [UAProgressView](https://github.com/UrbanApps/UAProgressView) A simple and lightweight, yet powerful animated circular progress view
 - [Urban](https://github.com/UrbanApps/Urban) - An Xcode color scheme that uses a soft dark background, with subtle blue, orange and yellow colors
 
 ## Feeling Generous?
