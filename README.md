@@ -79,7 +79,7 @@ Typical configuration is to show the prompt in `application:didFinishLaunchingWi
 
 Optionally, if you are using significant events in your app to track when the user does something of significance, add this line to any place where this event happens, such as a `levelDidFinish` method, or `userDidUploadPhoto` method.
  
-    [UAAppReviewManager userDidSignificantEvent:YES]
+    [UAAppReviewManager userDidSignificantEvent:YES];
 
 In order for this to mean anything to UAAppReviewManager, you also have to set the threshold for significant events. Typically, this, and other logic configuration settings, should be done before the `appLaunched:` call in your Application Delegate
 
