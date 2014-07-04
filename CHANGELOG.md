@@ -1,5 +1,11 @@
 # UAAppReviewManager Changelog
 
+### 0.2.2
+ - Rearranged order of buttons such that the Rate button is highlighted and at bottom rather than the cancel button.
+
+### 0.2.1
+ - Minor changes
+
 ### 0.2.0
  - UAAppReviewManager now listens to UIApplication and NSApplication lifecycle notifications. This means you no longer have to call `appLaunched:` or `appWillEnterForeground` and thus, those methods have been deprecated.
 
