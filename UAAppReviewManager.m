@@ -852,21 +852,18 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-	switch (buttonIndex) {
-		case 0: { // they don't want to rate it
-			[self dontRate];
-			break;
-		}
-		case 1: { // they want to rate it
-			[self _rateApp]; // the private _ method allows me to call a block method in this instance
-			break;
-		}
-		case 2: { // remind them later
-			[self remindMeLater];
-			break;
-		}
-		default:
-			break;
+
+	if (alertView.cancelButtonIndex == buttonIndex) {
+		// they don't want to rate it
+		[self dontRate];
+		
+	} else if (alertView.firstOtherButtonIndex == buttonIndex) {
+		// remind them later
+		[self remindMeLater];
+		
+	} else {
+		// they want to rate it
+		[self _rateApp];
 	}
 }
 
