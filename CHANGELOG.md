@@ -1,5 +1,8 @@
 # UAAppReviewManager Changelog
 
+### 0.2.3
+ - Fixed the incorrect method calls resulting from the 0.2.2 button order change.
+
 ### 0.2.2
  - Rearranged order of buttons such that the Rate button is highlighted and at bottom rather than the cancel button.
 
