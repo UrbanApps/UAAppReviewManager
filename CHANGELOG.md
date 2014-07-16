@@ -1,5 +1,9 @@
 # UAAppReviewManager Changelog
 
+### 0.2.4
+ - Fixed the cancel button action.
+ - Updated to a working iOS 7 direct link
+
 ### 0.2.3
  - Fixed the incorrect method calls resulting from the 0.2.2 button order change.
 
