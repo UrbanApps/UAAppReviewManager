@@ -25,6 +25,10 @@
 	// Debug means that it will popup on the next available change
 	[UAAppReviewManager setDebug:YES];
 	
+    [UAAppReviewManager setUsesUntilPrompt:2];
+    [UAAppReviewManager setDaysUntilPrompt:0];
+    [UAAppReviewManager setDaysBeforeReminding:0];
+    
 	// YES here means it is ok to show, it is the only override to Debug == YES.
 	[UAAppReviewManager userDidSignificantEvent:YES];
 }

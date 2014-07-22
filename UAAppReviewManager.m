@@ -497,6 +497,9 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	return _remindButtonTitle;
 }
 
+- (BOOL)showsRemindButton {
+    return !!self.remindButtonTitle.length;
+}
 
 #pragma mark - PRIVATE Tracking Key Accessors
 
@@ -811,7 +814,9 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 														message:self.reviewMessage
 													   delegate:self
 											  cancelButtonTitle:self.cancelButtonTitle
-											  otherButtonTitles:self.remindButtonTitle, self.rateButtonTitle, nil];
+											  otherButtonTitles:(self.showsRemindButton ? self.remindButtonTitle : self.rateButtonTitle),   // If we have a remind button, show it first. Otherwise show the rate button
+                                                                (self.showsRemindButton ? self.rateButtonTitle : nil),                      // If we have a remind button, show the rate button next. Otherwise stop adding buttons.
+                                                                nil];
     alertView.cancelButtonIndex = -1;
 	self.ratingAlert = alertView;
     [alertView show];
@@ -857,9 +862,9 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		// they don't want to rate it
 		[self dontRate];
 		
-	} else if (alertView.firstOtherButtonIndex == buttonIndex) {
-		// remind them later
-		[self remindMeLater];
+	} else if (self.showsRemindButton && alertView.firstOtherButtonIndex == buttonIndex) {
+        // remind them later
+        [self remindMeLater];
 		
 	} else {
 		// they want to rate it
