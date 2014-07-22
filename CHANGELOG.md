@@ -1,5 +1,8 @@
 # UAAppReviewManager Changelog
 
+### 0.2.6
+ - Appended App ID to default campaign code
+ 
 ### 0.2.5
  - Fixed missing rate button when remind button is hidden
 
