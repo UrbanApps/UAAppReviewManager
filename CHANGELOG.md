@@ -1,5 +1,8 @@
 # UAAppReviewManager Changelog
 
+### 0.2.5
+ - Fixed missing rate button when remind button is hidden
+
 ### 0.2.4
  - Fixed the cancel button action.
  - Updated to a working iOS 7 direct link
