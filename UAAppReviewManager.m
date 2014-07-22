@@ -41,7 +41,7 @@ static NSString * const kAppiraterReminderRequestDate       = @"kAppiraterRemind
 // The templates used for opening the app store directly
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 static NSString * const reviewURLTemplate                   = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=APP_ID&at=AFFILIATE_CODE&ct=AFFILIATE_CAMPAIGN_CODE";
-static NSString * const reviewURLTemplateiOS7               = @"itms-apps://itunes.apple.com/app/idAPP_ID?at=AFFILIATE_CODE&ct=AFFILIATE_CAMPAIGN_CODE";
+static NSString * const reviewURLTemplateiOS7               = @"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&id=APP_ID&at=AFFILIATE_CODE&ct=AFFILIATE_CAMPAIGN_CODE";
 #else
 static NSString * const reviewURLTemplate                   = @"macappstore://itunes.apple.com/us/app/thumbs/idAPP_ID?ls=1&mt=12&at=AFFILIATE_CODE&ct=AFFILIATE_CAMPAIGN_CODE";
 #endif
@@ -311,7 +311,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 + (void)showPromptIfNecessary {
 	[[UAAppReviewManager defaultManager] showPromptIfNecessary:YES];
 }
-	
+
 + (void)showPromptWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
 	[[UAAppReviewManager defaultManager] showPromptWithShouldPromptBlock:shouldPromptBlock];
 }
@@ -369,19 +369,19 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 + (void)appLaunched:(BOOL)canPromptForRating {
 	[[UAAppReviewManager defaultManager] showPromptIfNecessary:canPromptForRating];
 }
-	
+
 + (void)appLaunchedWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
 	[[UAAppReviewManager defaultManager] showPromptWithShouldPromptBlock:shouldPromptBlock];
 }
-	
+
 + (void)appEnteredForeground:(BOOL)canPromptForRating {
 	[[UAAppReviewManager defaultManager] showPromptIfNecessary:canPromptForRating];
 }
-	
+
 + (void)appEnteredForegroundWithShouldPromptBlock:(UAAppReviewManagerShouldPromptBlock)shouldPromptBlock {
 	[[UAAppReviewManager defaultManager] showPromptWithShouldPromptBlock:shouldPromptBlock];
 }
-	
+
 + (void)setAppId:(NSString*)appId {
 	[UAAppReviewManager setAppID:appId];
 }
@@ -682,10 +682,10 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		NSInteger incrementKeyCount = [[self.userDefaultsObject objectForKey:incrementKey] integerValue];
 		incrementKeyCount++;
 		[self.userDefaultsObject setObject:[NSNumber numberWithInteger:incrementKeyCount] forKey:incrementKey];
-
+        
 		
 		UAAppReviewManagerDebugLog(@"%@ count: %ld", incrementKey, (long)incrementKeyCount);
-	
+        
 	} else if (self.tracksNewVersions) {
 		// it's a new version of the app, so restart tracking
 		[self.userDefaultsObject setObject:trackingVersion
@@ -709,7 +709,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 - (void)showPromptIfNecessary:(BOOL)canPromptForRating {
 	if (canPromptForRating && [self ratingConditionsHaveBeenMet] && [self connectedToNetwork]) {
-
+        
 		__block BOOL shouldPrompt = YES;
 		if (self.shouldPromptBlock) {
 			if ([NSThread isMainThread]) {
@@ -740,7 +740,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 			});
 		}
 	}
-		
+    
 	if (shouldPrompt) {
         dispatch_async(dispatch_get_main_queue(), ^{
 			[self showRatingAlert];
@@ -755,13 +755,13 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 }
 
 - (BOOL)ratingConditionsHaveBeenMet {
-
+    
 	if (self.debugEnabled)
 		return YES;
 	
 	if (!self.appID)
 		return NO;
-		
+    
 	NSDate *dateOfFirstLaunch = [NSDate dateWithTimeIntervalSince1970:[[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyFirstUseDate]] doubleValue]];
 	NSTimeInterval timeSinceFirstLaunch = [[NSDate date] timeIntervalSinceDate:dateOfFirstLaunch];
 	NSTimeInterval timeUntilRate = 60 * 60 * 24 * self.daysUntilPrompt;
@@ -857,8 +857,9 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-
-	if (alertView.cancelButtonIndex == buttonIndex) {
+    
+    // cancelButtonIndex is set to -1 to show the cancel button up top, but a tap on it ends up here with index 0
+	if (alertView.cancelButtonIndex == buttonIndex || 0 == buttonIndex) {
 		// they don't want to rate it
 		[self dontRate];
 		
@@ -946,7 +947,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 }
 
 - (void)rateApp {
-
+    
 	[self.userDefaultsObject setObject:[NSNumber numberWithBool:YES] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedCurrentVersion]];
 	[self.userDefaultsObject setObject:[NSNumber numberWithBool:YES] forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedAnyVersion]];
 	[self.userDefaultsObject synchronize];
@@ -954,7 +955,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 	//Use the in-app StoreKit view if set, available (iOS 6) and imported This works in the simulator.
 	if (self.opensInStoreKit && NSStringFromClass([SKStoreProductViewController class]) != nil) {
-	
+        
 		SKStoreProductViewController *storeViewController = [[SKStoreProductViewController alloc] init];
 		NSNumber *appIDNumber = [NSNumber numberWithInteger:self.appID.integerValue];
 		[storeViewController loadProductWithParameters:@{ SKStoreProductParameterITunesItemIdentifier : appIDNumber } completionBlock:nil];
@@ -979,8 +980,8 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 #endif
 			
 		}];
-	
-	//Use the standard openUrl method
+        
+        //Use the standard openUrl method
 	} else {
 		
 #if TARGET_IPHONE_SIMULATOR
@@ -992,7 +993,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self reviewURLString]]];
 #endif
 	}
-
+    
 #else
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[self reviewURLString]]];
 #endif
@@ -1030,7 +1031,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	   [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyPreviousVersionDeclinedToRate],
 	   [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedAnyVersion],
 	   [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyAppiraterMigrationCompleted]
-	];
+       ];
 }
 
 - (NSDictionary *)trackingInfo {
@@ -1063,7 +1064,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		case UAAppReviewManagerKeyPreviousVersionDeclinedToRate:	return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyPreviousVersionDeclinedToRate]];
 		case UAAppReviewManagerKeyRatedAnyVersion:					return [self.keyPrefix stringByAppendingString:[self appReviewManagerKeyRatedAnyVersion]];
 		case UAAppReviewManagerKeyAppiraterMigrationCompleted:		return [self appReviewManagerKeyAppiraterMigrationCompleted];
-
+            
 		default:
 			return nil;
 	}
@@ -1117,7 +1118,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 }
 
 - (void)migrateAppiraterKeysIfNecessary {
-
+    
 	NSString *appiraterAlreadyCompletedKey = [self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyAppiraterMigrationCompleted];
 	BOOL appiraterMigrationAlreadyCompleted = NO;
 	[[self.userDefaultsObject objectForKey:appiraterAlreadyCompletedKey] boolValue];
@@ -1132,7 +1133,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
                           kAppiraterRatedAnyVersion,
                           kAppiraterDeclinedToRate,
                           kAppiraterReminderRequestDate
-                        ];
+                          ];
 	for (NSString *oldKey in oldKeys) {
 		id val = [self.userDefaultsObject objectForKey:oldKey];
 		if (val) {
@@ -1188,7 +1189,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
         bundle = [NSBundle mainBundle];
 		
     } else {
-// These bundles are exactly the same, but splitting them by target makes Cocoapods happy.
+        // These bundles are exactly the same, but splitting them by target makes Cocoapods happy.
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
         NSURL *appReviewManagerBundleURL = [[NSBundle mainBundle] URLForResource:@"UAAppReviewManager-iOS" withExtension:@"bundle"];
 #else
@@ -1248,96 +1249,96 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		UAAppReviewManagerDebugLog(@"Hiding Alert");
 		[self.ratingAlert dismissWithClickedButtonIndex:-1 animated:NO];
 #else
-	if (self.ratingAlert) {
-		UAAppReviewManagerDebugLog(@"Hiding Alert");
-		[NSApp endSheet:[[NSApplication sharedApplication] keyWindow]];
+        if (self.ratingAlert) {
+            UAAppReviewManagerDebugLog(@"Hiding Alert");
+            [NSApp endSheet:[[NSApplication sharedApplication] keyWindow]];
 #endif
-		self.ratingAlert = nil;
-	}
-}
-
+            self.ratingAlert = nil;
+        }
+    }
+    
 #pragma mark - Notification Handlers
 	
-- (void)appWillResignActive:(NSNotification *)notification {
-	UAAppReviewManagerDebugLog(@"appWillResignActive:");
-	[self hideRatingAlert];
-}
-
-- (void)applicationDidFinishLaunching:(NSNotification *)notification {
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-		UAAppReviewManagerDebugLog(@"applicationDidFinishLaunching:");
-		[self migrateAppiraterKeysIfNecessary];
-		[self incrementUseCount];
-	});
-}
+    - (void)appWillResignActive:(NSNotification *)notification {
+        UAAppReviewManagerDebugLog(@"appWillResignActive:");
+        [self hideRatingAlert];
+    }
+    
+    - (void)applicationDidFinishLaunching:(NSNotification *)notification {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+            UAAppReviewManagerDebugLog(@"applicationDidFinishLaunching:");
+            [self migrateAppiraterKeysIfNecessary];
+            [self incrementUseCount];
+        });
+    }
 	
-- (void)applicationWillEnterForeground:(NSNotification *)notification {
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-		UAAppReviewManagerDebugLog(@"applicationWillEnterForeground:");
-		[self migrateAppiraterKeysIfNecessary];
-		[self incrementUseCount];
-	});
-}
-
+    - (void)applicationWillEnterForeground:(NSNotification *)notification {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+            UAAppReviewManagerDebugLog(@"applicationWillEnterForeground:");
+            [self migrateAppiraterKeysIfNecessary];
+            [self incrementUseCount];
+        });
+    }
+    
 #pragma mark - Singleton
 	
-/**
- * defaultManager is the singleton accessor for UAAppReviewManager.
- * defaultManager is not exposed publicly because all public methods
- * are handled through the Class convenience methods below.
- *
- *	@return	UAAppReviewManager *
- */
-+ (UAAppReviewManager *)defaultManager {
-	static UAAppReviewManager *defaultManager = nil;
-	static dispatch_once_t singletonToken;
-	dispatch_once(&singletonToken, ^{
-		defaultManager = [[UAAppReviewManager alloc] init];
-		[defaultManager setDefaultValues];
-		[defaultManager setupNotifications];
-	});
-	return defaultManager;
-}
-
-
+    /**
+     * defaultManager is the singleton accessor for UAAppReviewManager.
+     * defaultManager is not exposed publicly because all public methods
+     * are handled through the Class convenience methods below.
+     *
+     *	@return	UAAppReviewManager *
+     */
+    + (UAAppReviewManager *)defaultManager {
+        static UAAppReviewManager *defaultManager = nil;
+        static dispatch_once_t singletonToken;
+        dispatch_once(&singletonToken, ^{
+            defaultManager = [[UAAppReviewManager alloc] init];
+            [defaultManager setDefaultValues];
+            [defaultManager setupNotifications];
+        });
+        return defaultManager;
+    }
+    
+    
 #pragma mark - Singleton Instance Setup
-
-/**
- * _setupNotifications is called when the singlton is instantiated.
- * It listens for notification on app active resignation so that we can hide the
- * review popup until next time.
- */
-- (void)setupNotifications {
+    
+    /**
+     * _setupNotifications is called when the singlton is instantiated.
+     * It listens for notification on app active resignation so that we can hide the
+     * review popup until next time.
+     */
+    - (void)setupNotifications {
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:)				name:UIApplicationWillResignActiveNotification		object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching:)	name:UIApplicationDidFinishLaunchingNotification	object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:)	name:UIApplicationWillEnterForegroundNotification	object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:)				name:UIApplicationWillResignActiveNotification		object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching:)	name:UIApplicationDidFinishLaunchingNotification	object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:)	name:UIApplicationWillEnterForegroundNotification	object:nil];
 #else
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:)				name:NSApplicationWillResignActiveNotification		object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching:)	name:NSApplicationDidFinishLaunchingNotification	object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:)	name:NSApplicationWillBecomeActiveNotification		object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:)				name:NSApplicationWillResignActiveNotification		object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching:)	name:NSApplicationDidFinishLaunchingNotification	object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:)	name:NSApplicationWillBecomeActiveNotification		object:nil];
 #endif
-}
-
-- (void)setDefaultValues {
-	self.daysUntilPrompt = 30;
-	self.usesUntilPrompt = 20;
-	self.significantEventsUntilPrompt = 0;
-	self.daysBeforeReminding = 1;
-	self.tracksNewVersions = YES;
-	self.shouldPromptIfRated = YES;
-	self.debugEnabled = NO;
-	self.useMainAppBundleForLocalizations = NO;
-	// If you aren't going to set an affiliate code yourself, please leave this as is.
-	// It is my affiliate code. It is better that somebody's code is used rather than nobody's.
-	self.affiliateCode = @"11l7j9";
-	self.affiliateCampaignCode = @"UAAppReviewManager";
-	self.keyPrefix = nil; // gets set as AppName
-	self.userDefaultsObject = (NSObject<UAAppReviewManagerDefaultsObject> *)[NSUserDefaults standardUserDefaults];
+    }
+    
+    - (void)setDefaultValues {
+        self.daysUntilPrompt = 30;
+        self.usesUntilPrompt = 20;
+        self.significantEventsUntilPrompt = 0;
+        self.daysBeforeReminding = 1;
+        self.tracksNewVersions = YES;
+        self.shouldPromptIfRated = YES;
+        self.debugEnabled = NO;
+        self.useMainAppBundleForLocalizations = NO;
+        // If you aren't going to set an affiliate code yourself, please leave this as is.
+        // It is my affiliate code. It is better that somebody's code is used rather than nobody's.
+        self.affiliateCode = @"11l7j9";
+        self.affiliateCampaignCode = @"UAAppReviewManager";
+        self.keyPrefix = nil; // gets set as AppName
+        self.userDefaultsObject = (NSObject<UAAppReviewManagerDefaultsObject> *)[NSUserDefaults standardUserDefaults];
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-	self.usesAnimation = YES;
-	self.opensInStoreKit = NO;
+        self.usesAnimation = YES;
+        self.opensInStoreKit = NO;
 #endif
-}
-
-@end
+    }
+    
+    @end
