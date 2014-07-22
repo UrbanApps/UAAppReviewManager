@@ -413,8 +413,13 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 #pragma mark - PRIVATE Review Alert Property Accessors
 
 - (void)setAppID:(NSString *)appID {
-	if ([appID length])
+	if ([appID length]) {
 		_appID = appID;
+        
+        if ([_affiliateCampaignCode isEqualToString:self.defaultAffiliateCode]) {
+            _affiliateCampaignCode = [_affiliateCampaignCode stringByAppendingFormat:@"-%@", _appID];
+        }
+    }
 }
 
 - (void)setAffiliateCode:(NSString *)affiliateCode {
@@ -1253,92 +1258,96 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
             UAAppReviewManagerDebugLog(@"Hiding Alert");
             [NSApp endSheet:[[NSApplication sharedApplication] keyWindow]];
 #endif
-            self.ratingAlert = nil;
-        }
+        self.ratingAlert = nil;
     }
+}
+
+- (NSString *)defaultAffiliateCode {
+    return @"UAAppReviewManager";
+}
     
 #pragma mark - Notification Handlers
 	
-    - (void)appWillResignActive:(NSNotification *)notification {
-        UAAppReviewManagerDebugLog(@"appWillResignActive:");
-        [self hideRatingAlert];
-    }
-    
-    - (void)applicationDidFinishLaunching:(NSNotification *)notification {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-            UAAppReviewManagerDebugLog(@"applicationDidFinishLaunching:");
-            [self migrateAppiraterKeysIfNecessary];
-            [self incrementUseCount];
-        });
-    }
-	
-    - (void)applicationWillEnterForeground:(NSNotification *)notification {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-            UAAppReviewManagerDebugLog(@"applicationWillEnterForeground:");
-            [self migrateAppiraterKeysIfNecessary];
-            [self incrementUseCount];
-        });
-    }
+- (void)appWillResignActive:(NSNotification *)notification {
+    UAAppReviewManagerDebugLog(@"appWillResignActive:");
+    [self hideRatingAlert];
+}
+
+- (void)applicationDidFinishLaunching:(NSNotification *)notification {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        UAAppReviewManagerDebugLog(@"applicationDidFinishLaunching:");
+        [self migrateAppiraterKeysIfNecessary];
+        [self incrementUseCount];
+    });
+}
+
+- (void)applicationWillEnterForeground:(NSNotification *)notification {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        UAAppReviewManagerDebugLog(@"applicationWillEnterForeground:");
+        [self migrateAppiraterKeysIfNecessary];
+        [self incrementUseCount];
+    });
+}
     
 #pragma mark - Singleton
 	
-    /**
-     * defaultManager is the singleton accessor for UAAppReviewManager.
-     * defaultManager is not exposed publicly because all public methods
-     * are handled through the Class convenience methods below.
-     *
-     *	@return	UAAppReviewManager *
-     */
-    + (UAAppReviewManager *)defaultManager {
-        static UAAppReviewManager *defaultManager = nil;
-        static dispatch_once_t singletonToken;
-        dispatch_once(&singletonToken, ^{
-            defaultManager = [[UAAppReviewManager alloc] init];
-            [defaultManager setDefaultValues];
-            [defaultManager setupNotifications];
-        });
-        return defaultManager;
-    }
-    
-    
+/**
+ * defaultManager is the singleton accessor for UAAppReviewManager.
+ * defaultManager is not exposed publicly because all public methods
+ * are handled through the Class convenience methods below.
+ *
+ *	@return	UAAppReviewManager *
+ */
++ (UAAppReviewManager *)defaultManager {
+    static UAAppReviewManager *defaultManager = nil;
+    static dispatch_once_t singletonToken;
+    dispatch_once(&singletonToken, ^{
+        defaultManager = [[UAAppReviewManager alloc] init];
+        [defaultManager setDefaultValues];
+        [defaultManager setupNotifications];
+    });
+    return defaultManager;
+}
+
+
 #pragma mark - Singleton Instance Setup
     
-    /**
-     * _setupNotifications is called when the singlton is instantiated.
-     * It listens for notification on app active resignation so that we can hide the
-     * review popup until next time.
-     */
-    - (void)setupNotifications {
+/**
+ * _setupNotifications is called when the singlton is instantiated.
+ * It listens for notification on app active resignation so that we can hide the
+ * review popup until next time.
+ */
+- (void)setupNotifications {
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:)				name:UIApplicationWillResignActiveNotification		object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching:)	name:UIApplicationDidFinishLaunchingNotification	object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:)	name:UIApplicationWillEnterForegroundNotification	object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:)				name:UIApplicationWillResignActiveNotification		object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching:)	name:UIApplicationDidFinishLaunchingNotification	object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:)	name:UIApplicationWillEnterForegroundNotification	object:nil];
 #else
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:)				name:NSApplicationWillResignActiveNotification		object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching:)	name:NSApplicationDidFinishLaunchingNotification	object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:)	name:NSApplicationWillBecomeActiveNotification		object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:)				name:NSApplicationWillResignActiveNotification		object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching:)	name:NSApplicationDidFinishLaunchingNotification	object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:)	name:NSApplicationWillBecomeActiveNotification		object:nil];
 #endif
-    }
+}
     
-    - (void)setDefaultValues {
-        self.daysUntilPrompt = 30;
-        self.usesUntilPrompt = 20;
-        self.significantEventsUntilPrompt = 0;
-        self.daysBeforeReminding = 1;
-        self.tracksNewVersions = YES;
-        self.shouldPromptIfRated = YES;
-        self.debugEnabled = NO;
-        self.useMainAppBundleForLocalizations = NO;
-        // If you aren't going to set an affiliate code yourself, please leave this as is.
-        // It is my affiliate code. It is better that somebody's code is used rather than nobody's.
-        self.affiliateCode = @"11l7j9";
-        self.affiliateCampaignCode = @"UAAppReviewManager";
-        self.keyPrefix = nil; // gets set as AppName
-        self.userDefaultsObject = (NSObject<UAAppReviewManagerDefaultsObject> *)[NSUserDefaults standardUserDefaults];
+- (void)setDefaultValues {
+    self.daysUntilPrompt = 30;
+    self.usesUntilPrompt = 20;
+    self.significantEventsUntilPrompt = 0;
+    self.daysBeforeReminding = 1;
+    self.tracksNewVersions = YES;
+    self.shouldPromptIfRated = YES;
+    self.debugEnabled = NO;
+    self.useMainAppBundleForLocalizations = NO;
+    // If you aren't going to set an affiliate code yourself, please leave this as is.
+    // It is my affiliate code. It is better that somebody's code is used rather than nobody's.
+    self.affiliateCode = @"11l7j9";
+    self.affiliateCampaignCode = self.defaultAffiliateCode;
+    self.keyPrefix = nil; // gets set as AppName
+    self.userDefaultsObject = (NSObject<UAAppReviewManagerDefaultsObject> *)[NSUserDefaults standardUserDefaults];
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-        self.usesAnimation = YES;
-        self.opensInStoreKit = NO;
+    self.usesAnimation = YES;
+    self.opensInStoreKit = NO;
 #endif
-    }
+}
     
-    @end
+@end
