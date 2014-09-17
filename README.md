@@ -1,3 +1,7 @@
+Looking for a Swift implementation? We rewrote UAAppReviewManager from scratch to create [Armchair](http://github.com/UrbanApps/Armchair)
+
+===
+
 ![UAAppReviewManager](https://github.com/coneybeare/UAAppReviewManager/blob/master/Screenshots/iOS.png?raw=true "iOS")
 ![UAAppReviewManager](https://github.com/coneybeare/UAAppReviewManager/blob/master/Screenshots/OSX.png?raw=true "OS X")
 
