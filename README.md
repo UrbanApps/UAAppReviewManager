@@ -1,4 +1,4 @@
-Looking for a Swift implementation? We rewrote UAAppReviewManager from scratch to create [Armchair](http://github.com/UrbanApps/Armchair)
+Looking for a Swift implementation? We rewrote UAAppReviewManager from scratch to create [Armchair](http://github.com/UrbanApps/Armchair). UAAppReviewManager isn't going anywhere, but you may want to use Armchair you want to implement a purely swift library into your app.
 
 ===
 
