@@ -1,11 +1,13 @@
-Looking for a Swift implementation? We rewrote UAAppReviewManager from scratch to create [Armchair](http://github.com/UrbanApps/Armchair). UAAppReviewManager isn't going anywhere, but you may want to use Armchair you want to implement a purely swift library into your app.
-
-==
-
 ![UAAppReviewManager](https://github.com/coneybeare/UAAppReviewManager/blob/master/Screenshots/iOS.png?raw=true "iOS")
 ![UAAppReviewManager](https://github.com/coneybeare/UAAppReviewManager/blob/master/Screenshots/OSX.png?raw=true "OS X")
 
 UAAppReviewManager is a simple and lightweight App review prompting tool for iOS and Mac App Store apps. It's Appirater all grown up, ready for primetime.
+
+==
+
+Looking for a Swift implementation? We rewrote UAAppReviewManager from scratch to create [Armchair](http://github.com/UrbanApps/Armchair). UAAppReviewManager isn't going anywhere, but you may want to use Armchair you want to implement a purely swift library into your app.
+
+==
 
 ## Why UAAppReviewManager?
 
