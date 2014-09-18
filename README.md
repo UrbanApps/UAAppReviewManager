@@ -414,6 +414,7 @@ Let us know if you see ways to improve UAAppReviewManager or see something wrong
 
 ## Open-Source Urban Apps Projects
 
+- [Armchair](https://github.com/UrbanApps/Armchair) - A simple yet powerful App Review Manager for iOS and OSX (Swift)
 - [UAModalPanel](https://github.com/UrbanApps/UAModalPanel) - An animated modal panel alternative for iOS
 - [UALogger](https://github.com/UrbanApps/UALogger) - A logging utility for Mac/iOS apps
 - [UAObfuscatedString](https://github.com/UrbanApps/UAObfuscatedString) - A simple NSString category to hide sensitive strings
