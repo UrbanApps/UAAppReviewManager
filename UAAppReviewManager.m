@@ -754,7 +754,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 }
 
 - (void)showPrompt {
-    if (self.appID && [self connectedToNetwork] && ![self userHasDeclinedToRate] && ![self userHasRatedCurrentVersion]) {
+    if ((self.appID && [self connectedToNetwork] && ![self userHasDeclinedToRate] && ![self userHasRatedCurrentVersion]) || self.debugEnabled) {
         [self showRatingAlert];
     }
 }
