@@ -358,7 +358,7 @@ Once all these additions, alteration and features were added, it was too much to
 
 ##  Upgrading From Appirater
 
-The API for the methods is backwards close to Appirater, with a few exceptions (there are no delegate methods in UAAppReviewManager, only black calbacks). The first several releases of UAAppReviewManager will include the deprecated Appirater methods and naming scheme. Those methods, and their new counterparts are:
+The API for the methods is backwards close to Appirater, with a few exceptions (there are no delegate methods in UAAppReviewManager, only block calbacks). The first several releases of UAAppReviewManager will include the deprecated Appirater methods and naming scheme. Those methods, and their new counterparts are:
 
 ````
 OLD: + (void)setAppId:(NSString*)appId __attribute__((deprecated("Use setAppID:")));
