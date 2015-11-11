@@ -393,16 +393,49 @@ typedef BOOL (^UAAppReviewManagerShouldIncrementBlock)(void);
 */
 + (NSString *)reviewURLString;
 
-/*
+/**
+ * Checks whether the user has met all of UAAppReviewManager's conditions.
+ * Use this if you'd like to show a pre-rating prompt e.g. "Do you love our app?"
+ * This is also useful if you'd like to show a custom "Rate this app" pop-up.
+ */
++ (BOOL)canRateApp;
+
+/**
+ * Tells UAAppReviewManager that the user declined to review the app. 
+ * Also records the fact that this has happened, so the user won't be prompted
+ * again to rate the app.
+ *
+ * The only case where you should call this directly is if your app has a
+ * custom "Rate this app?" pop-up.  In all other cases, don't worry
+ * about calling this -- instead, just call the other functions listed above,
+ * and let UAAppReviewManager handle the bookkeeping of deciding when to ask the user
+ * whether to rate the app.
+ */
++ (void)dontRate;
+
+/**
+ * Tells UAAppReviewManager that the user asked to be reminded later to review the app.
+ * Also records the fact that this has happened, so the user won't be prompted
+ * again to rate the app.
+ *
+ * The only case where you should call this directly is if your app has a
+ * custom "Rate this app?" pop-up.  In all other cases, don't worry
+ * about calling this -- instead, just call the other functions listed above,
+ * and let UAAppReviewManager handle the bookkeeping of deciding when to ask the user
+ * whether to rate the app.
+ */
++ (void)remindMeLater;
+
+/**
  * Tells UAAppReviewManager to open the App Store page where the user can specify a
  * rating for the app. Also records the fact that this has happened, so the
  * user won't be prompted again to rate the app.
  *
  * The only case where you should call this directly is if your app has an
- * explicit "Rate this app" command somewhere.  In all other cases, don't worry
- * about calling this -- instead, just call the other functions listed above,
- * and let UAAppReviewManager handle the bookkeeping of deciding when to ask the user
- * whether to rate the app.
+ * explicit "Rate this app" command somewhere or uses a custom "Rate this app?" pop-up.
+ * In all other cases, don't worry about calling this -- instead, just call the other 
+ * functions listed above, and let UAAppReviewManager handle the bookkeeping of deciding
+ * when to ask the user whether to rate the app.
  */
 + (void)rateApp;
 
