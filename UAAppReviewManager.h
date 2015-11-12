@@ -415,8 +415,8 @@ typedef BOOL (^UAAppReviewManagerShouldIncrementBlock)(void);
 
 /**
  * Tells UAAppReviewManager that the user asked to be reminded later to review the app.
- * Also records the fact that this has happened, so the user won't be prompted
- * again to rate the app.
+ * Also records the fact that this has happened, so the user will be reminded after 
+ * some time (daysBeforeReminding) has passed.
  *
  * The only case where you should call this directly is if your app has a
  * custom "Rate this app?" pop-up.  In all other cases, don't worry
