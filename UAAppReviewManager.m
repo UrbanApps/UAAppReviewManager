@@ -320,6 +320,18 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	return [[UAAppReviewManager defaultManager] reviewURLString];
 }
 
++ (BOOL)canRateApp {
+    return [[UAAppReviewManager defaultManager] ratingConditionsHaveBeenMet];
+}
+
++ (void)dontRate {
+    [[UAAppReviewManager defaultManager] dontRate];
+}
+
++ (void)remindMeLater {
+    [[UAAppReviewManager defaultManager] remindMeLater];
+}
+
 + (void)rateApp {
 	[[UAAppReviewManager defaultManager] rateApp];
 }
