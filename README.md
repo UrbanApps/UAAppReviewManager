@@ -50,7 +50,7 @@ UAAppReviewManager is clean code, well documented and well organized. It is easy
 
 ## Installation
 
-Installation is made simple with [Cocoapods](http://cocoapods.org/). If you want to do it the old fashioned way, just add `UAAppReviewManager.h`, `UAAppReviewManager.m` and the Localization folder into your project.
+Installation is made simple with [CocoaPods](http://cocoapods.org/). If you want to do it the old fashioned way, just add `UAAppReviewManager.h`, `UAAppReviewManager.m` and the Localization folder into your project.
 
     pod 'UAAppReviewManager'
 
