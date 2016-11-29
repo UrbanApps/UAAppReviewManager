@@ -11,6 +11,15 @@
 #import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
 
+
+//! Project version number for UAAppReviewManager.
+FOUNDATION_EXPORT double UAAppReviewManagerVersionNumber;
+
+//! Project version string for UAAppReviewManager.
+FOUNDATION_EXPORT const unsigned char UAAppReviewManagerVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <UAAppReviewManager/PublicHeader.h>
+
 typedef enum {
     UAAppReviewManagerKeyFirstUseDate = 0,
     UAAppReviewManagerKeyUseCount,
