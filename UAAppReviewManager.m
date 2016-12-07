@@ -1190,7 +1190,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
     BOOL needsConnection = flags & kSCNetworkFlagsConnectionRequired;
 	BOOL nonWiFi = flags & kSCNetworkReachabilityFlagsTransientConnection;
 	
-	NSURL *testURL = [NSURL URLWithString:@"http://www.apple.com/"];
+	NSURL *testURL = [NSURL URLWithString:@"https://www.apple.com/"];
 	NSURLRequest *testRequest = [NSURLRequest requestWithURL:testURL  cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:20.0];
 	NSURLConnection *testConnection = [[NSURLConnection alloc] initWithRequest:testRequest delegate:self];
 	
