@@ -8,6 +8,7 @@
 //
 
 
+#import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
 
@@ -88,7 +89,7 @@ typedef BOOL (^UAAppReviewManagerShouldIncrementBlock)(void);
 
 /*
  * Get/Set the message to use on the review prompt.
- * Default value is a localized 
+ * Default value is a localized
  *  "If you enjoy using <appName>, would you mind taking a moment to rate it? It won't take more than a minute. Thanks for your support!"
  */
 + (NSString *)reviewMessage;
@@ -152,7 +153,7 @@ typedef BOOL (^UAAppReviewManagerShouldIncrementBlock)(void);
  * a 'use'. You tell UAAppReviewManager about these events using the two methods:
  * [UAAppReviewManager appLaunched:]
  * [UAAppReviewManager appEnteredForeground:]
- 
+
  * Users need to 'use' the same version of the app this many times before
  * before they will be prompted to rate it.
  * Default => 20
@@ -288,7 +289,7 @@ typedef BOOL (^UAAppReviewManagerShouldIncrementBlock)(void);
  *
  * This is similar to the appLaunched method, but allows the passing of a
  * UAAppReviewManagerShouldPromptBlock that will be executed before prompting.
- * The block passes all the keys and values that UAAppReviewManager uses to 
+ * The block passes all the keys and values that UAAppReviewManager uses to
  * determine if it the prompt conditions have been met, and it is up to you
  * to use this info and return a BOOL on whether or not the prompt should be shown.
  * The block is run synchronous and on the main queue, so be sure to handle it appropriately.
@@ -382,7 +383,7 @@ typedef BOOL (^UAAppReviewManagerShouldIncrementBlock)(void);
  * like a user login.
  */
 + (void)showPromptIfNecessary;
-	
+
 /*
  * Tells UAAppReviewManager to show the review prompt alert.
  *
@@ -410,7 +411,7 @@ typedef BOOL (^UAAppReviewManagerShouldIncrementBlock)(void);
 + (BOOL)canRateApp;
 
 /**
- * Tells UAAppReviewManager that the user declined to review the app. 
+ * Tells UAAppReviewManager that the user declined to review the app.
  * Also records the fact that this has happened, so the user won't be prompted
  * again to rate the app.
  *
@@ -424,7 +425,7 @@ typedef BOOL (^UAAppReviewManagerShouldIncrementBlock)(void);
 
 /**
  * Tells UAAppReviewManager that the user asked to be reminded later to review the app.
- * Also records the fact that this has happened, so the user will be reminded after 
+ * Also records the fact that this has happened, so the user will be reminded after
  * some time (daysBeforeReminding) has passed.
  *
  * The only case where you should call this directly is if your app has a
@@ -442,7 +443,7 @@ typedef BOOL (^UAAppReviewManagerShouldIncrementBlock)(void);
  *
  * The only case where you should call this directly is if your app has an
  * explicit "Rate this app" command somewhere or uses a custom "Rate this app?" pop-up.
- * In all other cases, don't worry about calling this -- instead, just call the other 
+ * In all other cases, don't worry about calling this -- instead, just call the other
  * functions listed above, and let UAAppReviewManager handle the bookkeeping of deciding
  * when to ask the user whether to rate the app.
  */
