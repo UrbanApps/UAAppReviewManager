@@ -692,13 +692,13 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		NSTimeInterval timeInterval = [[self.userDefaultsObject objectForKey:firstUseDateKey] doubleValue];
 		if (0 == timeInterval) {
 			timeInterval = [[NSDate date] timeIntervalSince1970];
-	        [self.userDefaultsObject setObject:@(timeInterval) forKey:firstUseDateKey];
+			[self.userDefaultsObject setObject:@(timeInterval) forKey:firstUseDateKey];
 		}
 
 		// Increment the key's count
 		NSInteger incrementKeyCount = [[self.userDefaultsObject objectForKey:incrementKey] integerValue];
 		incrementKeyCount++;
-	    [self.userDefaultsObject setObject:@(incrementKeyCount) forKey:incrementKey];
+		[self.userDefaultsObject setObject:@(incrementKeyCount) forKey:incrementKey];
 
 		UAAppReviewManagerDebugLog(@"%@ count: %ld", incrementKey, (long)incrementKeyCount);
 
@@ -709,8 +709,8 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		[self.userDefaultsObject setObject:[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedCurrentVersion]]
 									forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyPreviousVersionRated]];
 
-        BOOL declinedToRate = ([self userHasDeclinedToRate] || [self userHasPreviouslyDeclinedToRate]);
-        [self.userDefaultsObject setObject:@(declinedToRate)
+		BOOL declinedToRate = ([self userHasDeclinedToRate] || [self userHasPreviouslyDeclinedToRate]);
+		[self.userDefaultsObject setObject:@(declinedToRate)
 									forKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyPreviousVersionDeclinedToRate]];
 
 		[self.userDefaultsObject setObject:currentVersion forKey:currentVersionKey];
