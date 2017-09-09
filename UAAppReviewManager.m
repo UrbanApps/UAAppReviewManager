@@ -812,7 +812,10 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 		return NO;
 
 	// if we have a global set to not show if the end-user has already rated once, and the developer has not opted out of displaying on minor updates
-	return !(!self.shouldPromptIfRated && [[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedAnyVersion]] boolValue]);
+	if (!self.shouldPromptIfRated && [[self.userDefaultsObject objectForKey:[self keyForUAAppReviewManagerKeyType:UAAppReviewManagerKeyRatedAnyVersion]] boolValue])
+		return NO;
+
+	return YES;
 
 }
 
